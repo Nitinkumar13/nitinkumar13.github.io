@@ -1,10 +1,769 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>QuizContest</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="QuizContest - Test Your Knowledge, Win Prizes! Compete in exciting quizzes, contests, and leaderboards with a secure wallet system.">
+    <meta name="keywords" content="quiz, contest, competition, leaderboard, trivia, educational games">
+    <meta name="author" content="QuizContest">
+    <meta name="theme-color" content="#6366f1">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="QuizContest - Test Your Knowledge & Win">
+    <meta property="og:description" content="Compete in exciting quizzes, contests, and win coins. Join thousands of users on our interactive platform.">
+    <meta property="og:url" content="https://play.google.com/store/apps/details?id=com.nitingour.Mobilefrontend">
+    
+    <title>QuizContest - Test Your Knowledge, Win Prizes!</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        /* Features Section */
+        .features {
+            background: white;
+            padding: 4rem 2rem;
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Detailed Features Section */
+        .detailed-features {
+            background: #f9f9f9;
+            padding: 4rem 2rem;
+        }
+
+        .detailed-features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-item h4 {
+            color: #667eea;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .feature-item p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+        }
+
+        .stats-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat {
+            padding: 1rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Download Section */
+        .download-section {
+            background: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .download-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .download-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+
+        .download-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .download-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .download-info p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .download-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            padding: 1.2rem 2rem;
+            background: #1f2937;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .download-btn:hover {
+            background: #111827;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .playstore-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .playstore-btn:hover {
+            background: linear-gradient(135deg, #5568d3 0%, #6a3f8f 100%);
+        }
+
+        .playstore-badge {
+            width: 200px;
+            margin: 0 auto;
+        }
+
+        .qr-code-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qr-code-section h4 {
+            margin-bottom: 1.5rem;
+            color: #333;
+            font-size: 1.2rem;
+        }
+
+        .qr-code {
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .qr-code img {
+            width: 250px;
+            height: 250px;
+            display: block;
+        }
+
+        .qr-description {
+            margin-top: 1rem;
+            color: #666;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+
+        /* Responsive Download Section */
+        @media (max-width: 768px) {
+            .download-content {
+                grid-template-columns: 1fr;
+            }
+
+            .download-buttons {
+                flex-direction: column;
+            }
+
+            .download-btn {
+                width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: #1f2937;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: #a0aec0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-text {
+            color: #a0aec0;
+            font-size: 0.9rem;
+        }
+
+        /* Icon Styles */
+        .icon {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+        }
+
+        /* Badges/Animations */
+        .badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 0.5rem 0;
+        }
+
+        .badge-success {
+            background: #10b981;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
 <body>
-<h1>QuizContest</h1>
-<p>Official developer website.</p>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">🎯 QuizContest</a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#download">Download</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container fade-in">
+            <h1>QuizContest</h1>
+            <p>Test Your Knowledge, Win Prizes! 🏆</p>
+            <p style="font-size: 1.1rem; opacity: 0.9;">Compete in exciting quizzes and contests with players worldwide</p>
+            <div class="hero-buttons">
+                <a href="https://play.google.com/store/apps/details?id=com.nitingour.Mobilefrontend" class="btn btn-primary">Download Now</a>
+                <a href="#download" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stats-grid">
+                <div class="stat">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Quizzes & Contests</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">50K+</div>
+                    <div class="stat-label">Active Users</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">Instant</div>
+                    <div class="stat-label">Coin Wallet</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Available</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Features Section -->
+    <section id="features" class="features">
+        <div class="features-container">
+            <h2 class="section-title">🌟 Core Features</h2>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">📚</div>
+                    <h3>Diverse Quizzes</h3>
+                    <p>Challenge yourself with quizzes across multiple subjects and difficulty levels. From general knowledge to specialized topics.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Exciting Contests</h3>
+                    <p>Compete with thousands of players in real-time contests. Win prizes and climb the global leaderboard.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🪙</div>
+                    <h3>Coin Wallet System</h3>
+                    <p>Earn coins by completing quizzes and contests. Use your coins to enter premium contests or unlock exclusive content.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">📊</div>
+                    <h3>Live Leaderboard</h3>
+                    <p>Track your performance and see how you rank against other players. Real-time updates and daily contests.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">👤</div>
+                    <h3>User Profile</h3>
+                    <p>Create and customize your profile. Track your statistics, achievements, and performance history.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🔐</div>
+                    <h3>Secure Authentication</h3>
+                    <p>Sign up easily with OTP or email authentication. Your data is encrypted and protected with industry-standard security.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Features -->
+    <section class="detailed-features">
+        <div class="detailed-features-container">
+            <h2 class="section-title">🎮 What You Can Do</h2>
+            <div class="feature-list">
+                <div class="feature-item fade-in">
+                    <h4>📝 Take Unlimited Quizzes</h4>
+                    <p>Access hundreds of carefully curated quizzes. Test your knowledge in subjects like Science, History, Geography, Technology, and more. Each quiz is designed to be engaging and educational.</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <h4>💳 Participate in Contests</h4>
+                    <p>Join live contests with entry fees paid in coins. Compete against real players from around the world. Winners are announced instantly with prizes distributed automatically to your wallet.</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <h4>💰 Earn & Spend Coins</h4>
+                    <p>Earn coins by achieving high scores in quizzes. Use coins to enter premium contests, access exclusive quizzes, or unlock special features. Track all transactions in your wallet.</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <h4>🏅 Compete on Leaderboards</h4>
+                    <p>Stand out by ranking high on global and category-specific leaderboards. See daily, weekly, and monthly rankings. Earn badges and achievements for exceptional performance.</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <h4>⚡ Real-Time Contest Results</h4>
+                    <p>Get instant feedback on your performance. View correct answers and detailed explanations. Track your improvement over time with comprehensive statistics.</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <h4>🎯 Category-based Learning</h4>
+                    <p>Explore quizzes organized by subjects and difficulty levels. Start from beginner and progress to expert levels. Specialized quizzes for exams, interviews, and general knowledge.</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <h4>📱 Seamless Mobile Experience</h4>
+                    <p>Optimized for Android phones and tablets. Fast loading, smooth animations, and intuitive navigation. Works offline mode for quiz preparation.</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <h4>🔔 Smart Notifications</h4>
+                    <p>Get notified about new contests, contest results, and leaderboard updates. Personalized notifications based on your interests and activity.</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <h4>💎 Premium Features</h4>
+                    <p>Unlock premium quizzes and contests with coins. Access detailed analytics, historical data, and performance reports. Ad-free experience in premium mode.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="download-section">
+        <div class="download-container">
+            <h2>📲 Download QuizContest Now</h2>
+            
+            <div class="download-content">
+                <div class="download-info">
+                    <h3>Get Started in Seconds</h3>
+                    <p><strong>QuizContest</strong> is available exclusively on Google Play Store for Android devices.</p>
+                    <p>✅ Free to download and play<br>
+                       ✅ Secure login with OTP/Email<br>
+                       ✅ Start earning coins immediately<br>
+                       ✅ Join contests and win prizes<br>
+                       ✅ Track your progress instantly</p>
+                    <p style="margin-top: 2rem; font-weight: 600; color: #667eea;">Requirements: Android 5.0+</p>
+                    <div class="download-buttons">
+                        <a href="https://play.google.com/store/apps/details?id=com.nitingour.Mobilefrontend" class="download-btn playstore-btn">
+                            <span>📦</span> Download from Play Store
+                        </a>
+                    </div>
+                </div>
+
+                <div class="qr-code-section">
+                    <h4>Scan to Download</h4>
+                    <div class="qr-code">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://play.google.com/store/apps/details?id=com.nitingour.Mobilefrontend" alt="QuizContest Play Store QR Code">
+                    </div>
+                    <div class="qr-description">
+                        📱 Use your phone camera to scan this QR code and download instantly
+                    </div>
+                </div>
+            </div>
+
+            <!-- Play Store Badge -->
+            <div style="margin-top: 3rem; text-align: center;">
+                <p style="margin-bottom: 1.5rem; color: #666; font-size: 0.95rem;">
+                    Available on Google Play Store • Version 1.0.4
+                </p>
+                <a href="https://play.google.com/store/apps/details?id=com.nitingour.Mobilefrontend" style="display: inline-block;">
+                    <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" width="250px">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ/Additional Info -->
+    <section style="background: #f9f9f9; padding: 4rem 2rem;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 class="section-title">❓ Frequently Asked Questions</h2>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <h4>Is QuizContest really free to play?</h4>
+                    <p>Yes! The app is completely free to download. You can take unlimited quizzes without spending any money. Premium contests require coins, which you can earn by completing quizzes.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>How do I earn coins?</h4>
+                    <p>You earn coins by achieving high scores in quizzes and contests. The higher your score, the more coins you earn. You can then use these coins to enter premium contests.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>How are contest winners determined?</h4>
+                    <p>Winners are determined based on their total score and completion time. The ranking is displayed on the leaderboard, and prizes are distributed instantly to your wallet.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Can I withdraw my coins?</h4>
+                    <p>Currently, coins are used within the app for contests and premium features. Check our website for future withdrawal options and partnerships.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Is my personal data secure?</h4>
+                    <p>Yes. We use industry-standard encryption and security practices. Your authentication is secured with OTP, and all transactions are encrypted.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>How often are new quizzes added?</h4>
+                    <p>We add new quizzes and contests regularly. Subscribe to notifications to stay updated about new content and contests.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h3>QuizContest 🎯</h3>
+            <p style="margin: 1rem 0; color: #a0aec0;">Test Your Knowledge. Win Real Prizes.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Help & Support</a>
+            </div>
+            <hr style="border: none; border-top: 1px solid #374151; margin: 2rem 0;">
+            <p class="footer-text">
+                QuizContest © 2024 • All rights reserved<br>
+                <span style="font-size: 0.85rem;">Package ID: com.nitingour.Mobilefrontend</span>
+            </p>
+            <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #374151;">
+                <p style="color: #a0aec0; font-size: 0.9rem;">
+                    Built with ❤️ using React Native & Expo<br>
+                    For the best experience, download the app from Google Play Store
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Track downloads
+        document.querySelectorAll('a[href*="play.google.com"]').forEach(link => {
+            link.addEventListener('click', function() {
+                console.log('User clicked to download QuizContest from Play Store');
+            });
+        });
+    </script>
 </body>
 </html>
