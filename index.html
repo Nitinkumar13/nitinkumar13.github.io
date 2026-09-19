@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Go Palak connects customers with farmer-owned cows through transparent care sponsorships and regular animal updates.">
+  <meta name="theme-color" content="#2f6b3f">
+  <title>Go Palak — Support a Cow. Support a Farmer.</title>
+
+  <style>
+    :root {
+      --green-900: #173b25;
+      --green-800: #215a32;
+      --green-700: #2f6b3f;
+      --green-600: #3f8050;
+      --green-100: #eaf4ec;
+      --cream: #fbfaf5;
+      --cream-2: #f4f0e5;
+      --gold: #d9a441;
+      --text: #1d281f;
+      --muted: #647067;
+      --white: #ffffff;
+      --border: #e3e8e3;
+      --shadow: 0 14px 40px rgba(25, 54, 34, 0.09);
+      --radius: 20px;
+      --max: 1160px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(251, 250, 245, 0.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(227, 232, 227, 0.85);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.35rem;
+      color: var(--green-900);
+      letter-spacing: -0.04em;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: var(--green-700);
+      color: white;
+      font-size: 1.35rem;
+      box-shadow: 0 7px 18px rgba(47, 107, 63, 0.2);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      color: #536057;
+      font-size: 0.94rem;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: var(--green-700);
+    }
+
+    .nav-cta {
+      padding: 11px 17px;
+      border-radius: 999px;
+      background: var(--green-700);
+      color: white !important;
+    }
+
+    .menu-btn {
+      display: none;
+      border: 0;
+      background: transparent;
+      color: var(--green-900);
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+
+    /* Hero */
+    .hero {
+      overflow: hidden;
+      position: relative;
+      padding: 82px 0 88px;
+      background:
+        radial-gradient(circle at 85% 15%, rgba(217, 164, 65, 0.15), transparent 28%),
+        radial-gradient(circle at 10% 90%, rgba(63, 128, 80, 0.10), transparent 28%),
+        var(--cream);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      align-items: center;
+      gap: 64px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--green-100);
+      color: var(--green-800);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    h1 {
+      font-size: clamp(3rem, 6vw, 5.25rem);
+      line-height: 0.98;
+      letter-spacing: -0.065em;
+      color: var(--green-900);
+      max-width: 700px;
+    }
+
+    .hero h1 span {
+      color: var(--green-700);
+    }
+
+    .hero-copy {
+      margin-top: 24px;
+      max-width: 610px;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .hero-actions {
+      margin-top: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 21px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      font-weight: 800;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--green-700);
+      color: white;
+      box-shadow: 0 10px 22px rgba(47, 107, 63, 0.18);
+    }
+
+    .btn-primary:hover {
+      background: var(--green-800);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--green-800);
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: #bfd0c1;
+      background: #f7faf7;
+    }
+
+    .hero-note {
+      margin-top: 20px;
+      color: #78827b;
+      font-size: 0.84rem;
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .cow-card {
+      min-height: 510px;
+      border-radius: 32px;
+      overflow: hidden;
+      position: relative;
+      background:
+        linear-gradient(180deg, rgba(28, 56, 36, 0.02), rgba(28, 56, 36, 0.2)),
+        linear-gradient(135deg, #dcebd9, #f1e8ce);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,0.7);
+      display: flex;
+      align-items: flex-end;
+      padding: 28px;
+    }
+
+    .cow-illustration {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      font-size: clamp(9rem, 17vw, 15rem);
+      filter: drop-shadow(0 20px 18px rgba(36, 61, 42, 0.12));
+      transform: translateY(-10px);
+    }
+
+    .cow-card-info {
+      position: relative;
+      width: 100%;
+      padding: 19px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.91);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.75);
+    }
+
+    .mini-label {
+      font-size: 0.73rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 800;
+    }
+
+    .cow-card-info h3 {
+      margin-top: 3px;
+      font-size: 1.35rem;
+      color: var(--green-900);
+    }
+
+    .cow-meta {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #edf7ef;
+      color: var(--green-800);
+      font-size: 0.76rem;
+      font-weight: 800;
+    }
+
+    .status::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #58a967;
+    }
+
+    /* Generic sections */
+    section {
+      padding: 88px 0;
+    }
+
+    .section-head {
+      max-width: 700px;
+      margin-bottom: 42px;
+    }
+
+    .section-kicker {
+      color: var(--green-700);
+      font-weight: 800;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 9px;
+    }
+
+    .section-title {
+      color: var(--green-900);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.05;
+      letter-spacing: -0.045em;
+    }
+
+    .section-description {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    /* How it works */
+    .how {
+      background: white;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .step {
+      padding: 25px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .step-number {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      background: var(--green-100);
+      color: var(--green-800);
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .step h3 {
+      font-size: 1.06rem;
+      color: var(--green-900);
+      margin-bottom: 7px;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* Products */
+    .products {
+      background: var(--cream);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+    }
+
+    .product-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      min-height: 310px;
+      transition: 0.2s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .product-icon {
+      font-size: 1.8rem;
+      margin-bottom: 17px;
+    }
+
+    .product-card h3 {
+      color: var(--green-900);
+      font-size: 1.18rem;
+    }
+
+    .product-price {
+      margin-top: 8px;
+      font-size: 1.65rem;
+      font-weight: 900;
+      color: var(--green-700);
+    }
+
+    .product-duration {
+      color: #78827b;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .product-card p {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .product-btn {
+      margin-top: auto;
+      padding-top: 20px;
+    }
+
+    /* Animals */
+    .animals {
+      background: white;
+    }
+
+    .animal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .animal-card {
+      overflow: hidden;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      transition: 0.2s ease;
+    }
+
+    .animal-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .animal-photo {
+      height: 210px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #e0eddc, #efe4c8);
+      font-size: 6.3rem;
+    }
+
+    .animal-content {
+      padding: 21px;
+    }
+
+    .animal-top {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .animal-content h3 {
+      color: var(--green-900);
+      font-size: 1.25rem;
+    }
+
+    .animal-id {
+      color: var(--muted);
+      font-size: 0.78rem;
+      margin-top: 2px;
+    }
+
+    .animal-status {
+      padding: 5px 8px;
+      border-radius: 999px;
+      background: #f1f6f1;
+      color: var(--green-800);
+      font-size: 0.68rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .animal-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .detail {
+      padding: 10px;
+      border-radius: 11px;
+      background: #f7f8f5;
+    }
+
+    .detail span {
+      display: block;
+      color: #7a847d;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+    }
+
+    .detail strong {
+      display: block;
+      margin-top: 2px;
+      font-size: 0.82rem;
+      color: var(--text);
+    }
+
+    .animal-btn {
+      width: 100%;
+      margin-top: 16px;
+    }
+
+    /* Transparency */
+    .transparency {
+      background: var(--green-900);
+      color: white;
+    }
+
+    .transparency .section-kicker {
+      color: #e3bd61;
+    }
+
+    .transparency .section-title {
+      color: white;
+    }
+
+    .transparency .section-description {
+      color: #c9d5cb;
+    }
+
+    .transparency-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .money-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: 24px;
+      padding: 28px;
+    }
+
+    .money-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .money-head span {
+      color: #cbd6cd;
+      font-size: 0.9rem;
+    }
+
+    .money-head strong {
+      font-size: 1.5rem;
+    }
+
+    .allocation {
+      margin-top: 22px;
+      display: grid;
+      gap: 15px;
+    }
+
+    .allocation-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 15px;
+    }
+
+    .allocation-label {
+      color: #d6dfd8;
+      font-size: 0.9rem;
+    }
+
+    .allocation-value {
+      font-weight: 800;
+    }
+
+    .bar {
+      grid-column: 1 / -1;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.1);
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      background: #d8b158;
+      border-radius: inherit;
+    }
+
+    .transparency-points {
+      display: grid;
+      gap: 18px;
+    }
+
+    .point {
+      display: flex;
+      gap: 14px;
+    }
+
+    .point-icon {
+      flex: 0 0 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .point h3 {
+      font-size: 1rem;
+      margin-bottom: 3px;
+    }
+
+    .point p {
+      color: #c1cdc4;
+      font-size: 0.86rem;
+    }
+
+    /* Trust */
+    .trust {
+      background: var(--cream-2);
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .trust-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 27px;
+      border: 1px solid var(--border);
+    }
+
+    .trust-card .icon {
+      font-size: 1.7rem;
+      margin-bottom: 13px;
+    }
+
+    .trust-card h3 {
+      color: var(--green-900);
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+    }
+
+    .trust-card p {
+      color: var(--muted);
+      font-size: 0.87rem;
+    }
+
+    /* Disclaimer */
+    .disclaimer {
+      padding: 54px 0;
+      background: white;
+    }
+
+    .disclaimer-box {
+      border: 1px solid #d9dfd9;
+      background: #f8faf7;
+      border-radius: 18px;
+      padding: 25px;
+    }
+
+    .disclaimer-box h3 {
+      color: var(--green-900);
+      margin-bottom: 9px;
+      font-size: 1rem;
+    }
+
+    .disclaimer-box p {
+      color: #68736b;
+      font-size: 0.84rem;
+    }
+
+    /* CTA */
+    .cta {
+      padding: 90px 0;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(217,164,65,0.14), transparent 28%),
+        var(--green-800);
+      color: white;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+
+    .cta p {
+      max-width: 610px;
+      margin: 16px auto 0;
+      color: #d2ddd4;
+    }
+
+    .cta .btn {
+      margin-top: 28px;
+      background: white;
+      color: var(--green-800);
+    }
+
+    /* Footer */
+    footer {
+      background: #10291a;
+      color: #b9c7bc;
+      padding: 45px 0 25px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 35px;
+    }
+
+    .footer-brand {
+      color: white;
+    }
+
+    .footer-description {
+      margin-top: 12px;
+      max-width: 420px;
+      font-size: 0.84rem;
+      color: #9eafa2;
+    }
+
+    .footer-col h4 {
+      color: white;
+      margin-bottom: 12px;
+      font-size: 0.88rem;
+    }
+
+    .footer-col a {
+      display: block;
+      font-size: 0.82rem;
+      margin: 8px 0;
+      color: #aebdb2;
+    }
+
+    .footer-col a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      font-size: 0.75rem;
+      color: #899b8d;
+    }
+
+    /* Mobile */
+    @media (max-width: 980px) {
+      .hero-grid,
+      .transparency-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 62px;
+      }
+
+      .hero-visual {
+        max-width: 650px;
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      .steps,
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .animal-grid,
+      .trust-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .container {
+        width: min(var(--max), calc(100% - 28px));
+      }
+
+      .nav {
+        min-height: 68px;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        left: 14px;
+        right: 14px;
+        top: 76px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 10px;
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        box-shadow: var(--shadow);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 12px;
+      }
+
+      .nav-cta {
+        text-align: center;
+      }
+
+      .hero {
+        padding: 52px 0 65px;
+      }
+
+      h1 {
+        font-size: clamp(2.75rem, 14vw, 4rem);
+      }
+
+      .hero-copy {
+        font-size: 1rem;
+      }
+
+      .cow-card {
+        min-height: 410px;
+        padding: 18px;
+      }
+
+      section {
+        padding: 68px 0;
+      }
+
+      .steps,
+      .product-grid,
+      .animal-grid,
+      .trust-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .transparency-grid {
+        gap: 30px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <a href="#top" class="brand" aria-label="Go Palak home">
+        <span class="brand-mark">🐄</span>
+        <span>Go Palak</span>
+      </a>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+        ☰
+      </button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#how-it-works">How It Works</a>
+        <a href="#care-options">Care Options</a>
+        <a href="#animals">Animals</a>
+        <a href="#transparency">Transparency</a>
+        <a href="#animals" class="nav-cta">Support a Cow</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Cow-care sponsorship platform
+          </div>
+
+          <h1>
+            Support a Cow.<br>
+            <span>Support a Farmer.</span>
+          </h1>
+
+          <p class="hero-copy">
+            Choose a real, farmer-owned cow and support her care through a simple,
+            transparent sponsorship. Follow her journey through regular care updates.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#animals" class="btn btn-primary">🐄 Sponsor a Cow</a>
+            <a href="#care-options" class="btn btn-secondary">Explore Care Options</a>
+          </div>
+
+          <p class="hero-note">
+            No ownership transfer. No financial return. No guaranteed milk entitlement.
+          </p>
+        </div>
+
+        <div class="hero-visual">
+          <div class="cow-card">
+            <div class="cow-illustration" aria-hidden="true">🐄</div>
+
+            <div class="cow-card-info">
+              <div class="mini-label">Featured Animal</div>
+              <h3>Gauri · GP001</h3>
+              <p class="cow-meta">Non-milking · Madhya Pradesh · Care Partner: Ravi</p>
+              <span class="status">Available for sponsorship</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how" id="how-it-works">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Simple & transparent</div>
+          <h2 class="section-title">How Go Palak works</h2>
+          <p class="section-description">
+            A simple connection between customers and participating farmers,
+            with clear animal profiles and care updates.
+          </p>
+        </div>
+
+        <div class="steps">
+          <article class="step">
+            <div class="step-number">01</div>
+            <h3>Farmers register animals</h3>
+            <p>Participating farmers submit animal information, photos and care details.</p>
+          </article>
+
+          <article class="step">
+            <div class="step-number">02</div>
+            <h3>We verify & list</h3>
+            <p>Go Palak reviews the submitted information and creates an animal profile.</p>
+          </article>
+
+          <article class="step">
+            <div class="step-number">03</div>
+            <h3>You choose support</h3>
+            <p>Select a specific animal and the care option you want to sponsor.</p>
+          </article>
+
+          <article class="step">
+            <div class="step-number">04</div>
+            <h3>Receive updates</h3>
+            <p>Get periodic photos, videos and care updates about the animal you support.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARE OPTIONS -->
+    <section class="products" id="care-options">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Choose your support</div>
+          <h2 class="section-title">Care options for every budget</h2>
+          <p class="section-description">
+            Start small or support a cow for a full month. Pricing shown here is
+            an initial testing structure and may change as the program develops.
+          </p>
+        </div>
+
+        <div class="product-grid">
+
+          <article class="product-card">
+            <div class="product-icon">🐄</div>
+            <h3>One Meal</h3>
+            <div class="product-price">₹99</div>
+            <div class="product-duration">One-time</div>
+            <p>Support a meal/care activity for a selected participating animal.</p>
+            <div class="product-btn">
+              <a href="#animals" class="btn btn-secondary" style="width:100%;">Choose a Cow</a>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-icon">🌾</div>
+            <h3>One-Day Care</h3>
+            <div class="product-price">₹199</div>
+            <div class="product-duration">1 day</div>
+            <p>Support the care of a selected animal for one day and receive a care update.</p>
+            <div class="product-btn">
+              <a href="#animals" class="btn btn-secondary" style="width:100%;">Choose a Cow</a>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-icon">📅</div>
+            <h3>Weekly Care</h3>
+            <div class="product-price">₹499</div>
+            <div class="product-duration">7 days</div>
+            <p>Support a selected animal's care for a week with periodic updates.</p>
+            <div class="product-btn">
+              <a href="#animals" class="btn btn-secondary" style="width:100%;">Choose a Cow</a>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-icon">❤️</div>
+            <h3>Monthly Sponsorship</h3>
+            <div class="product-price">₹999</div>
+            <div class="product-duration">30 days</div>
+            <p>Follow a specific cow with a profile, periodic photos/videos and care updates.</p>
+            <div class="product-btn">
+              <a href="#animals" class="btn btn-primary" style="width:100%;">Sponsor Monthly</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ANIMALS -->
+    <section class="animals" id="animals">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Meet the animals</div>
+          <h2 class="section-title">Choose a cow to support</h2>
+          <p class="section-description">
+            Every listed animal receives a unique Go Palak ID so customers can
+            understand exactly which animal they are supporting.
+          </p>
+        </div>
+
+        <div class="animal-grid">
+
+          <article class="animal-card">
+            <div class="animal-photo" aria-label="Gauri placeholder image">🐄</div>
+            <div class="animal-content">
+              <div class="animal-top">
+                <div>
+                  <h3>Gauri</h3>
+                  <div class="animal-id">Go Palak ID: GP001</div>
+                </div>
+                <span class="animal-status">Available</span>
+              </div>
+
+              <div class="animal-details">
+                <div class="detail">
+                  <span>Status</span>
+                  <strong>Non-milking</strong>
+                </div>
+                <div class="detail">
+                  <span>Location</span>
+                  <strong>Madhya Pradesh</strong>
+                </div>
+                <div class="detail">
+                  <span>Care Partner</span>
+                  <strong>Ravi</strong>
+                </div>
+                <div class="detail">
+                  <span>Profile</span>
+                  <strong>Verified listing</strong>
+                </div>
+              </div>
+
+              <a href="#care-options" class="btn btn-primary animal-btn">View Care Options</a>
+            </div>
+          </article>
+
+          <article class="animal-card">
+            <div class="animal-photo" aria-label="Kamdhenu placeholder image">🐮</div>
+            <div class="animal-content">
+              <div class="animal-top">
+                <div>
+                  <h3>Kamdhenu</h3>
+                  <div class="animal-id">Go Palak ID: GP002</div>
+                </div>
+                <span class="animal-status">Available</span>
+              </div>
+
+              <div class="animal-details">
+                <div class="detail">
+                  <span>Status</span>
+                  <strong>Non-milking</strong>
+                </div>
+                <div class="detail">
+                  <span>Location</span>
+                  <strong>Madhya Pradesh</strong>
+                </div>
+                <div class="detail">
+                  <span>Care Partner</span>
+                  <strong>Suresh</strong>
+                </div>
+                <div class="detail">
+                  <span>Profile</span>
+                  <strong>Verified listing</strong>
+                </div>
+              </div>
+
+              <a href="#care-options" class="btn btn-primary animal-btn">View Care Options</a>
+            </div>
+          </article>
+
+          <article class="animal-card">
+            <div class="animal-photo" aria-label="Radha placeholder image">🐄</div>
+            <div class="animal-content">
+              <div class="animal-top">
+                <div>
+                  <h3>Radha</h3>
+                  <div class="animal-id">Go Palak ID: GP003</div>
+                </div>
+                <span class="animal-status">Available</span>
+              </div>
+
+              <div class="animal-details">
+                <div class="detail">
+                  <span>Status</span>
+                  <strong>Non-milking</strong>
+                </div>
+                <div class="detail">
+                  <span>Location</span>
+                  <strong>Madhya Pradesh</strong>
+                </div>
+                <div class="detail">
+                  <span>Care Partner</span>
+                  <strong>Mahesh</strong>
+                </div>
+                <div class="detail">
+                  <span>Profile</span>
+                  <strong>Verified listing</strong>
+                </div>
+              </div>
+
+              <a href="#care-options" class="btn btn-primary animal-btn">View Care Options</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TRANSPARENCY -->
+    <section class="transparency" id="transparency">
+      <div class="container transparency-grid">
+
+        <div>
+          <div class="section-head">
+            <div class="section-kicker">Know where your payment goes</div>
+            <h2 class="section-title">Transparent by design.</h2>
+            <p class="section-description">
+              Go Palak is designed so customers can understand the relationship
+              between their payment, the participating farmer and the platform.
+            </p>
+          </div>
+
+          <div class="transparency-points">
+            <div class="point">
+              <div class="point-icon">✓</div>
+              <div>
+                <h3>Specific animal</h3>
+                <p>Your sponsorship is associated with a listed animal and its Go Palak ID.</p>
+              </div>
+            </div>
+
+            <div class="point">
+              <div class="point-icon">₹</div>
+              <div>
+                <h3>Clear allocation</h3>
+                <p>The farmer/care allocation and Go Palak platform fee are disclosed before payment.</p>
+              </div>
+            </div>
+
+            <div class="point">
+              <div class="point-icon">▶</div>
+              <div>
+                <h3>Real updates</h3>
+                <p>Customers receive periodic care updates according to the selected sponsorship.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="money-card">
+          <div class="money-head">
+            <span>Illustrative monthly sponsorship</span>
+            <strong>₹999</strong>
+          </div>
+
+          <div class="allocation">
+            <div class="allocation-row">
+              <div class="allocation-label">Farmer / animal-care allocation</div>
+              <div class="allocation-value">₹799</div>
+              <div class="bar">
+                <div class="bar-fill" style="width:80%;"></div>
+              </div>
+            </div>
+
+            <div class="allocation-row">
+              <div class="allocation-label">Go Palak platform/service allocation</div>
+              <div class="allocation-value">₹200</div>
+              <div class="bar">
+                <div class="bar-fill" style="width:20%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <p style="margin-top:22px;color:#aebdb2;font-size:.75rem;">
+            Illustrative Phase-1 allocation. Final allocation, applicable payment
+            charges and commercial terms will be disclosed before payment.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TRUST / CLARITY -->
+    <section class="trust">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Clear expectations</div>
+          <h2 class="section-title">What sponsorship means</h2>
+          <p class="section-description">
+            Go Palak keeps the customer relationship simple and avoids promises
+            that sponsorship does not create.
+          </p>
+        </div>
+
+        <div class="trust-grid">
+
+          <article class="trust-card">
+            <div class="icon">🐄</div>
+            <h3>Farmer remains the owner</h3>
+            <p>The animal remains with the participating farmer. Sponsorship does not transfer ownership.</p>
+          </article>
+
+          <article class="trust-card">
+            <div class="icon">🚫</div>
+            <h3>No financial return</h3>
+            <p>Sponsorship is not an investment and does not provide interest, profit share or cash returns.</p>
+          </article>
+
+          <article class="trust-card">
+            <div class="icon">🥛</div>
+            <h3>No guaranteed milk entitlement</h3>
+            <p>A sponsorship does not create a right to receive milk or other farm income.</p>
+          </article>
+
+          <article class="trust-card">
+            <div class="icon">📸</div>
+            <h3>Care updates</h3>
+            <p>Updates may include photos, videos and basic care information according to the selected plan.</p>
+          </article>
+
+          <article class="trust-card">
+            <div class="icon">📋</div>
+            <h3>Animal condition can change</h3>
+            <p>Animal health, availability and circumstances can change. Applicable policies will govern such situations.</p>
+          </article>
+
+          <article class="trust-card">
+            <div class="icon">🔎</div>
+            <h3>Transparency first</h3>
+            <p>Customers should be able to understand the animal, care partner, payment allocation and platform fee.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- DISCLAIMER -->
+    <section class="disclaimer">
+      <div class="container">
+        <div class="disclaimer-box">
+          <h3>Important information</h3>
+          <p>
+            Go Palak is currently being developed as a privately operated commercial
+            cow-care service platform and is not a registered NGO or charitable
+            organisation. Sponsorship does not transfer ownership of the animal and
+            does not provide any financial return, profit share or guaranteed milk
+            entitlement. Any applicable Go Palak service/platform fee will be disclosed
+            before payment. Final terms, refund policy and operating arrangements
+            are subject to the applicable agreements and policies published by Go Palak.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div class="container">
+        <h2>Ready to support a cow?</h2>
+        <p>
+          Choose a real animal, select a care option and follow the updates.
+        </p>
+        <a href="#animals" class="btn">View Available Cows</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div>
+          <a href="#top" class="brand footer-brand">
+            <span class="brand-mark">🐄</span>
+            <span>Go Palak</span>
+          </a>
+          <p class="footer-description">
+            A commercial cow-care sponsorship platform connecting customers
+            with farmer-owned animals through transparent care support and updates.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#care-options">Care Options</a>
+          <a href="#animals">Animals</a>
+          <a href="#transparency">Transparency</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Information</h4>
+          <a href="#">Customer Terms</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Refund Policy</a>
+          <a href="#">Contact</a>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> Go Palak. All rights reserved.</span>
+        <span>Phase 1 · Commercial Cow-Care Platform</span>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    // Mobile navigation
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", isOpen);
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuBtn.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    // Current year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
