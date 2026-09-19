@@ -41,6 +41,7 @@
       background: var(--cream);
       color: var(--text);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     a {
@@ -243,7 +244,7 @@
     }
 
     .cow-card {
-      min-height: 510px;
+      min-height: 0;
       border-radius: 32px;
       overflow: hidden;
       position: relative;
@@ -252,29 +253,95 @@
         linear-gradient(135deg, #dcebd9, #f1e8ce);
       box-shadow: var(--shadow);
       border: 1px solid rgba(255,255,255,0.7);
+      padding: 0;
+    }
+
+    .hero-carousel {
+      position: relative;
+      height: clamp(520px, 50vw, 640px);
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
       display: flex;
-      align-items: flex-end;
-      padding: 28px;
+      flex-direction: column;
+      min-width: 0;
+      opacity: 0;
+      transition: opacity 0.45s ease;
+      pointer-events: none;
+    }
+
+    .hero-slide.active {
+      opacity: 1;
     }
 
     .cow-illustration {
+      position: relative;
+      width: 100%;
+      height: clamp(390px, 40vw, 510px);
+      flex: 0 0 clamp(390px, 40vw, 510px);
+      object-fit: cover;
+      object-position: center;
+      filter: brightness(0.93);
+      transform: none;
+    }
+
+    .carousel-controls {
       position: absolute;
-      inset: 0;
+      right: 28px;
+      top: 28px;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .carousel-arrow,
+    .carousel-dot {
+      border: 1px solid rgba(255,255,255,0.55);
+      background: rgba(23,59,37,0.42);
+      color: white;
+      cursor: pointer;
+    }
+
+    .carousel-arrow {
+      width: 32px;
+      height: 32px;
       display: grid;
       place-items: center;
-      font-size: clamp(9rem, 17vw, 15rem);
-      filter: drop-shadow(0 20px 18px rgba(36, 61, 42, 0.12));
-      transform: translateY(-10px);
+      border-radius: 50%;
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+
+    .carousel-dots {
+      display: flex;
+      gap: 5px;
+      margin: 0 3px;
+    }
+
+    .carousel-dot {
+      width: 7px;
+      height: 7px;
+      padding: 0;
+      border-radius: 50%;
+      opacity: 0.65;
+    }
+
+    .carousel-dot.active {
+      background: white;
+      opacity: 1;
     }
 
     .cow-card-info {
       position: relative;
       width: 100%;
-      padding: 19px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.91);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.75);
+      flex: 1;
+      padding: 14px 16px;
+      border-radius: 0;
+      background: rgba(255,255,255,0.9);
+      border-top: 1px solid rgba(23,59,37,0.12);
     }
 
     .mini-label {
@@ -287,7 +354,7 @@
 
     .cow-card-info h3 {
       margin-top: 3px;
-      font-size: 1.35rem;
+      font-size: 1.1rem;
       color: var(--green-900);
     }
 
@@ -301,10 +368,10 @@
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      margin-top: 12px;
-      padding: 6px 10px;
+      margin-top: 8px;
+      padding: 4px 8px;
       border-radius: 999px;
-      background: #edf7ef;
+      background: rgba(237,247,239,0.8);
       color: var(--green-800);
       font-size: 0.76rem;
       font-weight: 800;
@@ -478,10 +545,15 @@
 
     .animal-photo {
       height: 210px;
-      display: grid;
-      place-items: center;
+      overflow: hidden;
       background: linear-gradient(135deg, #e0eddc, #efe4c8);
-      font-size: 6.3rem;
+    }
+
+    .animal-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
     }
 
     .animal-content {
@@ -847,7 +919,7 @@
         position: absolute;
         left: 14px;
         right: 14px;
-        top: 76px;
+        top: 68px;
         display: none;
         flex-direction: column;
         align-items: stretch;
@@ -884,8 +956,21 @@
       }
 
       .cow-card {
-        min-height: 410px;
-        padding: 18px;
+        min-height: 0;
+      }
+
+      .hero-carousel {
+        height: 540px;
+      }
+
+      .cow-illustration {
+        height: 410px;
+        flex-basis: 410px;
+      }
+
+      .carousel-controls {
+        right: 18px;
+        top: 18px;
       }
 
       section {
@@ -906,6 +991,74 @@
 
       .footer-bottom {
         flex-direction: column;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        width: min(var(--max), calc(100% - 24px));
+      }
+
+      .hero {
+        padding: 40px 0 52px;
+      }
+
+      h1 {
+        font-size: clamp(2.45rem, 14vw, 3.5rem);
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .cow-card {
+        border-radius: 24px;
+      }
+
+      .hero-carousel {
+        height: 500px;
+      }
+
+      .cow-illustration {
+        height: 370px;
+        flex-basis: 370px;
+      }
+
+      .cow-card-info {
+        padding: 12px 14px;
+      }
+
+      .cow-meta {
+        font-size: 0.8rem;
+      }
+
+      .carousel-controls {
+        right: 14px;
+        top: 14px;
+      }
+
+      .carousel-arrow {
+        width: 29px;
+        height: 29px;
+      }
+
+      section {
+        padding: 56px 0;
+      }
+
+      .section-head {
+        margin-bottom: 30px;
+      }
+
+      .money-card,
+      .trust-card,
+      .step,
+      .product-card {
+        padding: 20px;
       }
     }
   </style>
@@ -968,13 +1121,46 @@
 
         <div class="hero-visual">
           <div class="cow-card">
-            <div class="cow-illustration" aria-hidden="true">🐄</div>
+            <div class="hero-carousel" id="heroCarousel">
+              <article class="hero-slide active">
+                <img class="cow-illustration" src="media/gp01.jpg" alt="Gauri, Go Palak animal GP001">
+                <div class="cow-card-info">
+                  <div class="mini-label">Featured Animal</div>
+                  <h3>Gauri · GP001</h3>
+                  <p class="cow-meta">Non-milking · Madhya Pradesh · Care Partner: Ravi</p>
+                  <span class="status">Available for sponsorship</span>
+                </div>
+              </article>
 
-            <div class="cow-card-info">
-              <div class="mini-label">Featured Animal</div>
-              <h3>Gauri · GP001</h3>
-              <p class="cow-meta">Non-milking · Madhya Pradesh · Care Partner: Ravi</p>
-              <span class="status">Available for sponsorship</span>
+              <article class="hero-slide">
+                <img class="cow-illustration" src="media/gp01.jpg" alt="Kamdhenu, Go Palak animal GP002">
+                <div class="cow-card-info">
+                  <div class="mini-label">Available Animal</div>
+                  <h3>Kamdhenu · GP002</h3>
+                  <p class="cow-meta">Non-milking · Madhya Pradesh · Care Partner: Suresh</p>
+                  <span class="status">Available for sponsorship</span>
+                </div>
+              </article>
+
+              <article class="hero-slide">
+                <img class="cow-illustration" src="media/gp01.jpg" alt="Radha, Go Palak animal GP003">
+                <div class="cow-card-info">
+                  <div class="mini-label">Available Animal</div>
+                  <h3>Radha · GP003</h3>
+                  <p class="cow-meta">Non-milking · Madhya Pradesh · Care Partner: Mahesh</p>
+                  <span class="status">Available for sponsorship</span>
+                </div>
+              </article>
+            </div>
+
+            <div class="carousel-controls" aria-label="Available animal images">
+              <button class="carousel-arrow" id="previousAnimal" type="button" aria-label="Previous animal">‹</button>
+              <div class="carousel-dots">
+                <button class="carousel-dot active" type="button" aria-label="Show Gauri"></button>
+                <button class="carousel-dot" type="button" aria-label="Show Kamdhenu"></button>
+                <button class="carousel-dot" type="button" aria-label="Show Radha"></button>
+              </div>
+              <button class="carousel-arrow" id="nextAnimal" type="button" aria-label="Next animal">›</button>
             </div>
           </div>
         </div>
@@ -1098,7 +1284,7 @@
         <div class="animal-grid">
 
           <article class="animal-card">
-            <div class="animal-photo" aria-label="Gauri placeholder image">🐄</div>
+            <div class="animal-photo"><img src="media/gp01.jpg" alt="Go Palak animal"></div>
             <div class="animal-content">
               <div class="animal-top">
                 <div>
@@ -1132,7 +1318,7 @@
           </article>
 
           <article class="animal-card">
-            <div class="animal-photo" aria-label="Kamdhenu placeholder image">🐮</div>
+            <div class="animal-photo"><img src="media/gp01.jpg" alt="Go Palak animal"></div>
             <div class="animal-content">
               <div class="animal-top">
                 <div>
@@ -1166,7 +1352,7 @@
           </article>
 
           <article class="animal-card">
-            <div class="animal-photo" aria-label="Radha placeholder image">🐄</div>
+            <div class="animal-photo"><img src="media/gp01.jpg" alt="Go Palak animal"></div>
             <div class="animal-content">
               <div class="animal-top">
                 <div>
@@ -1421,6 +1607,27 @@
         menuBtn.setAttribute("aria-expanded", "false");
       });
     });
+
+    const heroSlides = document.querySelectorAll(".hero-slide");
+    const carouselDots = document.querySelectorAll(".carousel-dot");
+    let activeAnimal = 0;
+
+    const showAnimal = (index) => {
+      activeAnimal = (index + heroSlides.length) % heroSlides.length;
+      heroSlides.forEach((slide, slideIndex) => {
+        slide.classList.toggle("active", slideIndex === activeAnimal);
+      });
+      carouselDots.forEach((dot, dotIndex) => {
+        dot.classList.toggle("active", dotIndex === activeAnimal);
+      });
+    };
+
+    document.getElementById("previousAnimal").addEventListener("click", () => showAnimal(activeAnimal - 1));
+    document.getElementById("nextAnimal").addEventListener("click", () => showAnimal(activeAnimal + 1));
+    carouselDots.forEach((dot, dotIndex) => {
+      dot.addEventListener("click", () => showAnimal(dotIndex));
+    });
+    setInterval(() => showAnimal(activeAnimal + 1), 4500);
 
     // Current year
     document.getElementById("year").textContent = new Date().getFullYear();
