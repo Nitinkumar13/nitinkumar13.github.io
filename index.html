@@ -1061,6 +1061,14 @@
         padding: 20px;
       }
     }
+
+    /* Razorpay Payment Buttons */
+    .payment-area { margin-top: 18px; padding: 14px; border: 1px dashed var(--border); border-radius: 14px; background: #fcfdfb; }
+    .payment-label { display:block; margin-bottom:8px; font-size:.76rem; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; }
+    .selected-animal { margin:0 0 10px; padding:9px 11px; border-radius:10px; background:var(--green-100); color:var(--green-900); font-size:.88rem; font-weight:700; }
+    .payment-placeholder { padding:11px 12px; border-radius:10px; background:#f4f6f3; color:var(--muted); font-size:.82rem; line-height:1.45; }
+    .payment-placeholder strong { color:var(--text); }
+    .payment-help { margin-top:8px; font-size:.72rem; color:var(--muted); }
   </style>
 </head>
 
@@ -1219,6 +1227,11 @@
           </p>
         </div>
 
+        <div class="selected-animal-global" id="selectedAnimalBanner" style="display:none; margin:0 0 22px; padding:14px 16px; border-radius:14px; background:var(--green-100); color:var(--green-900); border:1px solid #d8e8da; font-weight:700;">
+          Selected animal: <span id="selectedAnimalName">—</span> · <span id="selectedAnimalId">—</span>
+          <span style="display:block; margin-top:4px; font-size:.8rem; font-weight:500; color:var(--muted);">Now choose a care option below. If you want the Cow ID captured with the Razorpay payment, configure a matching custom field in your Razorpay Payment Button.</span>
+        </div>
+
         <div class="product-grid">
 
           <article class="product-card">
@@ -1227,8 +1240,13 @@
             <div class="product-price">₹99</div>
             <div class="product-duration">One-time</div>
             <p>Support a meal/care activity for a selected participating animal.</p>
-            <div class="product-btn">
-              <a href="#animals" class="btn btn-secondary" style="width:100%;">Choose a Cow</a>
+            <div class="payment-area">
+              <span class="payment-label">Razorpay Payment Button · Test Mode</span>
+              <div class="selected-animal" data-selected-animal="meal">Choose a cow below before payment.</div>
+              <div class="razorpay-slot" data-plan="meal">
+                <div class="payment-placeholder"><strong>Payment button slot</strong><br>Paste your Razorpay Payment Button ID for the ₹99 plan in the configuration at the bottom of this file.</div>
+              </div>
+              <p class="payment-help">Payment is processed by Razorpay. No ownership, financial return or guaranteed milk entitlement.</p>
             </div>
           </article>
 
@@ -1238,8 +1256,13 @@
             <div class="product-price">₹199</div>
             <div class="product-duration">1 day</div>
             <p>Support the care of a selected animal for one day and receive a care update.</p>
-            <div class="product-btn">
-              <a href="#animals" class="btn btn-secondary" style="width:100%;">Choose a Cow</a>
+            <div class="payment-area">
+              <span class="payment-label">Razorpay Payment Button · Test Mode</span>
+              <div class="selected-animal" data-selected-animal="day">Choose a cow below before payment.</div>
+              <div class="razorpay-slot" data-plan="day">
+                <div class="payment-placeholder"><strong>Payment button slot</strong><br>Paste your Razorpay Payment Button ID for the ₹199 plan in the configuration at the bottom of this file.</div>
+              </div>
+              <p class="payment-help">Payment is processed by Razorpay. No ownership, financial return or guaranteed milk entitlement.</p>
             </div>
           </article>
 
@@ -1249,8 +1272,13 @@
             <div class="product-price">₹499</div>
             <div class="product-duration">7 days</div>
             <p>Support a selected animal's care for a week with periodic updates.</p>
-            <div class="product-btn">
-              <a href="#animals" class="btn btn-secondary" style="width:100%;">Choose a Cow</a>
+            <div class="payment-area">
+              <span class="payment-label">Razorpay Payment Button · Test Mode</span>
+              <div class="selected-animal" data-selected-animal="week">Choose a cow below before payment.</div>
+              <div class="razorpay-slot" data-plan="week">
+                <div class="payment-placeholder"><strong>Payment button slot</strong><br>Paste your Razorpay Payment Button ID for the ₹499 plan in the configuration at the bottom of this file.</div>
+              </div>
+              <p class="payment-help">Payment is processed by Razorpay. No ownership, financial return or guaranteed milk entitlement.</p>
             </div>
           </article>
 
@@ -1260,8 +1288,27 @@
             <div class="product-price">₹999</div>
             <div class="product-duration">30 days</div>
             <p>Follow a specific cow with a profile, periodic photos/videos and care updates.</p>
-            <div class="product-btn">
-              <a href="#animals" class="btn btn-primary" style="width:100%;">Sponsor Monthly</a>
+            <div class="payment-area">
+              <span class="payment-label">Razorpay Payment Button · Test Mode</span>
+              <div class="selected-animal" data-selected-animal="month">Choose a cow below before payment.</div>
+              <div class="razorpay-slot" data-plan="month">
+                <div class="payment-placeholder"><strong>Payment button slot</strong><br>Paste your Razorpay Payment Button ID for the ₹999 plan in the configuration at the bottom of this file.</div>
+              </div>
+              <p class="payment-help">Payment is processed by Razorpay. No ownership, financial return or guaranteed milk entitlement.</p>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-icon">💚</div>
+            <h3>Other Amount</h3>
+            <div class="product-price">Custom</div>
+            <div class="product-duration">Choose your amount</div>
+            <p>Want to support a cow with a different amount? Enter your preferred amount securely through Razorpay.</p>
+            <div class="payment-area">
+              <span class="payment-label">Razorpay Payment Button · Test Mode</span>
+              <div class="selected-animal" data-selected-animal="custom">Choose a cow below before payment.</div>
+              <div class="razorpay-slot" data-plan="custom"></div>
+              <p class="payment-help">Payment is processed by Razorpay. No ownership, financial return or guaranteed milk entitlement.</p>
             </div>
           </article>
 
@@ -1313,7 +1360,7 @@
                 </div>
               </div>
 
-              <a href="#care-options" class="btn btn-primary animal-btn">View Care Options</a>
+              <a href="#care-options" class="btn btn-primary animal-btn select-animal" data-animal-id="GP001" data-animal-name="Gauri">Select Gauri</a>
             </div>
           </article>
 
@@ -1347,7 +1394,7 @@
                 </div>
               </div>
 
-              <a href="#care-options" class="btn btn-primary animal-btn">View Care Options</a>
+              <a href="#care-options" class="btn btn-primary animal-btn select-animal" data-animal-id="GP002" data-animal-name="Kamdhenu">Select Kamdhenu</a>
             </div>
           </article>
 
@@ -1381,7 +1428,7 @@
                 </div>
               </div>
 
-              <a href="#care-options" class="btn btn-primary animal-btn">View Care Options</a>
+              <a href="#care-options" class="btn btn-primary animal-btn select-animal" data-animal-id="GP003" data-animal-name="Radha">Select Radha</a>
             </div>
           </article>
 
@@ -1530,6 +1577,8 @@
             entitlement. Any applicable Go Palak service/platform fee will be disclosed
             before payment. Final terms, refund policy and operating arrangements
             are subject to the applicable agreements and policies published by Go Palak.
+            During development, Razorpay may be used in Test Mode; do not collect
+            real customer payments until the live payment setup and required details are ready.
           </p>
         </div>
       </div>
@@ -1628,6 +1677,52 @@
       dot.addEventListener("click", () => showAnimal(dotIndex));
     });
     setInterval(() => showAnimal(activeAnimal + 1), 4500);
+
+    // ------------------------------------------------------------
+    // RAZORPAY PAYMENT BUTTON CONFIGURATION (TEST MODE)
+    // ------------------------------------------------------------
+    // Create four Payment Buttons in Razorpay Dashboard > Payment Buttons.
+    // Copy the data-payment_button_id from each generated snippet and paste
+    // the IDs below. Do NOT put your Razorpay Key Secret in this HTML file.
+    const RAZORPAY_PAYMENT_BUTTONS = {
+      meal:  "pl_TeBkmAP8TSNQxL",   // ₹99
+      day:   "pl_TeBnD8cU5YQf2o",   // ₹199
+      week:  "pl_TeBoQc70DI9ae1",   // ₹499
+      month: "pl_TeBpCUscsesZnQ",   // ₹999
+      custom: "pl_TeBqWRDPSGRLAb"    // Other Amount
+    };
+
+    const isConfiguredButtonId = (value) => value && !value.includes("PASTE_") && value.trim().length > 5;
+
+    document.querySelectorAll(".razorpay-slot").forEach((slot) => {
+      const buttonId = RAZORPAY_PAYMENT_BUTTONS[slot.dataset.plan];
+      if (!isConfiguredButtonId(buttonId)) return;
+      slot.innerHTML = "";
+      const form = document.createElement("form");
+      const script = document.createElement("script");
+      script.src = "https://checkout.razorpay.com/v1/payment-button.js";
+      script.setAttribute("data-payment_button_id", buttonId);
+      script.setAttribute("async", "");
+      form.appendChild(script);
+      slot.appendChild(form);
+    });
+
+    // Animal selection
+    const selectedAnimalBanner = document.getElementById("selectedAnimalBanner");
+    const selectedAnimalName = document.getElementById("selectedAnimalName");
+    const selectedAnimalId = document.getElementById("selectedAnimalId");
+    const selectedAnimalLabels = document.querySelectorAll("[data-selected-animal]");
+
+    document.querySelectorAll(".select-animal").forEach((button) => {
+      button.addEventListener("click", () => {
+        selectedAnimalName.textContent = button.dataset.animalName;
+        selectedAnimalId.textContent = button.dataset.animalId;
+        selectedAnimalBanner.style.display = "block";
+        selectedAnimalLabels.forEach((label) => {
+          label.textContent = `Selected: ${button.dataset.animalName} · ${button.dataset.animalId}`;
+        });
+      });
+    });
 
     // Current year
     document.getElementById("year").textContent = new Date().getFullYear();
