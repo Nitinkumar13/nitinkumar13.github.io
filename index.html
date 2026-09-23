@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Go Palak connects customers with farmer-owned cows through transparent care sponsorships and regular animal updates.">
+  <meta name="description" content="Go Palak is a commercial cow-care platform connecting customers with farmer-owned cows through defined care services and regular animal updates.">
   <meta name="theme-color" content="#2f6b3f">
-  <title>Go Palak — Support a Cow. Support a Farmer.</title>
+  <title>Go Palak — Choose a Cow. Book Her Care.</title>
 
   <style>
     :root {
@@ -1067,6 +1067,15 @@
     .payment-label { display:block; margin-bottom:8px; font-size:.76rem; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; }
     .selected-animal { margin:0 0 10px; padding:9px 11px; border-radius:10px; background:var(--green-100); color:var(--green-900); font-size:.88rem; font-weight:700; }
     .payment-help { margin-top:8px; font-size:.72rem; color:var(--muted); line-height:1.5; }
+    /* Care progress */
+    .care-progress { margin-top:18px; padding:13px 14px; border-radius:13px; background:#f7faf7; border:1px solid var(--border); }
+    .care-progress-head { display:flex; align-items:center; justify-content:space-between; gap:12px; font-size:.78rem; color:var(--muted); }
+    .care-progress-head strong { color:var(--green-900); font-size:.82rem; }
+    .care-progress-track { height:10px; margin-top:9px; overflow:hidden; border-radius:999px; background:#e5ebe5; }
+    .care-progress-fill { width:0%; height:100%; border-radius:inherit; background:var(--green-700); transition:width .35s ease; }
+    .care-progress-bottom { display:flex; justify-content:space-between; gap:10px; margin-top:7px; font-size:.72rem; color:var(--muted); }
+    .care-progress-bottom strong { color:var(--green-800); }
+
     .upi-pay-btn { width:100%; border:0; cursor:pointer; }
     .payment-placeholder { padding:11px 12px; border-radius:10px; background:#f4f6f3; color:var(--muted); font-size:.82rem; line-height:1.45; }
     .payment-placeholder strong { color:var(--text); }
@@ -1119,7 +1128,7 @@
         <a href="#care-options">Care Options</a>
         <a href="#animals">Animals</a>
         <a href="#transparency">Transparency</a>
-        <a href="#animals" class="nav-cta">Support a Cow</a>
+        <a href="#animals" class="nav-cta">Choose a Cow</a>
       </nav>
     </div>
   </header>
@@ -1132,21 +1141,21 @@
         <div>
           <div class="eyebrow">
             <span class="eyebrow-dot"></span>
-            Cow-care sponsorship platform
+            Commercial Cow-Care Platform
           </div>
 
           <h1>
-            Support a Cow.<br>
-            <span>Support a Farmer.</span>
+            Choose a Cow.<br>
+            <span>Book Her Care.</span>
           </h1>
 
           <p class="hero-copy">
-            Choose a real, farmer-owned cow and support her care through a simple,
-            transparent sponsorship. Follow her journey through regular care updates.
+            Choose a real, farmer-owned cow and book a defined care service through Go Palak.
+            Select a care plan, make the payment, and receive updates according to the selected plan.
           </p>
 
           <div class="hero-actions">
-            <a href="#animals" class="btn btn-primary">🐄 Sponsor a Cow</a>
+            <a href="#animals" class="btn btn-primary">🐄 Choose a Cow</a>
             <a href="#care-options" class="btn btn-secondary">Explore Care Options</a>
           </div>
 
@@ -1164,7 +1173,7 @@
                   <div class="mini-label">Featured Animal</div>
                   <h3>Gauri · GP001</h3>
                   <p class="cow-meta">Non-milking · Madhya Pradesh · Care Partner: Ravi</p>
-                  <span class="status">Available for sponsorship</span>
+                  <span class="status">Available for Care</span>
                 </div>
               </article>
 
@@ -1174,7 +1183,7 @@
                   <div class="mini-label">Available Animal</div>
                   <h3>Kamdhenu · GP002</h3>
                   <p class="cow-meta">Non-milking · Madhya Pradesh · Care Partner: Suresh</p>
-                  <span class="status">Available for sponsorship</span>
+                  <span class="status">Available for Care</span>
                 </div>
               </article>
 
@@ -1184,7 +1193,7 @@
                   <div class="mini-label">Available Animal</div>
                   <h3>Radha · GP003</h3>
                   <p class="cow-meta">Non-milking · Madhya Pradesh · Care Partner: Mahesh</p>
-                  <span class="status">Available for sponsorship</span>
+                  <span class="status">Available for Care</span>
                 </div>
               </article>
             </div>
@@ -1230,14 +1239,14 @@
 
           <article class="step">
             <div class="step-number">03</div>
-            <h3>You choose support</h3>
-            <p>Select a specific animal and the care option you want to sponsor.</p>
+            <h3>You choose a care plan</h3>
+            <p>Select a specific animal and the care service you want to book.</p>
           </article>
 
           <article class="step">
             <div class="step-number">04</div>
             <h3>Receive updates</h3>
-            <p>Get periodic photos, videos and care updates about the animal you support.</p>
+            <p>Receive photos, videos and care updates according to the selected care plan.</p>
           </article>
         </div>
       </div>
@@ -1247,11 +1256,11 @@
     <section class="products" id="care-options">
       <div class="container">
         <div class="section-head">
-          <div class="section-kicker">Choose your support</div>
-          <h2 class="section-title">Care options for every budget</h2>
+          <div class="section-kicker">Choose a Care Plan</div>
+          <h2 class="section-title">Defined Care Services</h2>
           <p class="section-description">
-            Start small or support a cow for a full month. Pricing shown here is
-            an initial testing structure and may change as the program develops.
+            Choose a defined care service for a selected animal. Prices shown here are
+            initial Phase-1 test prices and may change as the service develops.
           </p>
         </div>
 
@@ -1267,12 +1276,12 @@
             <h3>One Meal</h3>
             <div class="product-price">₹99</div>
             <div class="product-duration">One-time</div>
-            <p>Support a meal/care activity for a selected participating animal.</p>
+            <p>Book one defined meal/care activity for the selected animal.</p>
             <div class="payment-area">
               <span class="payment-label">UPI Payment</span>
               <div class="selected-animal" data-selected-animal="meal">Choose a cow below before payment.</div>
               <button type="button" class="btn btn-primary upi-pay-btn" data-plan="meal" data-amount="99" data-plan-name="One Meal">Pay Now · ₹99</button>
-              <p class="payment-help">Pay using PhonePe, Google Pay, Paytm or another UPI app. After payment, enter your UTR/Transaction ID for manual verification.</p>
+              <p class="payment-help">Pay using a supported UPI app. After payment, enter your UTR/Transaction ID for manual verification.</p>
             </div>
           </article>
 
@@ -1281,12 +1290,12 @@
             <h3>One-Day Care</h3>
             <div class="product-price">₹199</div>
             <div class="product-duration">1 day</div>
-            <p>Support the care of a selected animal for one day and receive a care update.</p>
+            <p>Book one day of care for the selected animal and receive a care update according to the plan.</p>
             <div class="payment-area">
               <span class="payment-label">UPI Payment</span>
               <div class="selected-animal" data-selected-animal="day">Choose a cow below before payment.</div>
               <button type="button" class="btn btn-primary upi-pay-btn" data-plan="day" data-amount="199" data-plan-name="One-Day Care">Pay Now · ₹199</button>
-              <p class="payment-help">Pay using PhonePe, Google Pay, Paytm or another UPI app. After payment, enter your UTR/Transaction ID for manual verification.</p>
+              <p class="payment-help">Pay using a supported UPI app. After payment, enter your UTR/Transaction ID for manual verification.</p>
             </div>
           </article>
 
@@ -1295,35 +1304,35 @@
             <h3>Weekly Care</h3>
             <div class="product-price">₹499</div>
             <div class="product-duration">7 days</div>
-            <p>Support a selected animal's care for a week with periodic updates.</p>
+            <p>Book seven days of care for the selected animal with periodic care updates.</p>
             <div class="payment-area">
               <span class="payment-label">UPI Payment</span>
               <div class="selected-animal" data-selected-animal="week">Choose a cow below before payment.</div>
               <button type="button" class="btn btn-primary upi-pay-btn" data-plan="week" data-amount="499" data-plan-name="Weekly Care">Pay Now · ₹499</button>
-              <p class="payment-help">Pay using PhonePe, Google Pay, Paytm or another UPI app. After payment, enter your UTR/Transaction ID for manual verification.</p>
+              <p class="payment-help">Pay using a supported UPI app. After payment, enter your UTR/Transaction ID for manual verification.</p>
             </div>
           </article>
 
           <article class="product-card">
             <div class="product-icon">❤️</div>
-            <h3>Monthly Sponsorship</h3>
+            <h3>Monthly Cow Care</h3>
             <div class="product-price">₹999</div>
             <div class="product-duration">30 days</div>
-            <p>Follow a specific cow with a profile, periodic photos/videos and care updates.</p>
+            <p>Book 30 days of care for a specific cow with a profile, periodic photos/videos and care updates.</p>
             <div class="payment-area">
               <span class="payment-label">UPI Payment</span>
               <div class="selected-animal" data-selected-animal="month">Choose a cow below before payment.</div>
-              <button type="button" class="btn btn-primary upi-pay-btn" data-plan="month" data-amount="999" data-plan-name="Monthly Sponsorship">Pay Now · ₹999</button>
-              <p class="payment-help">Pay using PhonePe, Google Pay, Paytm or another UPI app. After payment, enter your UTR/Transaction ID for manual verification.</p>
+              <button type="button" class="btn btn-primary upi-pay-btn" data-plan="month" data-amount="999" data-plan-name="Monthly Cow Care">Pay Now · ₹999</button>
+              <p class="payment-help">Pay using a supported UPI app. After payment, enter your UTR/Transaction ID for manual verification.</p>
             </div>
           </article>
 
           <article class="product-card custom-support-card">
             <div class="product-icon">💚</div>
-            <h3>Custom Care Support</h3>
+            <h3>Custom Care Service</h3>
             <div class="product-price">Any Amount</div>
             <div class="product-duration">You choose</div>
-            <p>Choose any amount you would like to contribute toward the care of your selected animal.</p>
+            <p>Enter an amount for a custom care service for your selected animal.</p>
             <div class="payment-area">
               <span class="payment-label">Enter Amount</span>
               <div class="selected-animal" data-selected-animal="custom">Choose a cow below before payment.</div>
@@ -1334,8 +1343,8 @@
                   <input id="customAmount" type="number" min="1" step="1" inputmode="numeric" placeholder="Enter amount" aria-label="Enter custom amount in rupees">
                 </div>
               </div>
-              <button type="button" class="btn btn-primary upi-pay-btn" id="customPayBtn" data-plan="custom" data-plan-name="Custom Care Support">Pay Custom Amount</button>
-              <p class="payment-help">Enter any amount of ₹1 or more. The selected amount will be used for the UPI payment and shown in your booking details.</p>
+              <button type="button" class="btn btn-primary upi-pay-btn" id="customPayBtn" data-plan="custom" data-plan-name="Custom Care Service">Pay Custom Amount</button>
+              <p class="payment-help">Enter any whole amount of ₹1 or more. The selected amount will be used for the UPI payment and shown in your booking details.</p>
             </div>
           </article>
 
@@ -1348,10 +1357,10 @@
       <div class="container">
         <div class="section-head">
           <div class="section-kicker">Meet the animals</div>
-          <h2 class="section-title">Choose a cow to support</h2>
+          <h2 class="section-title">Choose a Cow</h2>
           <p class="section-description">
             Every listed animal receives a unique Go Palak ID so customers can
-            understand exactly which animal they are supporting.
+            identify the animal associated with their selected care plan.
           </p>
         </div>
 
@@ -1384,6 +1393,21 @@
                 <div class="detail">
                   <span>Profile</span>
                   <strong>Verified listing</strong>
+                </div>
+              </div>
+
+              
+              <div class="care-progress" data-progress-cow="GP001">
+                <div class="care-progress-head">
+                  <span>Care progress</span>
+                  <strong data-progress-percent>0%</strong>
+                </div>
+                <div class="care-progress-track" aria-label="Gauri care progress">
+                  <div class="care-progress-fill" data-progress-fill></div>
+                </div>
+                <div class="care-progress-bottom">
+                  <span><strong data-progress-collected>₹0</strong> collected</span>
+                  <span>Target <strong data-progress-target>₹2,500</strong></span>
                 </div>
               </div>
 
@@ -1421,6 +1445,21 @@
                 </div>
               </div>
 
+              
+              <div class="care-progress" data-progress-cow="GP002">
+                <div class="care-progress-head">
+                  <span>Care progress</span>
+                  <strong data-progress-percent>0%</strong>
+                </div>
+                <div class="care-progress-track" aria-label="Kamdhenu care progress">
+                  <div class="care-progress-fill" data-progress-fill></div>
+                </div>
+                <div class="care-progress-bottom">
+                  <span><strong data-progress-collected>₹0</strong> collected</span>
+                  <span>Target <strong data-progress-target>₹2,500</strong></span>
+                </div>
+              </div>
+
               <a href="#care-options" class="btn btn-primary animal-btn select-animal" data-animal-id="GP002" data-animal-name="Kamdhenu">Select Kamdhenu</a>
             </div>
           </article>
@@ -1455,6 +1494,21 @@
                 </div>
               </div>
 
+              
+              <div class="care-progress" data-progress-cow="GP003">
+                <div class="care-progress-head">
+                  <span>Care progress</span>
+                  <strong data-progress-percent>0%</strong>
+                </div>
+                <div class="care-progress-track" aria-label="Radha care progress">
+                  <div class="care-progress-fill" data-progress-fill></div>
+                </div>
+                <div class="care-progress-bottom">
+                  <span><strong data-progress-collected>₹0</strong> collected</span>
+                  <span>Target <strong data-progress-target>₹2,500</strong></span>
+                </div>
+              </div>
+
               <a href="#care-options" class="btn btn-primary animal-btn select-animal" data-animal-id="GP003" data-animal-name="Radha">Select Radha</a>
             </div>
           </article>
@@ -1482,7 +1536,7 @@
               <div class="point-icon">✓</div>
               <div>
                 <h3>Specific animal</h3>
-                <p>Your sponsorship is associated with a listed animal and its Go Palak ID.</p>
+                <p>Your selected care plan is associated with a listed animal and its Go Palak ID.</p>
               </div>
             </div>
 
@@ -1498,7 +1552,7 @@
               <div class="point-icon">▶</div>
               <div>
                 <h3>Real updates</h3>
-                <p>Customers receive periodic care updates according to the selected sponsorship.</p>
+                <p>Customers receive periodic care updates according to the selected care plan.</p>
               </div>
             </div>
           </div>
@@ -1506,31 +1560,34 @@
 
         <div class="money-card">
           <div class="money-head">
-            <span>Illustrative monthly sponsorship</span>
-            <strong>₹999</strong>
+            <span>Before you pay</span>
+            <strong>Clear terms</strong>
           </div>
 
           <div class="allocation">
             <div class="allocation-row">
-              <div class="allocation-label">Farmer / animal-care allocation</div>
-              <div class="allocation-value">₹799</div>
-              <div class="bar">
-                <div class="bar-fill" style="width:80%;"></div>
-              </div>
+              <div class="allocation-label">Selected animal</div>
+              <div class="allocation-value">Shown</div>
+              <div class="bar"><div class="bar-fill" style="width:100%;"></div></div>
             </div>
 
             <div class="allocation-row">
-              <div class="allocation-label">Go Palak platform/service allocation</div>
-              <div class="allocation-value">₹200</div>
-              <div class="bar">
-                <div class="bar-fill" style="width:20%;"></div>
-              </div>
+              <div class="allocation-label">Care service & price</div>
+              <div class="allocation-value">Shown</div>
+              <div class="bar"><div class="bar-fill" style="width:100%;"></div></div>
+            </div>
+
+            <div class="allocation-row">
+              <div class="allocation-label">Applicable Go Palak service/platform fee</div>
+              <div class="allocation-value">Disclosed</div>
+              <div class="bar"><div class="bar-fill" style="width:100%;"></div></div>
             </div>
           </div>
 
           <p style="margin-top:22px;color:#aebdb2;font-size:.75rem;">
-            Illustrative Phase-1 allocation. Final allocation, applicable payment
-            charges and commercial terms will be disclosed before payment.
+            Final pricing, applicable payment charges, service/platform fee and any
+            farmer/care allocation will be disclosed before payment. No fixed allocation
+            is represented here until the Phase-1 commercial terms are finalized.
           </p>
         </div>
 
@@ -1542,10 +1599,10 @@
       <div class="container">
         <div class="section-head">
           <div class="section-kicker">Clear expectations</div>
-          <h2 class="section-title">What sponsorship means</h2>
+          <h2 class="section-title">What Your Care Plan Includes</h2>
           <p class="section-description">
-            Go Palak keeps the customer relationship simple and avoids promises
-            that sponsorship does not create.
+            Go Palak keeps the customer relationship clear and avoids promises
+            that the selected care service does not create.
           </p>
         </div>
 
@@ -1554,19 +1611,19 @@
           <article class="trust-card">
             <div class="icon">🐄</div>
             <h3>Farmer remains the owner</h3>
-            <p>The animal remains with the participating farmer. Sponsorship does not transfer ownership.</p>
+            <p>The animal remains with the participating farmer. The care service does not transfer ownership.</p>
           </article>
 
           <article class="trust-card">
             <div class="icon">🚫</div>
             <h3>No financial return</h3>
-            <p>Sponsorship is not an investment and does not provide interest, profit share or cash returns.</p>
+            <p>The care service is not an investment and does not provide interest, profit share or cash returns.</p>
           </article>
 
           <article class="trust-card">
             <div class="icon">🥛</div>
             <h3>No guaranteed milk entitlement</h3>
-            <p>A sponsorship does not create a right to receive milk or other farm income.</p>
+            <p>A care service does not create a right to receive milk or other farm income.</p>
           </article>
 
           <article class="trust-card">
@@ -1584,7 +1641,7 @@
           <article class="trust-card">
             <div class="icon">🔎</div>
             <h3>Transparency first</h3>
-            <p>Customers should be able to understand the animal, care partner, payment allocation and platform fee.</p>
+            <p>Customers should be able to understand the animal, care partner, selected service, payment amount and applicable platform fee.</p>
           </article>
 
         </div>
@@ -1592,19 +1649,22 @@
     </section>
 
     <!-- DISCLAIMER -->
-    <section class="disclaimer">
+    <section class="disclaimer" id="important-info">
       <div class="container">
         <div class="disclaimer-box">
           <h3>Important information</h3>
           <p>
-            Go Palak is currently being developed as a privately operated commercial
-            cow-care service platform and is not a registered NGO or charitable
-            organisation. Sponsorship does not transfer ownership of the animal and
-            does not provide any financial return, profit share or guaranteed milk
-            entitlement. Any applicable Go Palak service/platform fee will be disclosed
-            before payment. Final terms, refund policy and operating arrangements
-            are subject to the applicable agreements and policies published by Go Palak.
-            Payments are currently handled through direct UPI. Payment details are manually verified before a booking is confirmed.
+            Go Palak is a privately operated commercial cow-care service platform and is
+            not a registered NGO or charitable organisation. A customer purchases a
+            defined care service associated with a selected farmer-owned animal. The
+            service does not transfer ownership and does not provide any financial return,
+            profit share or guaranteed milk entitlement. Any applicable Go Palak
+            service/platform fee, payment charges and service terms will be disclosed
+            before payment. Phase-1 payments are currently handled through UPI with
+            manual transaction verification. A booking is confirmed only after payment
+            is verified. Customer Terms, Privacy Policy, Refund Policy and contact/
+            grievance details should be published before moving to a fully public
+            live-payment operation.
           </p>
         </div>
       </div>
@@ -1613,9 +1673,9 @@
     <!-- CTA -->
     <section class="cta">
       <div class="container">
-        <h2>Ready to support a cow?</h2>
+        <h2>Ready to choose a care service?</h2>
         <p>
-          Choose a real animal, select a care option and follow the updates.
+          Choose a real animal, select a care service and receive updates according to the selected plan.
         </p>
         <a href="#animals" class="btn">View Available Cows</a>
       </div>
@@ -1630,6 +1690,8 @@
       <h3 id="upiModalTitle">Complete your UPI payment</h3>
       <p class="payment-help" style="margin:0;">You are paying for a defined Go Palak care service. This payment does not transfer ownership of the animal and is not an investment.</p>
 
+      <div class="payment-note"><strong>Payment safety:</strong> Go Palak will never ask for your UPI PIN, OTP or banking password on this website.</div>
+
       <div class="upi-summary">
         <div class="upi-summary-row"><span>Animal</span><strong id="upiAnimalName">—</strong></div>
         <div class="upi-summary-row"><span>Go Palak ID</span><strong id="upiAnimalId">—</strong></div>
@@ -1638,8 +1700,9 @@
       </div>
 
       <div class="upi-qr-wrap">
-        <img class="upi-qr" src="paytm-qr.jpg" alt="Go Palak payment QR code">
-        <div class="upi-vpa">UPI ID: businessgurulearning@ybl</div>
+        <img class="upi-qr" src="media/Scanner/QR.png" alt="Go Palak payment QR code">
+  
+        <div class="payment-help"><strong>Payment recipient:</strong> Go Palak</div>
         <div class="payment-help">QR fallback: scan this code from another device or your UPI app.</div>
       </div>
 
@@ -1674,8 +1737,8 @@
             <span>Go Palak</span>
           </a>
           <p class="footer-description">
-            A commercial cow-care sponsorship platform connecting customers
-            with farmer-owned animals through transparent care support and updates.
+            A commercial cow-care platform connecting customers
+            with farmer-owned animals through defined care services and updates.
           </p>
         </div>
 
@@ -1689,17 +1752,17 @@
 
         <div class="footer-col">
           <h4>Information</h4>
-          <a href="#">Customer Terms</a>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Refund Policy</a>
-          <a href="#">Contact</a>
+          <a href="#important-info">Customer Terms</a>
+          <a href="#important-info">Privacy Policy</a>
+          <a href="#important-info">Refund Policy</a>
+          <a href="#important-info">Contact / Grievance</a>
         </div>
 
       </div>
 
       <div class="footer-bottom">
         <span>© <span id="year"></span> Go Palak. All rights reserved.</span>
-        <span>Phase 1 · Commercial Cow-Care Platform</span>
+        <span>Phase 1 · Commercial Cow-Care Service</span>
       </div>
 
     </div>
@@ -1747,7 +1810,7 @@
     // UPI PAYMENT FLOW (NO PAYMENT GATEWAY)
     // ------------------------------------------------------------
     const UPI_ID = "businessgurulearning@ybl";
-    const UPI_PAYEE_NAME = "Business Guru Learning";
+    const UPI_PAYEE_NAME = "Nitin Kumar Gour";
 
     const upiModal = document.getElementById("upiModal");
     const upiClose = document.getElementById("upiClose");
@@ -1757,8 +1820,6 @@
     const utrForm = document.getElementById("utrForm");
     const utrSuccess = document.getElementById("utrSuccess");
     let currentPayment = { animalName: "", animalId: "", planName: "", amount: 0 };
-
-    const formatINR = (amount) => `₹${Number(amount).toLocaleString("en-IN")}`;
 
     function openPayment(planName, amount) {
       if (!selectedAnimalName.textContent || selectedAnimalName.textContent === "—") {
@@ -1802,7 +1863,7 @@
           const input = document.getElementById("customAmount");
           const amount = Number(input.value);
           if (!Number.isFinite(amount) || amount < 1 || !Number.isInteger(amount)) {
-            alert("Please enter a valid amount of ₹1 or more.");
+            alert("Please enter a valid whole amount of ₹1 or more.");
             input.focus();
             return;
           }
@@ -1870,6 +1931,52 @@
         });
       });
     });
+
+
+    // ------------------------------------------------------------
+    // MANUAL CARE PROGRESS (PHASE 1)
+    // Update only the "collected" value after manually verifying a payment.
+    // Example: ₹99 + ₹1 = ₹100 collected.
+    // ------------------------------------------------------------
+    const COW_PROGRESS = {
+      GP001: { target: 2500, collected: 50 }, // Gauri
+      GP002: { target: 2500, collected: 0 }, // Kamdhenu
+      GP003: { target: 2500, collected: 0 }  // Radha
+    };
+
+    const formatINR = (amount) => {
+      const value = Math.round(Number(amount) || 0);
+      return "₹" + value.toLocaleString("en-IN");
+    };
+
+    const updateCareProgress = () => {
+      document.querySelectorAll("[data-progress-cow]").forEach((card) => {
+        const cowId = card.dataset.progressCow;
+        const data = COW_PROGRESS[cowId];
+        if (!data || data.target <= 0) return;
+
+        const collected = Math.max(0, Number(data.collected) || 0);
+        const target = Number(data.target);
+        const percent = Math.min((collected / target) * 100, 100);
+
+        const fill = card.querySelector("[data-progress-fill]");
+        const percentText = card.querySelector("[data-progress-percent]");
+        const collectedText = card.querySelector("[data-progress-collected]");
+        const targetText = card.querySelector("[data-progress-target]");
+
+        fill.style.width = `${percent}%`;
+        percentText.textContent = `${percent % 1 === 0 ? percent.toFixed(0) : percent.toFixed(2)}%`;
+        collectedText.textContent = formatINR(collected);
+        targetText.textContent = formatINR(target);
+
+        if (collected >= target) {
+          percentText.textContent = "100%";
+          fill.style.width = "100%";
+        }
+      });
+    };
+
+    updateCareProgress();
 
     // Current year
     document.getElementById("year").textContent = new Date().getFullYear();
