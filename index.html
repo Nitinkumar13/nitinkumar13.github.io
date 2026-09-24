@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Go Palak is a commercial cow-care platform connecting customers with farmer-owned cows through defined care services and regular animal updates.">
+  <meta name="description" content="Go Palak is a commercial cow-care platform offering defined care services for Go Palak-owned cows with regular animal updates.">
   <meta name="theme-color" content="#2f6b3f">
   <title>Go Palak — Choose a Cow. Book Her Care.</title>
 
@@ -1080,6 +1080,13 @@
     .payment-placeholder { padding:11px 12px; border-radius:10px; background:#f4f6f3; color:var(--muted); font-size:.82rem; line-height:1.45; }
     .payment-placeholder strong { color:var(--text); }
     .payment-note { margin:10px 0 0; padding:10px 11px; border-radius:10px; background:#fff8e8; color:#684f00; font-size:.76rem; line-height:1.5; }
+    .payment-breakup-modal { margin-top:14px; padding:13px; border:1px solid #e0e7e0; border-radius:12px; background:#f7faf7; }
+    .payment-breakup-title { font-weight:800; color:var(--green-900); margin-bottom:7px; font-size:.84rem; }
+    .payment-breakup-row { display:flex; justify-content:space-between; gap:12px; padding:4px 0; font-size:.8rem; color:var(--muted); }
+    .payment-breakup-row strong { color:var(--text); }
+    .payment-breakup-total { margin-top:4px; padding-top:8px; border-top:1px solid #dfe6df; font-weight:800; color:var(--green-900); }
+    .payment-breakup-total strong { color:var(--green-800); }
+    .payment-breakup-note { margin-top:8px; font-size:.68rem; line-height:1.45; color:#78827b; }
     .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
 
     .custom-amount-input { display:flex; align-items:center; border:1px solid var(--border); border-radius:10px; background:#fff; overflow:hidden; margin:8px 0 10px; }
@@ -1150,7 +1157,7 @@
           </h1>
 
           <p class="hero-copy">
-            Choose a real, farmer-owned cow and book a defined care service through Go Palak.
+            Choose a real Go Palak-owned cow and book a defined care service through Go Palak.
             Select a care plan, make the payment, and receive updates according to the selected plan.
           </p>
 
@@ -1219,7 +1226,7 @@
           <div class="section-kicker">Simple & transparent</div>
           <h2 class="section-title">How Go Palak works</h2>
           <p class="section-description">
-            A simple connection between customers and participating farmers,
+            A simple connection between customers and Go Palak-owned cows,
             with clear animal profiles and care updates.
           </p>
         </div>
@@ -1527,7 +1534,7 @@
             <h2 class="section-title">Transparent by design.</h2>
             <p class="section-description">
               Go Palak is designed so customers can understand the relationship
-              between their payment, the participating farmer and the platform.
+              between their payment, the Go Palak-owned animal and the platform.
             </p>
           </div>
 
@@ -1544,7 +1551,7 @@
               <div class="point-icon">₹</div>
               <div>
                 <h3>Clear allocation</h3>
-                <p>The farmer/care allocation and Go Palak platform fee are disclosed before payment.</p>
+                <p>The commercial allocation and Go Palak platform fee are disclosed before payment.</p>
               </div>
             </div>
 
@@ -1585,9 +1592,9 @@
           </div>
 
           <p style="margin-top:22px;color:#aebdb2;font-size:.75rem;">
-            Final pricing, applicable payment charges, service/platform fee and any
-            farmer/care allocation will be disclosed before payment. No fixed allocation
-            is represented here until the Phase-1 commercial terms are finalized.
+            Final pricing, applicable payment charges, service/platform fee and the applicable
+            commercial allocation will be disclosed before payment. The displayed 80/20 split
+            is illustrative for Phase 1 and may change when the final commercial terms are finalized.
           </p>
         </div>
 
@@ -1610,7 +1617,7 @@
 
           <article class="trust-card">
             <div class="icon">🐄</div>
-            <h3>Farmer remains the owner</h3>
+            <h3>Go Palak remains the owner</h3>
             <p>The animal remains with the participating farmer. The care service does not transfer ownership.</p>
           </article>
 
@@ -1656,7 +1663,7 @@
           <p>
             Go Palak is a privately operated commercial cow-care service platform and is
             not a registered NGO or charitable organisation. A customer purchases a
-            defined care service associated with a selected farmer-owned animal. The
+            defined care service associated with a selected Go Palak-owned animal. The
             service does not transfer ownership and does not provide any financial return,
             profit share or guaranteed milk entitlement. Any applicable Go Palak
             service/platform fee, payment charges and service terms will be disclosed
@@ -1699,6 +1706,14 @@
         <div class="upi-summary-row"><span>Amount</span><strong id="upiAmount">₹0</strong></div>
       </div>
 
+      <div class="payment-breakup-modal">
+        <div class="payment-breakup-title">Payment breakup</div>
+        <div class="payment-breakup-row"><span>Care &amp; Operations (80%)</span><strong id="upiCareAllocation">₹0.00</strong></div>
+        <div class="payment-breakup-row"><span>Go Palak Platform/Service (20%)</span><strong id="upiServiceAllocation">₹0.00</strong></div>
+        <div class="payment-breakup-row payment-breakup-total"><span>Total</span><strong id="upiBreakupTotal">₹0</strong></div>
+        <div class="payment-breakup-note">Displayed allocation is illustrative for Phase 1 and is not a statement of net profit. Applicable payment charges, taxes, refunds and final commercial terms are handled according to the published terms.</div>
+      </div>
+
       <div class="upi-qr-wrap">
         <img class="upi-qr" src="media/Scanner/QR.png" alt="Go Palak payment QR code">
   
@@ -1738,7 +1753,7 @@
           </a>
           <p class="footer-description">
             A commercial cow-care platform connecting customers
-            with farmer-owned animals through defined care services and updates.
+            with Go Palak-owned animals through defined care services and updates.
           </p>
         </div>
 
@@ -1768,219 +1783,7 @@
     </div>
   </footer>
 
-  <script>
-    // Mobile navigation
-    const menuBtn = document.getElementById("menuBtn");
-    const navLinks = document.getElementById("navLinks");
-
-    menuBtn.addEventListener("click", () => {
-      const isOpen = navLinks.classList.toggle("open");
-      menuBtn.setAttribute("aria-expanded", isOpen);
-    });
-
-    document.querySelectorAll(".nav-links a").forEach(link => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-        menuBtn.setAttribute("aria-expanded", "false");
-      });
-    });
-
-    const heroSlides = document.querySelectorAll(".hero-slide");
-    const carouselDots = document.querySelectorAll(".carousel-dot");
-    let activeAnimal = 0;
-
-    const showAnimal = (index) => {
-      activeAnimal = (index + heroSlides.length) % heroSlides.length;
-      heroSlides.forEach((slide, slideIndex) => {
-        slide.classList.toggle("active", slideIndex === activeAnimal);
-      });
-      carouselDots.forEach((dot, dotIndex) => {
-        dot.classList.toggle("active", dotIndex === activeAnimal);
-      });
-    };
-
-    document.getElementById("previousAnimal").addEventListener("click", () => showAnimal(activeAnimal - 1));
-    document.getElementById("nextAnimal").addEventListener("click", () => showAnimal(activeAnimal + 1));
-    carouselDots.forEach((dot, dotIndex) => {
-      dot.addEventListener("click", () => showAnimal(dotIndex));
-    });
-    setInterval(() => showAnimal(activeAnimal + 1), 4500);
-
-    // ------------------------------------------------------------
-    // UPI PAYMENT FLOW (NO PAYMENT GATEWAY)
-    // ------------------------------------------------------------
-    const UPI_ID = "businessgurulearning@ybl";
-    const UPI_PAYEE_NAME = "Nitin Kumar Gour";
-
-    const upiModal = document.getElementById("upiModal");
-    const upiClose = document.getElementById("upiClose");
-    const upiIntentBtn = document.getElementById("upiIntentBtn");
-    const showUtrBtn = document.getElementById("showUtrBtn");
-    const utrSection = document.getElementById("utrSection");
-    const utrForm = document.getElementById("utrForm");
-    const utrSuccess = document.getElementById("utrSuccess");
-    let currentPayment = { animalName: "", animalId: "", planName: "", amount: 0 };
-
-    function openPayment(planName, amount) {
-      if (!selectedAnimalName.textContent || selectedAnimalName.textContent === "—") {
-        alert("Please choose a cow first.");
-        document.getElementById("animals").scrollIntoView({ behavior: "smooth" });
-        return;
-      }
-
-      currentPayment = {
-        animalName: selectedAnimalName.textContent,
-        animalId: selectedAnimalId.textContent,
-        planName,
-        amount: Number(amount)
-      };
-
-      document.getElementById("upiAnimalName").textContent = currentPayment.animalName;
-      document.getElementById("upiAnimalId").textContent = currentPayment.animalId;
-      document.getElementById("upiPlanName").textContent = currentPayment.planName;
-      document.getElementById("upiAmount").textContent = formatINR(currentPayment.amount);
-
-      const note = `Go Palak - ${currentPayment.planName} - ${currentPayment.animalName} (${currentPayment.animalId})`;
-      const params = new URLSearchParams({
-        pa: UPI_ID,
-        pn: UPI_PAYEE_NAME,
-        am: currentPayment.amount.toFixed(2),
-        cu: "INR",
-        tn: note
-      });
-      upiIntentBtn.href = `upi://pay?${params.toString()}`;
-
-      utrSection.style.display = "none";
-      utrSuccess.style.display = "none";
-      utrForm.reset();
-      upiModal.classList.add("open");
-      document.body.style.overflow = "hidden";
-    }
-
-    document.querySelectorAll(".upi-pay-btn").forEach((button) => {
-      button.addEventListener("click", () => {
-        if (button.dataset.plan === "custom") {
-          const input = document.getElementById("customAmount");
-          const amount = Number(input.value);
-          if (!Number.isFinite(amount) || amount < 1 || !Number.isInteger(amount)) {
-            alert("Please enter a valid whole amount of ₹1 or more.");
-            input.focus();
-            return;
-          }
-          openPayment(button.dataset.planName, amount);
-          return;
-        }
-        openPayment(button.dataset.planName, button.dataset.amount);
-      });
-    });
-
-    function closePayment() {
-      upiModal.classList.remove("open");
-      document.body.style.overflow = "";
-    }
-
-    upiClose.addEventListener("click", closePayment);
-    upiModal.addEventListener("click", (event) => {
-      if (event.target === upiModal) closePayment();
-    });
-
-    showUtrBtn.addEventListener("click", () => {
-      utrSection.style.display = "block";
-      utrSection.scrollIntoView({ behavior: "smooth", block: "nearest" });
-    });
-
-    utrForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-      const name = document.getElementById("customerName").value.trim();
-      const mobile = document.getElementById("customerMobile").value.trim();
-      const utr = document.getElementById("utrNumber").value.trim();
-      if (!name || !mobile || !utr) return;
-
-      const message = [
-        "Go Palak Booking Request",
-        `Customer: ${name}`,
-        `Mobile: ${mobile}`,
-        `Animal: ${currentPayment.animalName}`,
-        `Go Palak ID: ${currentPayment.animalId}`,
-        `Care Plan: ${currentPayment.planName}`,
-        `Amount: ${formatINR(currentPayment.amount)}`,
-        `UPI ID: ${UPI_ID}`,
-        `UTR / Transaction ID: ${utr}`,
-        "Status: Payment submitted for manual verification"
-      ].join("\n");
-
-      const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
-      window.open(whatsappUrl, "_blank", "noopener,noreferrer");
-      utrSuccess.style.display = "block";
-      utrSuccess.innerHTML = "<strong>Booking details prepared.</strong><br>WhatsApp has been opened so you can send the payment details to Go Palak. The booking is confirmed only after payment is manually verified.";
-    });
-
-    // Animal selection
-    const selectedAnimalBanner = document.getElementById("selectedAnimalBanner");
-    const selectedAnimalName = document.getElementById("selectedAnimalName");
-    const selectedAnimalId = document.getElementById("selectedAnimalId");
-    const selectedAnimalLabels = document.querySelectorAll("[data-selected-animal]");
-
-    document.querySelectorAll(".select-animal").forEach((button) => {
-      button.addEventListener("click", () => {
-        selectedAnimalName.textContent = button.dataset.animalName;
-        selectedAnimalId.textContent = button.dataset.animalId;
-        selectedAnimalBanner.style.display = "block";
-        selectedAnimalLabels.forEach((label) => {
-          label.textContent = `Selected: ${button.dataset.animalName} · ${button.dataset.animalId}`;
-        });
-      });
-    });
-
-
-    // ------------------------------------------------------------
-    // MANUAL CARE PROGRESS (PHASE 1)
-    // Update only the "collected" value after manually verifying a payment.
-    // Example: ₹99 + ₹1 = ₹100 collected.
-    // ------------------------------------------------------------
-    const COW_PROGRESS = {
-      GP001: { target: 2500, collected: 50 }, // Gauri
-      GP002: { target: 2500, collected: 0 }, // Kamdhenu
-      GP003: { target: 2500, collected: 0 }  // Radha
-    };
-
-    const formatINR = (amount) => {
-      const value = Math.round(Number(amount) || 0);
-      return "₹" + value.toLocaleString("en-IN");
-    };
-
-    const updateCareProgress = () => {
-      document.querySelectorAll("[data-progress-cow]").forEach((card) => {
-        const cowId = card.dataset.progressCow;
-        const data = COW_PROGRESS[cowId];
-        if (!data || data.target <= 0) return;
-
-        const collected = Math.max(0, Number(data.collected) || 0);
-        const target = Number(data.target);
-        const percent = Math.min((collected / target) * 100, 100);
-
-        const fill = card.querySelector("[data-progress-fill]");
-        const percentText = card.querySelector("[data-progress-percent]");
-        const collectedText = card.querySelector("[data-progress-collected]");
-        const targetText = card.querySelector("[data-progress-target]");
-
-        fill.style.width = `${percent}%`;
-        percentText.textContent = `${percent % 1 === 0 ? percent.toFixed(0) : percent.toFixed(2)}%`;
-        collectedText.textContent = formatINR(collected);
-        targetText.textContent = formatINR(target);
-
-        if (collected >= target) {
-          percentText.textContent = "100%";
-          fill.style.width = "100%";
-        }
-      });
-    };
-
-    updateCareProgress();
-
-    // Current year
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  <script type="module" src="js/main.js"></script>
 
 </body>
 </html>
