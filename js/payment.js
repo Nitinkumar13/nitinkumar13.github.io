@@ -12,6 +12,22 @@ export function initializePayment() {
   const utrSection = document.getElementById("utrSection");
   const utrForm = document.getElementById("utrForm");
   const utrSuccess = document.getElementById("utrSuccess");
+  const paymentIntro = modal.querySelector(".upi-dialog > .payment-help");
+  const paymentSafety = modal.querySelector(".payment-note");
+  const paymentSummary = modal.querySelector(".upi-summary");
+  const paymentBreakup = modal.querySelector(".payment-breakup-modal");
+  const paymentQr = modal.querySelector(".upi-qr-wrap");
+  const paymentActions = modal.querySelector(".upi-actions");
+
+  const setSuccessView = (isSuccess) => {
+    [paymentIntro, paymentSafety, paymentSummary, paymentBreakup, paymentQr, paymentActions]
+      .forEach((element) => {
+        element.style.display = isSuccess ? "none" : "";
+      });
+    utrForm.style.display = isSuccess ? "none" : "grid";
+    utrSection.style.display = isSuccess ? "block" : "none";
+    utrSuccess.style.display = isSuccess ? "block" : "none";
+  };
 
   const openPayment = (planName, amount) => {
     if (!appState.selectedAnimal) {
@@ -46,8 +62,7 @@ export function initializePayment() {
     });
     intentButton.href = `upi://pay?${params.toString()}`;
 
-    utrSection.style.display = "none";
-    utrSuccess.style.display = "none";
+    setSuccessView(false);
     utrForm.reset();
     modal.classList.add("open");
     document.body.style.overflow = "hidden";
@@ -87,29 +102,30 @@ export function initializePayment() {
 
   utrForm.addEventListener("submit", (event) => {
     event.preventDefault();
+
     const name = document.getElementById("customerName").value.trim();
     const mobile = document.getElementById("customerMobile").value.trim();
     const utr = document.getElementById("utrNumber").value.trim();
     if (!name || !mobile || !utr) return;
 
     const payment = appState.currentPayment;
-    const message = [
-      "Go Palak Booking Request",
-      `Customer: ${name}`,
-      `Mobile: ${mobile}`,
-      `Animal: ${payment.animalName}`,
-      `Go Palak ID: ${payment.animalId}`,
-      `Care Plan: ${payment.planName}`,
-      `Amount: ${formatINR(payment.amount)}`,
-      `Care & Operations (80%): ${formatAllocation(payment.amount, 0.8)}`,
-      `Go Palak Platform/Service (20%): ${formatAllocation(payment.amount, 0.2)}`,
-      `UPI ID: ${UPI_ID}`,
-      `UTR / Transaction ID: ${utr}`,
-      "Status: Payment submitted for manual verification"
-    ].join("\n");
 
-    window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
-    utrSuccess.style.display = "block";
-    utrSuccess.innerHTML = "<strong>Booking details prepared.</strong><br>WhatsApp has been opened so you can send the payment details to Go Palak. The booking is confirmed only after payment is manually verified.";
+    setSuccessView(true);
+    utrSuccess.innerHTML = `
+      <div class="payment-success-icon" aria-hidden="true">✓</div>
+      <div class="payment-success-title">Payment details submitted</div>
+      <div class="payment-success-text">
+        Thank you, ${name.replace(/[<>]/g, "")}! Your payment details have been submitted successfully.
+      </div>
+      <div class="payment-success-summary">
+        <div><span>Animal</span><strong>${payment.animalName} (${payment.animalId})</strong></div>
+        <div><span>Care plan</span><strong>${payment.planName}</strong></div>
+        <div><span>Amount</span><strong>${formatINR(payment.amount)}</strong></div>
+        <div><span>UTR / Transaction ID</span><strong>${utr.replace(/[<>]/g, "")}</strong></div>
+      </div>
+      <div class="payment-success-note">
+        Your booking will be confirmed after Go Palak manually verifies the payment. Please keep your UPI transaction receipt until confirmation.
+      </div>
+    `;
   });
 }
