@@ -1,6 +1,26 @@
 import { appState } from "./state.js";
 import { formatAllocation, formatINR } from "./formatting.js";
 
+/*
+ * Go Palak — Manual UPI Payment Flow
+ *
+ * Flow:
+ * Website
+ *   ↓
+ * UPI App
+ *   ↓
+ * Customer completes payment
+ *   ↓
+ * Customer returns to website
+ *   ↓
+ * Customer enters UTR / Transaction ID
+ *   ↓
+ * Go Palak manually verifies payment
+ *
+ * IMPORTANT:
+ * This code does NOT automatically verify a payment.
+ */
+
 const UPI_ID = "paytm.s3h90gx@pty";
 const UPI_PAYEE_NAME = "Nitin Kumar Gour";
 
@@ -13,13 +33,21 @@ export function initializePayment() {
   const utrForm = document.getElementById("utrForm");
   const utrSuccess = document.getElementById("utrSuccess");
 
-  const paymentIntro = modal.querySelector(".upi-dialog > .payment-help");
+  const paymentIntro = modal.querySelector(
+    ".upi-dialog > .payment-help"
+  );
+
   const paymentSafety = modal.querySelector(".payment-note");
   const paymentSummary = modal.querySelector(".upi-summary");
-  const paymentBreakup = modal.querySelector(".payment-breakup-modal");
+  const paymentBreakup = modal.querySelector(
+    ".payment-breakup-modal"
+  );
   const paymentQr = modal.querySelector(".upi-qr-wrap");
   const paymentActions = modal.querySelector(".upi-actions");
 
+  /*
+   * Show/hide the payment and UTR sections.
+   */
   const setSuccessView = (isSuccess) => {
     [
       paymentIntro,
@@ -29,7 +57,9 @@ export function initializePayment() {
       paymentQr,
       paymentActions
     ].forEach((element) => {
-      element.style.display = isSuccess ? "none" : "";
+      if (element) {
+        element.style.display = isSuccess ? "none" : "";
+      }
     });
 
     utrForm.style.display = isSuccess ? "none" : "grid";
@@ -37,12 +67,46 @@ export function initializePayment() {
     utrSuccess.style.display = isSuccess ? "block" : "none";
   };
 
+  /*
+   * Build the UPI payment URL.
+   *
+   * The customer is sent to their installed UPI app.
+   * Amount is already included, so the customer does not
+   * need to type the amount manually.
+   */
+  const buildUpiUrl = (
+    amount,
+    animalName,
+    animalId,
+    planName
+  ) => {
+    const note =
+      `Go Palak - ${planName} - ${animalName} (${animalId})`;
+
+    const params = new URLSearchParams({
+      pa: UPI_ID,
+      pn: UPI_PAYEE_NAME,
+      am: Number(amount).toFixed(2),
+      cu: "INR",
+      tn: note
+    });
+
+    return `upi://pay?${params.toString()}`;
+  };
+
+  /*
+   * Open payment modal.
+   */
   const openPayment = (planName, amount) => {
     if (!appState.selectedAnimal) {
       alert("Please choose a cow first.");
+
       document
         .getElementById("animals")
-        .scrollIntoView({ behavior: "smooth" });
+        .scrollIntoView({
+          behavior: "smooth"
+        });
+
       return;
     }
 
@@ -55,6 +119,9 @@ export function initializePayment() {
 
     const payment = appState.currentPayment;
 
+    /*
+     * Update payment summary.
+     */
     document.getElementById("upiAnimalName").textContent =
       payment.animalName;
 
@@ -67,6 +134,9 @@ export function initializePayment() {
     document.getElementById("upiAmount").textContent =
       formatINR(payment.amount);
 
+    /*
+     * Payment allocation.
+     */
     document.getElementById("upiCareAllocation").textContent =
       formatAllocation(payment.amount, 0.8);
 
@@ -77,74 +147,133 @@ export function initializePayment() {
       formatINR(payment.amount);
 
     /*
-     * UPI Intent
-     *
-     * Amount is intentionally NOT sent here.
-     * The UPI app will open with the Go Palak
-     * payee details and transaction remark.
-     *
-     * Customer will enter/confirm the amount manually
-     * inside the UPI app.
+     * Create UPI Intent URL.
      */
-    const note =
-      `Go Palak - ${payment.planName} - ${payment.animalName} (${payment.animalId})`;
+    const upiUrl = buildUpiUrl(
+      payment.amount,
+      payment.animalName,
+      payment.animalId,
+      payment.planName
+    );
 
-    const params = new URLSearchParams({
-          pa: UPI_ID,
-          pn: UPI_PAYEE_NAME,
-          am: payment.amount.toFixed(2),
-          cu: "INR"
-        });
+    /*
+     * Set the UPI link.
+     */
+    intentButton.href = upiUrl;
 
-    intentButton.href = `upi://pay?${params.toString()}`;
+    /*
+     * Mark payment link as ready.
+     */
+    intentButton.dataset.paymentReady = "true";
 
+    /*
+     * Reset UTR/payment state.
+     */
     setSuccessView(false);
     utrForm.reset();
 
+    /*
+     * Open modal.
+     */
     modal.classList.add("open");
     document.body.style.overflow = "hidden";
   };
 
-  document.querySelectorAll(".upi-pay-btn").forEach((button) => {
-    button.addEventListener("click", () => {
-      if (button.dataset.plan === "custom") {
-        const input = document.getElementById("customAmount");
-        const amount = Number(input.value);
+  /*
+   * Pay Now buttons.
+   */
+  document
+    .querySelectorAll(".upi-pay-btn")
+    .forEach((button) => {
+      button.addEventListener("click", () => {
 
-        if (
-          !Number.isFinite(amount) ||
-          amount < 1 ||
-          !Number.isInteger(amount)
-        ) {
-          alert("Please enter a valid whole amount of ₹1 or more.");
-          input.focus();
+        /*
+         * Custom amount.
+         */
+        if (button.dataset.plan === "custom") {
+          const input =
+            document.getElementById("customAmount");
+
+          const amount = Number(input.value);
+
+          if (
+            !Number.isFinite(amount) ||
+            amount < 1 ||
+            !Number.isInteger(amount)
+          ) {
+            alert(
+              "Please enter a valid whole amount of ₹1 or more."
+            );
+
+            input.focus();
+            return;
+          }
+
+          openPayment(
+            button.dataset.planName,
+            amount
+          );
+
           return;
         }
 
-        openPayment(button.dataset.planName, amount);
-        return;
-      }
-
-      openPayment(
-        button.dataset.planName,
-        button.dataset.amount
-      );
+        /*
+         * Normal care-plan payment.
+         */
+        openPayment(
+          button.dataset.planName,
+          button.dataset.amount
+        );
+      });
     });
+
+  /*
+   * When customer clicks "Open UPI App to Pay",
+   * we do NOT mark the payment as successful.
+   *
+   * Opening the UPI app is NOT proof that payment succeeded.
+   */
+  intentButton.addEventListener("click", () => {
+    if (!intentButton.dataset.paymentReady) {
+      return;
+    }
+
+    /*
+     * Nothing else is done here.
+     *
+     * Customer completes payment in their UPI app
+     * and then returns to the website.
+     */
   });
 
+  /*
+   * Close payment modal.
+   */
   const closePayment = () => {
     modal.classList.remove("open");
     document.body.style.overflow = "";
   };
 
-  closeButton.addEventListener("click", closePayment);
+  closeButton.addEventListener(
+    "click",
+    closePayment
+  );
 
+  /*
+   * Close when clicking outside dialog.
+   */
   modal.addEventListener("click", (event) => {
     if (event.target === modal) {
       closePayment();
     }
   });
 
+  /*
+   * Customer says:
+   * "I have completed the payment."
+   *
+   * Show UTR form.
+   */
   showUtrButton.addEventListener("click", () => {
     utrSection.style.display = "block";
 
@@ -154,79 +283,139 @@ export function initializePayment() {
     });
   });
 
-  utrForm.addEventListener("submit", (event) => {
-    event.preventDefault();
+  /*
+   * Submit UTR.
+   */
+  utrForm.addEventListener(
+    "submit",
+    (event) => {
+      event.preventDefault();
 
-    const name = document
-      .getElementById("customerName")
-      .value
-      .trim();
+      const name = document
+        .getElementById("customerName")
+        .value
+        .trim();
 
-    const mobile = document
-      .getElementById("customerMobile")
-      .value
-      .trim();
+      const mobile = document
+        .getElementById("customerMobile")
+        .value
+        .trim();
 
-    const utr = document
-      .getElementById("utrNumber")
-      .value
-      .trim();
+      const utr = document
+        .getElementById("utrNumber")
+        .value
+        .trim();
 
-    if (!name || !mobile || !utr) {
-      return;
+      /*
+       * Required fields.
+       */
+      if (!name || !mobile || !utr) {
+        alert(
+          "Please enter your name, mobile number and UTR / Transaction ID."
+        );
+
+        return;
+      }
+
+      const payment =
+        appState.currentPayment;
+
+      /*
+       * IMPORTANT:
+       *
+       * This does NOT verify the payment.
+       *
+       * It only records that the customer has submitted
+       * payment details for manual verification.
+       */
+      setSuccessView(true);
+
+      /*
+       * Basic HTML escaping for user-entered values.
+       */
+      const safeName =
+        name.replace(/[<>]/g, "");
+
+      const safeMobile =
+        mobile.replace(/[<>]/g, "");
+
+      const safeUtr =
+        utr.replace(/[<>]/g, "");
+
+      /*
+       * Show submission confirmation.
+       */
+      utrSuccess.innerHTML = `
+        <div
+          class="payment-success-icon"
+          aria-hidden="true"
+        >
+          ✓
+        </div>
+
+        <div class="payment-success-title">
+          Payment Details Submitted
+        </div>
+
+        <div class="payment-success-text">
+          Thank you, ${safeName}!
+          Your payment details have been submitted
+          for manual verification.
+        </div>
+
+        <div class="payment-success-summary">
+
+          <div>
+            <span>Animal</span>
+
+            <strong>
+              ${payment.animalName}
+              (${payment.animalId})
+            </strong>
+          </div>
+
+          <div>
+            <span>Care plan</span>
+
+            <strong>
+              ${payment.planName}
+            </strong>
+          </div>
+
+          <div>
+            <span>Amount</span>
+
+            <strong>
+              ${formatINR(payment.amount)}
+            </strong>
+          </div>
+
+          <div>
+            <span>Mobile</span>
+
+            <strong>
+              ${safeMobile}
+            </strong>
+          </div>
+
+          <div>
+            <span>UTR / Transaction ID</span>
+
+            <strong>
+              ${safeUtr}
+            </strong>
+          </div>
+
+        </div>
+
+        <div class="payment-success-note">
+          Your payment is NOT considered verified yet.
+          Go Palak will manually verify the payment
+          before confirming the booking.
+          Please keep your UPI transaction receipt
+          until confirmation.
+        </div>
+      `;
     }
-
-    const payment = appState.currentPayment;
-
-    setSuccessView(true);
-
-    utrSuccess.innerHTML = `
-      <div class="payment-success-icon" aria-hidden="true">✓</div>
-
-      <div class="payment-success-title">
-        Payment details submitted
-      </div>
-
-      <div class="payment-success-text">
-        Thank you, ${name.replace(/[<>]/g, "")}! 
-        Your payment details have been submitted successfully.
-      </div>
-
-      <div class="payment-success-summary">
-        <div>
-          <span>Animal</span>
-          <strong>
-            ${payment.animalName} (${payment.animalId})
-          </strong>
-        </div>
-
-        <div>
-          <span>Care plan</span>
-          <strong>
-            ${payment.planName}
-          </strong>
-        </div>
-
-        <div>
-          <span>Amount</span>
-          <strong>
-            ${formatINR(payment.amount)}
-          </strong>
-        </div>
-
-        <div>
-          <span>UTR / Transaction ID</span>
-          <strong>
-            ${utr.replace(/[<>]/g, "")}
-          </strong>
-        </div>
-      </div>
-
-      <div class="payment-success-note">
-        Your booking will be confirmed after Go Palak manually
-        verifies the payment. Please keep your UPI transaction
-        receipt until confirmation.
-      </div>
-    `;
-  });
+  );
 }

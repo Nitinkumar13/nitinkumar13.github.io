@@ -1296,7 +1296,7 @@
               <span class="payment-label">UPI Payment</span>
               <div class="selected-animal" data-selected-animal="meal">Choose a cow below before payment.</div>
               <button type="button" class="btn btn-primary upi-pay-btn" data-plan="meal" data-amount="99" data-plan-name="One Meal">Pay Now · ₹99</button>
-              <p class="payment-help">Tap Pay Now to open your UPI app. Enter the displayed amount, complete the payment, then enter your UTR/Transaction ID for manual verification.</p>
+              <p class="payment-help">Pay through your UPI app, then return here and submit the UTR/Transaction ID for manual verification.</p>
             </div>
           </article>
 
@@ -1310,7 +1310,7 @@
               <span class="payment-label">UPI Payment</span>
               <div class="selected-animal" data-selected-animal="day">Choose a cow below before payment.</div>
               <button type="button" class="btn btn-primary upi-pay-btn" data-plan="day" data-amount="199" data-plan-name="One-Day Care">Pay Now · ₹199</button>
-              <p class="payment-help">Tap Pay Now to open your UPI app. Enter the displayed amount, complete the payment, then enter your UTR/Transaction ID for manual verification.</p>
+              <p class="payment-help">Pay through your UPI app, then return here and submit the UTR/Transaction ID for manual verification.</p>
             </div>
           </article>
 
@@ -1324,7 +1324,7 @@
               <span class="payment-label">UPI Payment</span>
               <div class="selected-animal" data-selected-animal="week">Choose a cow below before payment.</div>
               <button type="button" class="btn btn-primary upi-pay-btn" data-plan="week" data-amount="499" data-plan-name="Weekly Care">Pay Now · ₹499</button>
-              <p class="payment-help">Tap Pay Now to open your UPI app. Enter the displayed amount, complete the payment, then enter your UTR/Transaction ID for manual verification.</p>
+              <p class="payment-help">Pay through your UPI app, then return here and submit the UTR/Transaction ID for manual verification.</p>
             </div>
           </article>
 
@@ -1338,7 +1338,7 @@
               <span class="payment-label">UPI Payment</span>
               <div class="selected-animal" data-selected-animal="month">Choose a cow below before payment.</div>
               <button type="button" class="btn btn-primary upi-pay-btn" data-plan="month" data-amount="999" data-plan-name="Monthly Cow Care">Pay Now · ₹999</button>
-              <p class="payment-help">Tap Pay Now to open your UPI app. Enter the displayed amount, complete the payment, then enter your UTR/Transaction ID for manual verification.</p>
+              <p class="payment-help">Pay through your UPI app, then return here and submit the UTR/Transaction ID for manual verification.</p>
             </div>
           </article>
 
@@ -1703,7 +1703,7 @@
     <div class="upi-dialog">
       <button type="button" class="upi-close" id="upiClose" aria-label="Close payment window">×</button>
       <h3 id="upiModalTitle">Complete your UPI payment</h3>
-      <p class="payment-help" style="margin:0;">You are paying for a defined Go Palak care service. This payment does not transfer ownership of the animal and is not an investment.</p>
+      <p class="payment-help" style="margin:0;">Open your UPI app, complete the payment, return to this page, and submit your UTR/Transaction ID. Go Palak will manually verify the payment before confirming the booking.</p>
 
       <div class="payment-note"><strong>Payment safety:</strong> Go Palak will never ask for your UPI PIN, OTP or banking password on this website.</div>
 
@@ -1730,13 +1730,13 @@
       </div>
 
       <div class="upi-actions">
-        <a class="btn btn-primary upi-action-btn" id="upiIntentBtn" href="#">Open UPI App to Pay</a>
-        <button type="button" class="btn upi-action-btn upi-secondary" id="showUtrBtn">I have completed the payment</button>
+        <a class="btn btn-primary upi-action-btn" id="upiIntentBtn" href="#">1. Open UPI App to Pay</a>
+        <button type="button" class="btn upi-action-btn upi-secondary" id="showUtrBtn">2. I Have Completed the Payment</button>
       </div>
 
       <div class="utr-section" id="utrSection" style="display:none;">
         <h4>Submit payment details</h4>
-        <p>Enter the UTR/Transaction ID shown in your UPI app. Go Palak will manually verify the payment before confirming the booking.</p>
+        <p>Enter the UTR/Transaction ID shown in your UPI app. Submission does not mean payment is verified. Go Palak will check the transaction manually before confirming the booking.</p>
         <form id="utrForm" class="utr-grid">
           <input id="customerName" type="text" placeholder="Your name *" required>
           <input id="customerMobile" type="tel" inputmode="numeric" placeholder="Mobile number *" required>
