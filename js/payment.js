@@ -87,8 +87,7 @@ export function initializePayment() {
       pa: UPI_ID,
       pn: UPI_PAYEE_NAME,
       am: Number(amount).toFixed(2),
-      cu: "INR",
-      tn: note
+      cu: "INR"
     });
 
     return `upi://pay?${params.toString()}`;
