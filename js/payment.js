@@ -1,7 +1,7 @@
 import { appState } from "./state.js";
 import { formatAllocation, formatINR } from "./formatting.js";
 
-const UPI_ID = "businessgurulearning@ybl";
+const UPI_ID = "paytm.s3h90gx@pty";
 const UPI_PAYEE_NAME = "Nitin Kumar Gour";
 
 export function initializePayment() {
