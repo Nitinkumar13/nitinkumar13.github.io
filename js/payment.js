@@ -90,10 +90,11 @@ export function initializePayment() {
       `Go Palak - ${payment.planName} - ${payment.animalName} (${payment.animalId})`;
 
     const params = new URLSearchParams({
-      pa: UPI_ID,
-      pn: UPI_PAYEE_NAME,
-      tn: note
-    });
+          pa: UPI_ID,
+          pn: UPI_PAYEE_NAME,
+          am: payment.amount.toFixed(2),
+          cu: "INR"
+        });
 
     intentButton.href = `upi://pay?${params.toString()}`;
 
