@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Go Palak is a commercial cow-care platform offering defined care services for Go Palak-owned cows with regular animal updates.">
+  <meta name="description"
+    content="Go Palak is a commercial cow-care platform offering defined care services for Go Palak-owned cows with regular animal updates.">
   <meta name="theme-color" content="#2f6b3f">
   <title>Go Palak — Choose a Cow. Book Her Care.</title>
 
@@ -252,7 +254,7 @@
         linear-gradient(180deg, rgba(28, 56, 36, 0.02), rgba(28, 56, 36, 0.2)),
         linear-gradient(135deg, #dcebd9, #f1e8ce);
       box-shadow: var(--shadow);
-      border: 1px solid rgba(255,255,255,0.7);
+      border: 1px solid rgba(255, 255, 255, 0.7);
       padding: 0;
     }
 
@@ -299,8 +301,8 @@
 
     .carousel-arrow,
     .carousel-dot {
-      border: 1px solid rgba(255,255,255,0.55);
-      background: rgba(23,59,37,0.42);
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      background: rgba(23, 59, 37, 0.42);
       color: white;
       cursor: pointer;
     }
@@ -340,8 +342,8 @@
       flex: 1;
       padding: 14px 16px;
       border-radius: 0;
-      background: rgba(255,255,255,0.9);
-      border-top: 1px solid rgba(23,59,37,0.12);
+      background: rgba(255, 255, 255, 0.9);
+      border-top: 1px solid rgba(23, 59, 37, 0.12);
     }
 
     .mini-label {
@@ -371,7 +373,7 @@
       margin-top: 8px;
       padding: 4px 8px;
       border-radius: 999px;
-      background: rgba(237,247,239,0.8);
+      background: rgba(237, 247, 239, 0.8);
       color: var(--green-800);
       font-size: 0.76rem;
       font-weight: 800;
@@ -648,8 +650,8 @@
     }
 
     .money-card {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.13);
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.13);
       border-radius: 24px;
       padding: 28px;
     }
@@ -660,7 +662,7 @@
       justify-content: space-between;
       gap: 20px;
       padding-bottom: 20px;
-      border-bottom: 1px solid rgba(255,255,255,0.12);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     }
 
     .money-head span {
@@ -697,7 +699,7 @@
       grid-column: 1 / -1;
       height: 8px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.1);
+      background: rgba(255, 255, 255, 0.1);
       overflow: hidden;
     }
 
@@ -723,7 +725,7 @@
       display: grid;
       place-items: center;
       border-radius: 10px;
-      background: rgba(255,255,255,0.1);
+      background: rgba(255, 255, 255, 0.1);
     }
 
     .point h3 {
@@ -798,7 +800,7 @@
     .cta {
       padding: 90px 0;
       background:
-        radial-gradient(circle at 15% 20%, rgba(217,164,65,0.14), transparent 28%),
+        radial-gradient(circle at 15% 20%, rgba(217, 164, 65, 0.14), transparent 28%),
         var(--green-800);
       color: white;
       text-align: center;
@@ -865,7 +867,7 @@
     }
 
     .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.1);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
       padding-top: 20px;
       display: flex;
       justify-content: space-between;
@@ -876,6 +878,7 @@
 
     /* Mobile */
     @media (max-width: 980px) {
+
       .hero-grid,
       .transparency-grid {
         grid-template-columns: 1fr;
@@ -1060,67 +1063,517 @@
       .product-card {
         padding: 20px;
       }
+
+    }
+
+    .qr-payment-title {
+      font-size: 1.08rem;
+      font-weight: 800;
+      color: var(--green-900);
+      margin-bottom: 5px;
+    }
+
+    .qr-payment-subtitle {
+      font-size: .82rem;
+      line-height: 1.5;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .qr-payment-recipient {
+      margin-top: 10px;
+      font-size: .88rem;
+      color: var(--text);
+    }
+
+    .qr-payment-instruction {
+      margin-top: 5px;
+      font-size: .9rem;
+      color: var(--text);
+    }
+
+    .qr-payment-instruction span {
+      font-weight: 800;
+      color: var(--green-800);
+    }
+
+    .qr-instructions {
+      margin-top: 15px;
+      padding: 12px;
+      border-radius: 12px;
+      background: #f7faf7;
+      border: 1px solid #e1e8e1;
+      text-align: left;
+    }
+
+    .qr-instruction {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .qr-instruction + .qr-instruction {
+      margin-top: 12px;
+    }
+
+    .qr-step {
+      flex: 0 0 26px;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--green-800);
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .78rem;
+      font-weight: 800;
+    }
+
+    .qr-instruction strong {
+      display: block;
+      font-size: .84rem;
+      color: var(--text);
+    }
+
+    .qr-instruction p {
+      margin: 2px 0 0;
+      font-size: .76rem;
+      line-height: 1.45;
+      color: var(--muted);
+    }
+
+    .qr-upload-help {
+      margin-top: 13px;
+      padding: 11px 12px;
+      border-radius: 11px;
+      background: #fff9e8;
+      border: 1px solid #f0dfad;
+      text-align: left;
+      font-size: .8rem;
+      line-height: 1.5;
+    }
+
+    .qr-upload-help strong {
+      color: var(--text);
+    }
+
+    .qr-upload-help p {
+      margin: 4px 0 0;
+      color: var(--muted);
+    }
+
+    #downloadQrBtn {
+      margin-top: 12px;
+      width: 100%;
     }
 
     /* UPI payment flow */
-    .payment-area { margin-top: 18px; padding: 14px; border: 1px dashed var(--border); border-radius: 14px; background: #fcfdfb; }
-    .payment-label { display:block; margin-bottom:8px; font-size:.76rem; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; }
-    .selected-animal { margin:0 0 10px; padding:9px 11px; border-radius:10px; background:var(--green-100); color:var(--green-900); font-size:.88rem; font-weight:700; }
-    .payment-help { margin-top:8px; font-size:.72rem; color:var(--muted); line-height:1.5; }
+    .payment-area {
+      margin-top: 18px;
+      padding: 14px;
+      border: 1px dashed var(--border);
+      border-radius: 14px;
+      background: #fcfdfb;
+    }
+
+    .payment-label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: .76rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .selected-animal {
+      margin: 0 0 10px;
+      padding: 9px 11px;
+      border-radius: 10px;
+      background: var(--green-100);
+      color: var(--green-900);
+      font-size: .88rem;
+      font-weight: 700;
+    }
+
+    .payment-help {
+      margin-top: 8px;
+      font-size: .72rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
     /* Care progress */
-    .care-progress { margin-top:18px; padding:13px 14px; border-radius:13px; background:#f7faf7; border:1px solid var(--border); }
-    .care-progress-head { display:flex; align-items:center; justify-content:space-between; gap:12px; font-size:.78rem; color:var(--muted); }
-    .care-progress-head strong { color:var(--green-900); font-size:.82rem; }
-    .care-progress-track { height:10px; margin-top:9px; overflow:hidden; border-radius:999px; background:#e5ebe5; }
-    .care-progress-fill { width:0%; height:100%; border-radius:inherit; background:var(--green-700); transition:width .35s ease; }
-    .care-progress-bottom { display:flex; justify-content:space-between; gap:10px; margin-top:7px; font-size:.72rem; color:var(--muted); }
-    .care-progress-bottom strong { color:var(--green-800); }
+    .care-progress {
+      margin-top: 18px;
+      padding: 13px 14px;
+      border-radius: 13px;
+      background: #f7faf7;
+      border: 1px solid var(--border);
+    }
 
-    .upi-pay-btn { width:100%; border:0; cursor:pointer; }
-    .payment-placeholder { padding:11px 12px; border-radius:10px; background:#f4f6f3; color:var(--muted); font-size:.82rem; line-height:1.45; }
-    .payment-placeholder strong { color:var(--text); }
-    .payment-note { margin:10px 0 0; padding:10px 11px; border-radius:10px; background:#fff8e8; color:#684f00; font-size:.76rem; line-height:1.5; }
-    .payment-breakup-modal { margin-top:14px; padding:13px; border:1px solid #e0e7e0; border-radius:12px; background:#f7faf7; }
-    .payment-breakup-title { font-weight:800; color:var(--green-900); margin-bottom:7px; font-size:.84rem; }
-    .payment-breakup-row { display:flex; justify-content:space-between; gap:12px; padding:4px 0; font-size:.8rem; color:var(--muted); }
-    .payment-breakup-row strong { color:var(--text); }
-    .payment-breakup-total { margin-top:4px; padding-top:8px; border-top:1px solid #dfe6df; font-weight:800; color:var(--green-900); }
-    .payment-breakup-total strong { color:var(--green-800); }
-    .payment-breakup-note { margin-top:8px; font-size:.68rem; line-height:1.45; color:#78827b; }
-    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+    .care-progress-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: .78rem;
+      color: var(--muted);
+    }
 
-    .custom-amount-input { display:flex; align-items:center; border:1px solid var(--border); border-radius:10px; background:#fff; overflow:hidden; margin:8px 0 10px; }
-    .custom-amount-input > span { padding-left:13px; font-weight:800; color:var(--text); }
-    .custom-amount-input input { width:100%; border:0; outline:0; padding:12px 12px 12px 7px; font:inherit; background:transparent; color:var(--text); }
-    .custom-amount-input input:focus { box-shadow:inset 0 0 0 2px rgba(47,107,63,.16); }
+    .care-progress-head strong {
+      color: var(--green-900);
+      font-size: .82rem;
+    }
 
-    .upi-modal { position:fixed; inset:0; z-index:9999; display:none; align-items:center; justify-content:center; padding:18px; background:rgba(15,24,18,.62); }
-    .upi-modal.open { display:flex; }
-    .upi-dialog { width:min(520px, 100%); max-height:92vh; overflow:auto; background:#fff; border-radius:20px; box-shadow:0 24px 70px rgba(0,0,0,.25); padding:20px; position:relative; }
-    .upi-close { position:absolute; right:12px; top:10px; width:36px; height:36px; border:0; border-radius:50%; background:#f1f3f1; font-size:22px; cursor:pointer; }
-    .upi-dialog h3 { margin:0 42px 6px 0; font-size:1.35rem; }
-    .upi-summary { margin:14px 0; padding:13px; border-radius:12px; background:var(--green-100); color:var(--green-900); }
-    .upi-summary-row { display:flex; justify-content:space-between; gap:12px; padding:3px 0; font-size:.88rem; }
-    .upi-qr-wrap { text-align:center; padding:10px; border:1px solid #e4e8e4; border-radius:14px; background:#fff; }
-    .upi-qr { width:min(310px, 80vw); height:auto; display:block; margin:0 auto; }
-    .upi-vpa { margin:9px 0 0; font-weight:800; word-break:break-all; }
-    .upi-actions { display:grid; gap:9px; margin-top:14px; }
-    .upi-action-btn { width:100%; }
-    .upi-secondary { background:#f3f5f2; color:var(--text); border:1px solid var(--border); }
-    .utr-section { margin-top:18px; padding-top:18px; border-top:1px solid #e5e9e5; }
-    .utr-section h4 { margin:0 0 5px; }
-    .utr-section p { margin:0 0 12px; color:var(--muted); font-size:.8rem; line-height:1.5; }
-    .utr-grid { display:grid; gap:9px; }
-    .utr-grid input { width:100%; box-sizing:border-box; padding:11px 12px; border:1px solid #d7ddd7; border-radius:10px; font:inherit; }
-    .utr-success { display:none; margin-top:12px; padding:16px; border-radius:14px; background:#edf8ef; color:#245c2d; font-size:.8rem; line-height:1.5; text-align:center; border:1px solid #cfe8d3; }
-    .payment-success-icon { width:56px; height:56px; margin:0 auto 10px; border-radius:50%; display:flex; align-items:center; justify-content:center; background:#2f8f46; color:#fff; font-size:32px; font-weight:900; box-shadow:0 8px 20px rgba(47,143,70,.2); }
-    .payment-success-title { font-size:1.05rem; font-weight:900; color:#245c2d; }
-    .payment-success-text { margin-top:5px; color:#3f5d45; }
-    .payment-success-summary { margin-top:13px; padding:10px 12px; border-radius:11px; background:#fff; border:1px solid #dcebdd; text-align:left; }
-    .payment-success-summary div { display:flex; justify-content:space-between; gap:12px; padding:4px 0; }
-    .payment-success-summary span { color:#6d796f; }
-    .payment-success-summary strong { color:#244a2b; text-align:right; }
-    .payment-success-note { margin-top:11px; padding:9px 10px; border-radius:9px; background:#fff8e8; color:#684f00; text-align:left; }
+    .care-progress-track {
+      height: 10px;
+      margin-top: 9px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #e5ebe5;
+    }
+
+    .care-progress-fill {
+      width: 0%;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--green-700);
+      transition: width .35s ease;
+    }
+
+    .care-progress-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 7px;
+      font-size: .72rem;
+      color: var(--muted);
+    }
+
+    .care-progress-bottom strong {
+      color: var(--green-800);
+    }
+
+    .upi-pay-btn {
+      width: 100%;
+      border: 0;
+      cursor: pointer;
+    }
+
+    .payment-placeholder {
+      padding: 11px 12px;
+      border-radius: 10px;
+      background: #f4f6f3;
+      color: var(--muted);
+      font-size: .82rem;
+      line-height: 1.45;
+    }
+
+    .payment-placeholder strong {
+      color: var(--text);
+    }
+
+    .payment-note {
+      margin: 10px 0 0;
+      padding: 10px 11px;
+      border-radius: 10px;
+      background: #fff8e8;
+      color: #684f00;
+      font-size: .76rem;
+      line-height: 1.5;
+    }
+
+    .payment-breakup-modal {
+      margin-top: 14px;
+      padding: 13px;
+      border: 1px solid #e0e7e0;
+      border-radius: 12px;
+      background: #f7faf7;
+    }
+
+    .payment-breakup-title {
+      font-weight: 800;
+      color: var(--green-900);
+      margin-bottom: 7px;
+      font-size: .84rem;
+    }
+
+    .payment-breakup-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 4px 0;
+      font-size: .8rem;
+      color: var(--muted);
+    }
+
+    .payment-breakup-row strong {
+      color: var(--text);
+    }
+
+    .payment-breakup-total {
+      margin-top: 4px;
+      padding-top: 8px;
+      border-top: 1px solid #dfe6df;
+      font-weight: 800;
+      color: var(--green-900);
+    }
+
+    .payment-breakup-total strong {
+      color: var(--green-800);
+    }
+
+    .payment-breakup-note {
+      margin-top: 8px;
+      font-size: .68rem;
+      line-height: 1.45;
+      color: #78827b;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .custom-amount-input {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #fff;
+      overflow: hidden;
+      margin: 8px 0 10px;
+    }
+
+    .custom-amount-input>span {
+      padding-left: 13px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .custom-amount-input input {
+      width: 100%;
+      border: 0;
+      outline: 0;
+      padding: 12px 12px 12px 7px;
+      font: inherit;
+      background: transparent;
+      color: var(--text);
+    }
+
+    .custom-amount-input input:focus {
+      box-shadow: inset 0 0 0 2px rgba(47, 107, 63, .16);
+    }
+
+    .upi-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      background: rgba(15, 24, 18, .62);
+    }
+
+    .upi-modal.open {
+      display: flex;
+    }
+
+    .upi-dialog {
+      width: min(520px, 100%);
+      max-height: 92vh;
+      overflow: auto;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, .25);
+      padding: 20px;
+      position: relative;
+    }
+
+    .upi-close {
+      position: absolute;
+      right: 12px;
+      top: 10px;
+      width: 36px;
+      height: 36px;
+      border: 0;
+      border-radius: 50%;
+      background: #f1f3f1;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    .upi-dialog h3 {
+      margin: 0 42px 6px 0;
+      font-size: 1.35rem;
+    }
+
+    .upi-summary {
+      margin: 14px 0;
+      padding: 13px;
+      border-radius: 12px;
+      background: var(--green-100);
+      color: var(--green-900);
+    }
+
+    .upi-summary-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 3px 0;
+      font-size: .88rem;
+    }
+
+    .upi-qr-wrap {
+      text-align: center;
+      padding: 10px;
+      border: 1px solid #e4e8e4;
+      border-radius: 14px;
+      background: #fff;
+    }
+
+    .upi-qr {
+      width: min(310px, 80vw);
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .upi-vpa {
+      margin: 9px 0 0;
+      font-weight: 800;
+      word-break: break-all;
+    }
+
+    .upi-actions {
+      display: grid;
+      gap: 9px;
+      margin-top: 14px;
+    }
+
+    .upi-action-btn {
+      width: 100%;
+    }
+
+    .upi-secondary {
+      background: #f3f5f2;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .utr-section {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid #e5e9e5;
+    }
+
+    .utr-section h4 {
+      margin: 0 0 5px;
+    }
+
+    .utr-section p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: .8rem;
+      line-height: 1.5;
+    }
+
+    .utr-grid {
+      display: grid;
+      gap: 9px;
+    }
+
+    .utr-grid input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 11px 12px;
+      border: 1px solid #d7ddd7;
+      border-radius: 10px;
+      font: inherit;
+    }
+
+    .utr-success {
+      display: none;
+      margin-top: 12px;
+      padding: 16px;
+      border-radius: 14px;
+      background: #edf8ef;
+      color: #245c2d;
+      font-size: .8rem;
+      line-height: 1.5;
+      text-align: center;
+      border: 1px solid #cfe8d3;
+    }
+
+    .payment-success-icon {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 10px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #2f8f46;
+      color: #fff;
+      font-size: 32px;
+      font-weight: 900;
+      box-shadow: 0 8px 20px rgba(47, 143, 70, .2);
+    }
+
+    .payment-success-title {
+      font-size: 1.05rem;
+      font-weight: 900;
+      color: #245c2d;
+    }
+
+    .payment-success-text {
+      margin-top: 5px;
+      color: #3f5d45;
+    }
+
+    .payment-success-summary {
+      margin-top: 13px;
+      padding: 10px 12px;
+      border-radius: 11px;
+      background: #fff;
+      border: 1px solid #dcebdd;
+      text-align: left;
+    }
+
+    .payment-success-summary div {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 4px 0;
+    }
+
+    .payment-success-summary span {
+      color: #6d796f;
+    }
+
+    .payment-success-summary strong {
+      color: #244a2b;
+      text-align: right;
+    }
+
+    .payment-success-note {
+      margin-top: 11px;
+      padding: 9px 10px;
+      border-radius: 9px;
+      background: #fff8e8;
+      color: #684f00;
+      text-align: left;
+    }
   </style>
 </head>
 
@@ -1279,9 +1732,12 @@
           </p>
         </div>
 
-        <div class="selected-animal-global" id="selectedAnimalBanner" style="display:none; margin:0 0 22px; padding:14px 16px; border-radius:14px; background:var(--green-100); color:var(--green-900); border:1px solid #d8e8da; font-weight:700;">
+        <div class="selected-animal-global" id="selectedAnimalBanner"
+          style="display:none; margin:0 0 22px; padding:14px 16px; border-radius:14px; background:var(--green-100); color:var(--green-900); border:1px solid #d8e8da; font-weight:700;">
           Selected animal: <span id="selectedAnimalName">—</span> · <span id="selectedAnimalId">—</span>
-          <span style="display:block; margin-top:4px; font-size:.8rem; font-weight:500; color:var(--muted);">Now choose a care option below. Payment is made directly by UPI and the booking is manually verified by Go Palak.</span>
+          <span style="display:block; margin-top:4px; font-size:.8rem; font-weight:500; color:var(--muted);">Now choose
+            a care option below. Payment is made directly by UPI and the booking is manually verified by Go
+            Palak.</span>
         </div>
 
         <div class="product-grid">
@@ -1295,8 +1751,10 @@
             <div class="payment-area">
               <span class="payment-label">UPI Payment</span>
               <div class="selected-animal" data-selected-animal="meal">Choose a cow below before payment.</div>
-              <button type="button" class="btn btn-primary upi-pay-btn" data-plan="meal" data-amount="99" data-plan-name="One Meal">Pay Now · ₹99</button>
-              <p class="payment-help">Pay through your UPI app, then return here and submit the UTR/Transaction ID for manual verification.</p>
+              <button type="button" class="btn btn-primary upi-pay-btn" data-plan="meal" data-amount="99"
+                data-plan-name="One Meal">Pay Now · ₹99</button>
+              <p class="payment-help">Pay through your UPI app, then return here and submit the UTR/Transaction ID for
+                manual verification.</p>
             </div>
           </article>
 
@@ -1309,8 +1767,10 @@
             <div class="payment-area">
               <span class="payment-label">UPI Payment</span>
               <div class="selected-animal" data-selected-animal="day">Choose a cow below before payment.</div>
-              <button type="button" class="btn btn-primary upi-pay-btn" data-plan="day" data-amount="199" data-plan-name="One-Day Care">Pay Now · ₹199</button>
-              <p class="payment-help">Pay through your UPI app, then return here and submit the UTR/Transaction ID for manual verification.</p>
+              <button type="button" class="btn btn-primary upi-pay-btn" data-plan="day" data-amount="199"
+                data-plan-name="One-Day Care">Pay Now · ₹199</button>
+              <p class="payment-help">Pay through your UPI app, then return here and submit the UTR/Transaction ID for
+                manual verification.</p>
             </div>
           </article>
 
@@ -1323,8 +1783,10 @@
             <div class="payment-area">
               <span class="payment-label">UPI Payment</span>
               <div class="selected-animal" data-selected-animal="week">Choose a cow below before payment.</div>
-              <button type="button" class="btn btn-primary upi-pay-btn" data-plan="week" data-amount="499" data-plan-name="Weekly Care">Pay Now · ₹499</button>
-              <p class="payment-help">Pay through your UPI app, then return here and submit the UTR/Transaction ID for manual verification.</p>
+              <button type="button" class="btn btn-primary upi-pay-btn" data-plan="week" data-amount="499"
+                data-plan-name="Weekly Care">Pay Now · ₹499</button>
+              <p class="payment-help">Pay through your UPI app, then return here and submit the UTR/Transaction ID for
+                manual verification.</p>
             </div>
           </article>
 
@@ -1337,8 +1799,10 @@
             <div class="payment-area">
               <span class="payment-label">UPI Payment</span>
               <div class="selected-animal" data-selected-animal="month">Choose a cow below before payment.</div>
-              <button type="button" class="btn btn-primary upi-pay-btn" data-plan="month" data-amount="999" data-plan-name="Monthly Cow Care">Pay Now · ₹999</button>
-              <p class="payment-help">Pay through your UPI app, then return here and submit the UTR/Transaction ID for manual verification.</p>
+              <button type="button" class="btn btn-primary upi-pay-btn" data-plan="month" data-amount="999"
+                data-plan-name="Monthly Cow Care">Pay Now · ₹999</button>
+              <p class="payment-help">Pay through your UPI app, then return here and submit the UTR/Transaction ID for
+                manual verification.</p>
             </div>
           </article>
 
@@ -1355,11 +1819,14 @@
                 <label for="customAmount" class="sr-only">Enter custom amount in rupees</label>
                 <div class="custom-amount-input">
                   <span>₹</span>
-                  <input id="customAmount" type="number" min="1" step="1" inputmode="numeric" placeholder="Enter amount" aria-label="Enter custom amount in rupees">
+                  <input id="customAmount" type="number" min="1" step="1" inputmode="numeric" placeholder="Enter amount"
+                    aria-label="Enter custom amount in rupees">
                 </div>
               </div>
-              <button type="button" class="btn btn-primary upi-pay-btn" id="customPayBtn" data-plan="custom" data-plan-name="Custom Care Service">Pay Custom Amount</button>
-              <p class="payment-help">Enter any whole amount of ₹1 or more. The amount will be shown in your Go Palak payment details. Enter the same amount in your UPI app when completing the payment.</p>
+              <button type="button" class="btn btn-primary upi-pay-btn" id="customPayBtn" data-plan="custom"
+                data-plan-name="Custom Care Service">Pay Custom Amount</button>
+              <p class="payment-help">Enter any whole amount of ₹1 or more. The amount will be shown in your Go Palak
+                payment details. Enter the same amount in your UPI app when completing the payment.</p>
             </div>
           </article>
 
@@ -1411,7 +1878,7 @@
                 </div>
               </div>
 
-              
+
               <div class="care-progress" data-progress-cow="GP001">
                 <div class="care-progress-head">
                   <span>Care progress</span>
@@ -1426,7 +1893,8 @@
                 </div>
               </div>
 
-              <a href="#care-options" class="btn btn-primary animal-btn select-animal" data-animal-id="GP001" data-animal-name="Gauri">Select Gauri</a>
+              <a href="#care-options" class="btn btn-primary animal-btn select-animal" data-animal-id="GP001"
+                data-animal-name="Gauri">Select Gauri</a>
             </div>
           </article>
 
@@ -1460,7 +1928,7 @@
                 </div>
               </div>
 
-              
+
               <div class="care-progress" data-progress-cow="GP002">
                 <div class="care-progress-head">
                   <span>Care progress</span>
@@ -1475,7 +1943,8 @@
                 </div>
               </div>
 
-              <a href="#care-options" class="btn btn-primary animal-btn select-animal" data-animal-id="GP002" data-animal-name="Kamdhenu">Select Kamdhenu</a>
+              <a href="#care-options" class="btn btn-primary animal-btn select-animal" data-animal-id="GP002"
+                data-animal-name="Kamdhenu">Select Kamdhenu</a>
             </div>
           </article>
 
@@ -1509,7 +1978,7 @@
                 </div>
               </div>
 
-              
+
               <div class="care-progress" data-progress-cow="GP003">
                 <div class="care-progress-head">
                   <span>Care progress</span>
@@ -1524,7 +1993,8 @@
                 </div>
               </div>
 
-              <a href="#care-options" class="btn btn-primary animal-btn select-animal" data-animal-id="GP003" data-animal-name="Radha">Select Radha</a>
+              <a href="#care-options" class="btn btn-primary animal-btn select-animal" data-animal-id="GP003"
+                data-animal-name="Radha">Select Radha</a>
             </div>
           </article>
 
@@ -1583,19 +2053,25 @@
             <div class="allocation-row">
               <div class="allocation-label">Selected animal</div>
               <div class="allocation-value">Shown</div>
-              <div class="bar"><div class="bar-fill" style="width:100%;"></div></div>
+              <div class="bar">
+                <div class="bar-fill" style="width:100%;"></div>
+              </div>
             </div>
 
             <div class="allocation-row">
               <div class="allocation-label">Care service & price</div>
               <div class="allocation-value">Shown</div>
-              <div class="bar"><div class="bar-fill" style="width:100%;"></div></div>
+              <div class="bar">
+                <div class="bar-fill" style="width:100%;"></div>
+              </div>
             </div>
 
             <div class="allocation-row">
               <div class="allocation-label">Applicable Go Palak service/platform fee</div>
               <div class="allocation-value">Disclosed</div>
-              <div class="bar"><div class="bar-fill" style="width:100%;"></div></div>
+              <div class="bar">
+                <div class="bar-fill" style="width:100%;"></div>
+              </div>
             </div>
           </div>
 
@@ -1626,7 +2102,8 @@
           <article class="trust-card">
             <div class="icon">🐄</div>
             <h3>Go Palak remains the owner</h3>
-            <p>The selected animal is owned by Go Palak. The care service does not transfer ownership to the customer.</p>
+            <p>The selected animal is owned by Go Palak. The care service does not transfer ownership to the customer.
+            </p>
           </article>
 
           <article class="trust-card">
@@ -1650,13 +2127,15 @@
           <article class="trust-card">
             <div class="icon">📋</div>
             <h3>Animal condition can change</h3>
-            <p>Animal health, availability and circumstances can change. Applicable policies will govern such situations.</p>
+            <p>Animal health, availability and circumstances can change. Applicable policies will govern such
+              situations.</p>
           </article>
 
           <article class="trust-card">
             <div class="icon">🔎</div>
             <h3>Transparency first</h3>
-            <p>Customers should be able to understand the animal, care partner, selected service, payment amount and applicable platform fee.</p>
+            <p>Customers should be able to understand the animal, care partner, selected service, payment amount and
+              applicable platform fee.</p>
           </article>
 
         </div>
@@ -1703,9 +2182,14 @@
     <div class="upi-dialog">
       <button type="button" class="upi-close" id="upiClose" aria-label="Close payment window">×</button>
       <h3 id="upiModalTitle">Complete your UPI payment</h3>
-      <p class="payment-help" style="margin:0;">Open your UPI app, complete the payment, return to this page, and submit your UTR/Transaction ID. Go Palak will manually verify the payment before confirming the booking.</p>
+      <p class="payment-help" style="margin:0;">
+        Scan the QR code below using your UPI app, complete the payment, return to this page,
+        and submit your UTR/Transaction ID. Go Palak will manually verify the payment before
+        confirming the booking.
+      </p>
 
-      <div class="payment-note"><strong>Payment safety:</strong> Go Palak will never ask for your UPI PIN, OTP or banking password on this website.</div>
+      <div class="payment-note"><strong>Payment safety:</strong> Go Palak will never ask for your UPI PIN, OTP or
+        banking password on this website.</div>
 
       <div class="upi-summary">
         <div class="upi-summary-row"><span>Animal</span><strong id="upiAnimalName">—</strong></div>
@@ -1716,27 +2200,114 @@
 
       <div class="payment-breakup-modal">
         <div class="payment-breakup-title">Payment breakup</div>
-        <div class="payment-breakup-row"><span>Care &amp; Operations (80%)</span><strong id="upiCareAllocation">₹0.00</strong></div>
-        <div class="payment-breakup-row"><span>Go Palak Platform/Service (20%)</span><strong id="upiServiceAllocation">₹0.00</strong></div>
-        <div class="payment-breakup-row payment-breakup-total"><span>Total</span><strong id="upiBreakupTotal">₹0</strong></div>
-        <div class="payment-breakup-note">Displayed allocation is illustrative for Phase 1 and is not a statement of net profit. Applicable payment charges, taxes, refunds and final commercial terms are handled according to the published terms.</div>
+        <div class="payment-breakup-row"><span>Care &amp; Operations (80%)</span><strong
+            id="upiCareAllocation">₹0.00</strong></div>
+        <div class="payment-breakup-row"><span>Go Palak Platform/Service (20%)</span><strong
+            id="upiServiceAllocation">₹0.00</strong></div>
+        <div class="payment-breakup-row payment-breakup-total"><span>Total</span><strong
+            id="upiBreakupTotal">₹0</strong></div>
+        <div class="payment-breakup-note">Displayed allocation is illustrative for Phase 1 and is not a statement of net
+          profit. Applicable payment charges, taxes, refunds and final commercial terms are handled according to the
+          published terms.</div>
       </div>
 
       <div class="upi-qr-wrap">
-        <img class="upi-qr" src="media/Scanner/QR.png" alt="Go Palak payment QR code">
-  
-        <div class="payment-help"><strong>Payment recipient:</strong> Go Palak</div>
-        <div class="payment-help">QR fallback: scan this code from another device or your UPI app.</div>
+
+        <div class="qr-payment-title">
+          Scan this QR code to pay
+        </div>
+
+        <div class="qr-payment-subtitle">
+          Open Google Pay, PhonePe, Paytm or another supported UPI app
+          and scan the QR code below.
+        </div>
+
+        <img
+          class="upi-qr"
+          id="goPalakQr"
+          src="media/Scanner/QR.png"
+          alt="Go Palak UPI payment QR code"
+        >
+
+        <div class="qr-payment-recipient">
+          <strong>Payment recipient:</strong> Go Palak
+        </div>
+
+        <div class="qr-payment-instruction">
+          <strong>Payment amount:</strong>
+          <span id="qrPaymentAmount">₹0</span>
+        </div>
+
+        <div class="qr-instructions">
+
+          <div class="qr-instruction">
+            <span class="qr-step">1</span>
+            <div>
+              <strong>Scan the QR</strong>
+              <p>
+                Use your UPI app to scan the QR code.
+              </p>
+            </div>
+          </div>
+
+          <div class="qr-instruction">
+            <span class="qr-step">2</span>
+            <div>
+              <strong>Complete the payment</strong>
+              <p>
+                Verify the payment amount before entering your UPI PIN.
+              </p>
+            </div>
+          </div>
+
+          <div class="qr-instruction">
+            <span class="qr-step">3</span>
+            <div>
+              <strong>Save your transaction ID</strong>
+              <p>
+                After successful payment, note the UTR / Transaction ID
+                from your UPI app.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="qr-upload-help">
+          <strong>Pay from the same phone?</strong>
+          <p>
+            Save or download this QR code first. If your UPI app supports
+            <strong>Upload QR / Scan from Gallery</strong>, select the saved
+            QR image from your phone and complete the payment.
+          </p>
+        </div>
+
+        <button
+          type="button"
+          class="btn upi-action-btn upi-secondary"
+          id="downloadQrBtn"
+        >
+          ⬇ Save / Download QR
+        </button>
+
       </div>
 
       <div class="upi-actions">
-        <a class="btn btn-primary upi-action-btn" id="upiIntentBtn" href="#">1. Open UPI App to Pay</a>
-        <button type="button" class="btn upi-action-btn upi-secondary" id="showUtrBtn">2. I Have Completed the Payment</button>
+
+        <button
+          type="button"
+          class="btn btn-primary upi-action-btn"
+          id="showUtrBtn"
+        >
+          I Have Completed the Payment
+        </button>
+
       </div>
 
       <div class="utr-section" id="utrSection" style="display:none;">
         <h4>Submit payment details</h4>
-        <p>Enter the UTR/Transaction ID shown in your UPI app. Submission does not mean payment is verified. Go Palak will check the transaction manually before confirming the booking.</p>
+        <p>Enter the UTR/Transaction ID shown in your UPI app. Submission does not mean payment is verified. Go Palak
+          will check the transaction manually before confirming the booking.</p>
         <form id="utrForm" class="utr-grid">
           <input id="customerName" type="text" placeholder="Your name *" required>
           <input id="customerMobile" type="tel" inputmode="numeric" placeholder="Mobile number *" required>
@@ -1794,4 +2365,5 @@
   <script type="module" src="js/main.js"></script>
 
 </body>
+
 </html>
