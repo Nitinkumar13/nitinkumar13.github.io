@@ -1,39 +1,375 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Transparency">
+
+  <meta
+    name="description"
+    content="Learn about our organization's registration status, financial transparency, documentation, and commitment to responsible animal welfare work."
+  >
+
   <title data-page-title="Transparency">Transparency</title>
+
   <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .transparency-status {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 24px;
+      margin: 24px 0;
+      border: 1px solid var(--border-color, #e5e7eb);
+      border-radius: 16px;
+      background: var(--surface-color, #fff);
+    }
+
+    .transparency-status-icon {
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: #fef3c7;
+      color: #92400e;
+      font-size: 22px;
+    }
+
+    .transparency-status h3,
+    .transparency-card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    .transparency-status p,
+    .transparency-card p {
+      margin-bottom: 0;
+    }
+
+    .transparency-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 32px;
+    }
+
+    .transparency-card {
+      padding: 24px;
+      border: 1px solid var(--border-color, #e5e7eb);
+      border-radius: 16px;
+      background: var(--surface-color, #fff);
+    }
+
+    .transparency-card-icon {
+      display: inline-block;
+      margin-bottom: 14px;
+      font-size: 28px;
+    }
+
+    .transparency-list {
+      padding-left: 20px;
+    }
+
+    .transparency-list li {
+      margin-bottom: 12px;
+      line-height: 1.7;
+    }
+
+    .transparency-note {
+      padding: 20px 24px;
+      margin-top: 24px;
+      border-left: 4px solid var(--primary-color, #64748b);
+      border-radius: 8px;
+      background: var(--surface-color, #fff);
+    }
+
+    .transparency-cta {
+      text-align: center;
+    }
+
+    .transparency-cta .hero-lead {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (max-width: 640px) {
+      .transparency-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .transparency-status {
+        padding: 18px;
+      }
+
+      .transparency-card {
+        padding: 20px;
+      }
+    }
+  </style>
 </head>
+
 <body>
+
 <header class="site-header">
   <div class="container nav-wrap">
-    <a class="brand" href="index.html"><span class="brand-mark" data-site-initials></span><span class="brand-name" data-site-name></span></a>
-    <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+
+    <a class="brand" href="index.html">
+      <span class="brand-mark" data-site-initials></span>
+      <span class="brand-name" data-site-name></span>
+    </a>
+
+    <button
+      class="nav-toggle"
+      aria-label="Open navigation"
+      aria-expanded="false"
+    >☰</button>
+
     <nav class="nav" aria-label="Main navigation">
-      <a href="index.html">Home</a><a href="about.html">About</a>
-      <a href="campaigns.html">Campaigns</a><a href="transparency.html">Transparency</a>
-      <a href="get-involved.html">Get Involved</a><a href="contact.html">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="campaigns.html">Campaigns</a>
+      <a href="transparency.html" aria-current="page">Transparency</a>
+      <a href="get-involved.html">Get Involved</a>
+      <a href="contact.html">Contact</a>
     </nav>
+
   </div>
 </header>
+
 <main>
-<section class="hero">
-  <div class="container narrow"><span class="section-kicker">Transparency</span><h1>Open information builds trust.</h1><p class="hero-lead">Registration documents, reports, project updates and other relevant organizational information will be published here as they become available.</p></div>
-</section>
-<section class="section intro">
-  <div class="container narrow">
-    <span class="section-kicker">Phase 1</span>
-    <h2>Static website today. Dynamic platform later.</h2>
-    <p>This page is intentionally built with plain HTML, CSS and JavaScript so it can be hosted on GitHub Pages and later migrated into Django without redesigning the information architecture.</p>
-  </div>
-</section>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container narrow">
+      <span class="section-kicker">Transparency & Accountability</span>
+
+      <h1>Trust begins with openness.</h1>
+
+      <p class="hero-lead">
+        We believe that responsible animal welfare work requires
+        honest communication, clear documentation, and accountability.
+        This page will serve as a central place for our organizational
+        documents, financial disclosures, and activity updates as
+        they become available.
+      </p>
+    </div>
+  </section>
+
+  <!-- Current status -->
+  <section class="section intro">
+    <div class="container narrow">
+
+      <span class="section-kicker">Current Status</span>
+      <h2>Where we stand today</h2>
+
+      <div class="transparency-status">
+        <div class="transparency-status-icon" aria-hidden="true">
+          &#9432;
+        </div>
+
+        <div>
+          <h3>Registration in progress</h3>
+
+          <p>
+            Our organization is currently in the registration process.
+            Formal registration documents and applicable organizational
+            details will be published here after registration is completed
+            and the relevant documents are available.
+          </p>
+        </div>
+      </div>
+
+      <p>
+        We will clearly distinguish between information that is currently
+        available and information that is still pending. We will not
+        represent the organization as registered before the registration
+        process is complete.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- Documents -->
+  <section class="section">
+    <div class="container">
+
+      <span class="section-kicker">Documents & Records</span>
+      <h2>What we plan to make available</h2>
+
+      <p class="hero-lead">
+        Relevant documents will be published as they are finalized,
+        applicable, and available for public disclosure.
+      </p>
+
+      <div class="transparency-grid">
+
+        <article class="transparency-card">
+          <span class="transparency-card-icon" aria-hidden="true">
+            &#128196;
+          </span>
+
+          <h3>Registration Documents</h3>
+
+          <p>
+            Applicable registration certificates, organizational
+            details, and other relevant documents will be shared
+            once available.
+          </p>
+        </article>
+
+        <article class="transparency-card">
+          <span class="transparency-card-icon" aria-hidden="true">
+            &#128176;
+          </span>
+
+          <h3>Financial Information</h3>
+
+          <p>
+            Relevant financial summaries, available expenditure
+            records, and supporting disclosures will be published
+            when formal activities begin and the corresponding
+            records are available.
+          </p>
+        </article>
+
+        <article class="transparency-card">
+          <span class="transparency-card-icon" aria-hidden="true">
+            &#128203;
+          </span>
+
+          <h3>Activity & Utilization Updates</h3>
+
+          <p>
+            Updates about completed activities and the use of funds
+            for applicable projects will be shared using actual
+            records and available supporting evidence.
+          </p>
+        </article>
+
+        <article class="transparency-card">
+          <span class="transparency-card-icon" aria-hidden="true">
+            &#128200;
+          </span>
+
+          <h3>Reports & Progress</h3>
+
+          <p>
+            Relevant periodic reports, project progress updates,
+            and other organizational disclosures will be added
+            as they become available.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Financial accountability -->
+  <section class="section intro">
+    <div class="container narrow">
+
+      <span class="section-kicker">Financial Accountability</span>
+      <h2>Clear records. Responsible reporting.</h2>
+
+      <p>
+        We aim to maintain appropriate records for funds received
+        and expenses incurred in connection with our activities.
+        Financial information will be reported based on actual
+        transactions and available supporting documentation.
+      </p>
+
+      <ul class="transparency-list">
+        <li>
+          Maintain records of relevant receipts and expenditures.
+        </li>
+
+        <li>
+          Keep available invoices, bills, and other supporting
+          documents for applicable expenses.
+        </li>
+
+        <li>
+          Provide project updates that reflect activities actually
+          carried out, rather than planned or estimated impact.
+        </li>
+
+        <li>
+          Publish relevant financial and activity information
+          when it is available and appropriate for disclosure.
+        </li>
+      </ul>
+
+      <div class="transparency-note">
+        <strong>Our commitment:</strong>
+        We will not publish invented impact figures, unverified
+        expenditure claims, or documents that have not yet been issued.
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Current availability -->
+  <section class="section">
+    <div class="container narrow">
+
+      <span class="section-kicker">Document Availability</span>
+      <h2>What is available right now?</h2>
+
+      <p>
+        As the organization is still in the registration process,
+        its formal registration certificate and any reports that
+        have not yet been prepared are not currently available
+        through this page.
+      </p>
+
+      <p>
+        As documents become available, we will add the relevant
+        information or links here. We will also distinguish
+        between completed activities, ongoing work, and future plans.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section intro">
+    <div class="container narrow transparency-cta">
+
+      <span class="section-kicker">Questions & Enquiries</span>
+
+      <h2>Need more information?</h2>
+
+      <p class="hero-lead">
+        If you have a question about our organizational status,
+        published documents, or planned activities, please contact us.
+        We will respond with the information currently available.
+      </p>
+
+      <a class="btn btn-primary" href="contact.html">
+        Contact Us
+      </a>
+
+    </div>
+  </section>
+
 </main>
+
 <footer class="footer">
-  <div class="container footer-bottom"><span>© <span id="year"></span> <span data-site-name></span>.</span><span>Official information will be added as finalized.</span></div>
+  <div class="container footer-bottom">
+    <span>
+      © <span id="year"></span>
+      <span data-site-name></span>.
+    </span>
+
+    <span>Transparency through accurate information and responsible reporting.</span>
+  </div>
 </footer>
+
 <script type="module" src="js/main.js"></script>
+
 </body>
 </html>
