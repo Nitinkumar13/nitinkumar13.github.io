@@ -1,390 +1,34 @@
-/* =========================================================
-   CAMPAIGNS PAGE
-========================================================= */
+/* ==========================================
+   CONTACT PAGE
+   ========================================== */
 
-:root {
-  --campaign-bg: #fbf5e9;
-  --campaign-card: #ffffff;
-  --campaign-brown: #4b1708;
-  --campaign-orange: #f29a00;
-  --campaign-green: #159447;
-  --campaign-text: #17120f;
-  --campaign-muted: #77736e;
-  --campaign-border: #e5e1db;
+.contact-hero {
+  padding-bottom: 4rem;
 }
 
 
-/* =========================================================
-   CAMPAIGN HERO
-========================================================= */
+/* ==========================================
+   CONTACT GRID
+   ========================================== */
 
-.hero {
-  background: var(--campaign-bg);
-  text-align: center;
-
-  padding: 52px 20px 38px;
-}
-
-.hero .container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.hero .section-kicker {
-  display: none;
-}
-
-.hero h1 {
-  position: relative;
-
-  margin: 0;
-  padding-bottom: 24px;
-
-  color: #2d0800;
-
-  font-size: clamp(2.4rem, 4vw, 3.3rem);
-  line-height: 1.05;
-  font-weight: 900;
-
-  text-transform: uppercase;
-  letter-spacing: -0.03em;
-}
-
-.hero h1::after {
-  content: "";
-
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-
-  width: 150px;
-  height: 5px;
-
-  transform: translateX(-50%);
-
-  background: linear-gradient(
-    90deg,
-    #4b1708,
-    #f29a00
-  );
-
-  border-radius: 10px;
-}
-
-.hero .hero-lead {
-  display: none;
-}
-
-
-/* =========================================================
-   MAIN CAMPAIGN AREA
-========================================================= */
-
-main {
-  background: #ffffff;
-}
-
-main > .section:first-of-type {
-  background: var(--campaign-bg);
-
-  padding-top: 10px;
-  padding-bottom: 70px;
-}
-
-
-/* =========================================================
-   CONTAINER
-========================================================= */
-
-.campaigns-page-container,
-main > .section:first-of-type .container {
-  width: min(1500px, calc(100% - 80px));
-
-  margin: 0 auto;
-}
-
-
-/* =========================================================
-   SECTION HEADING
-========================================================= */
-
-.section-heading {
-  display: none;
-}
-
-
-/* =========================================================
-   CAMPAIGN GRID
-========================================================= */
-
-.campaign-grid {
+.contact-grid {
   display: grid;
-
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-
-  gap: 24px;
-
-  align-items: stretch;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
 }
 
 
-/* =========================================================
-   CAMPAIGN CARD
-========================================================= */
+/* ==========================================
+   CONTACT CARD
+   ========================================== */
 
-.campaign-card {
-  position: relative;
+.contact-card {
+  padding: 2rem;
 
-  display: flex;
-  flex-direction: column;
+  border: 1px solid var(--border, #e5e5e5);
+  border-radius: 18px;
 
-  min-width: 0;
-
-  overflow: hidden;
-
-  background: var(--campaign-card);
-
-  border-radius: 22px;
-
-  border: 1px solid rgba(0, 0, 0, 0.04);
-
-  box-shadow:
-    0 8px 24px rgba(67, 40, 20, 0.07);
-
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-.campaign-card:hover {
-  transform: translateY(-5px);
-
-  box-shadow:
-    0 18px 40px rgba(67, 40, 20, 0.13);
-}
-
-
-/* =========================================================
-   CAMPAIGN IMAGE
-========================================================= */
-
-.campaign-card-image {
-  position: relative;
-
-  width: 100%;
-
-  height: 275px;
-
-  flex-shrink: 0;
-
-  overflow: hidden;
-
-  border-radius: 22px 22px 0 0;
-}
-
-
-/*
-   If later we change the HTML to:
-
-   <div class="campaign-card-image">
-       <img src="images/campaign.jpg" alt="">
-   </div>
-
-   this styling will automatically work.
-*/
-
-.campaign-card-image img {
-  width: 100%;
-  height: 100%;
-
-  display: block;
-
-  object-fit: cover;
-
-  transition: transform 0.45s ease;
-}
-
-.campaign-card:hover .campaign-card-image img {
-  transform: scale(1.04);
-}
-
-
-/* =========================================================
-   CURRENT PLACEHOLDER
-========================================================= */
-
-.campaign-placeholder {
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  background:
-    linear-gradient(
-      135deg,
-      #ddd4c5,
-      #bfb7aa
-    );
-
-  color: #ffffff;
-
-  font-size: 0.85rem;
-
-  font-weight: 700;
-
-  text-transform: uppercase;
-
-  letter-spacing: 0.08em;
-}
-
-
-/* =========================================================
-   TAX BENEFIT / CATEGORY BADGE
-========================================================= */
-
-.campaign-category {
-  position: absolute;
-
-  top: 16px;
-  left: 16px;
-
-  z-index: 3;
-
-  display: inline-flex;
-
-  align-items: center;
-  justify-content: center;
-
-  padding: 10px 17px;
-
-  background: var(--campaign-green);
-
-  color: #ffffff;
-
-  border-radius: 30px;
-
-  font-size: 0.88rem;
-
-  font-weight: 800;
-
-  line-height: 1;
-
-  white-space: nowrap;
-
-  box-shadow:
-    0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-
-/*
-   The category currently sits inside campaign-card-content.
-   Move it visually to the image using this rule.
-*/
-
-.campaign-card-content {
-  position: relative;
-
-  display: flex;
-  flex-direction: column;
-
-  flex: 1;
-
-  padding: 26px 20px 20px;
-}
-
-
-/* =========================================================
-   CAMPAIGN TITLE
-========================================================= */
-
-.campaign-card-content h3 {
-  margin: 0 0 14px;
-
-  color: var(--campaign-text);
-
-  font-size: 1.25rem;
-
-  line-height: 1.35;
-
-  font-weight: 850;
-
-  letter-spacing: -0.015em;
-}
-
-
-/* =========================================================
-   DESCRIPTION
-========================================================= */
-
-.campaign-card-content > p {
-  margin: 0 0 20px;
-
-  color: #68635e;
-
-  font-size: 0.92rem;
-
-  line-height: 1.55;
-}
-
-
-/* =========================================================
-   CAMPAIGN META
-========================================================= */
-
-.campaign-meta {
-  display: flex;
-
-  align-items: center;
-
-  justify-content: space-between;
-
-  gap: 15px;
-
-  margin-top: auto;
-
-  margin-bottom: 14px;
-
-  padding-top: 0;
-
-  border: 0;
-
-  font-size: 0.86rem;
-}
-
-.campaign-meta span {
-  color: #77716b;
-}
-
-.campaign-meta strong {
-  color: var(--campaign-brown);
-
-  font-size: 1.05rem;
-
-  font-weight: 900;
-}
-
-
-/* =========================================================
-   CAMPAIGN BUTTON
-========================================================= */
-
-.campaign-card .btn {
-  display: inline-flex;
-
-  align-items: center;
-  justify-content: center;
-
-  min-height: 48px;
-
-  padding: 11px 24px;
-
-  border-radius: 13px;
-
-  font-size: 0.95rem;
-
-  font-weight: 800;
-
-  text-decoration: none;
+  background: var(--surface, #ffffff);
 
   transition:
     transform 0.2s ease,
@@ -392,222 +36,159 @@ main > .section:first-of-type .container {
 }
 
 
-/* =========================================================
-   SECONDARY / SHARE STYLE
-========================================================= */
-
-.campaign-card .btn-secondary {
-  background: #eaf2fc;
-
-  color: #1268d5;
-
-  border: 1px solid #cdddf2;
-}
-
-.campaign-card .btn-secondary:hover {
-  background: #dceafa;
-
-  transform: translateY(-2px);
-}
-
-
-/* =========================================================
-   PRIMARY / DONATE STYLE
-========================================================= */
-
-.campaign-card .btn-primary {
-  background:
-    linear-gradient(
-      100deg,
-      #4b1708,
-      #f29a00
-    );
-
-  color: #ffffff;
-
-  border: none;
+.contact-card:hover {
+  transform: translateY(-3px);
 
   box-shadow:
-    0 7px 18px rgba(133, 70, 0, 0.22);
-}
-
-.campaign-card .btn-primary:hover {
-  transform: translateY(-2px);
-
-  box-shadow:
-    0 10px 22px rgba(133, 70, 0, 0.30);
+    0 12px 30px rgba(0, 0, 0, 0.06);
 }
 
 
-/* =========================================================
-   SECTION MUTED
-========================================================= */
+/* ==========================================
+   CONTACT ICON
+   ========================================== */
 
-.section-muted {
-  background: #ffffff;
-}
-
-
-/* =========================================================
-   STEPS
-========================================================= */
-
-.steps-grid {
-  display: grid;
-
-  grid-template-columns: repeat(4, 1fr);
-
-  gap: 24px;
-}
-
-.step-card {
-  padding: 28px;
-
-  background: #ffffff;
-
-  border: 1px solid var(--campaign-border);
-
-  border-radius: 18px;
-}
-
-.step-number {
+.contact-icon {
   display: inline-flex;
 
   align-items: center;
   justify-content: center;
 
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
 
-  border-radius: 50%;
+  margin-bottom: 1.25rem;
 
-  background: #f4ead8;
+  border-radius: 12px;
 
-  color: var(--campaign-brown);
-
-  font-weight: 800;
+  background: var(--accent-soft, #f2f2f2);
 }
 
 
-/* =========================================================
-   CTA
-========================================================= */
+.contact-icon img {
+  width: 25px;
+  height: 25px;
 
-.cta-section {
-  background:
-    linear-gradient(
-      135deg,
-      #4b1708,
-      #7a3009
-    );
+  display: block;
 
-  color: #ffffff;
-}
-
-.cta-section .section-kicker {
-  color: #f5b541;
-}
-
-.cta-section h2,
-.cta-section p {
-  color: #ffffff;
+  object-fit: contain;
 }
 
 
-/* =========================================================
-   RESPONSIVE — TABLET
-========================================================= */
+/* ==========================================
+   CONTACT CONTENT
+   ========================================== */
 
-@media (max-width: 1100px) {
-
-  .campaign-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .campaigns-page-container,
-  main > .section:first-of-type .container {
-    width: min(100% - 50px, 1000px);
-  }
-
-  .steps-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.contact-card h2 {
+  margin: 0.35rem 0 0.75rem;
 }
 
 
-/* =========================================================
-   RESPONSIVE — MOBILE
-========================================================= */
+.contact-value {
+  display: inline-block;
+
+  margin: 0;
+
+  color: inherit;
+
+  line-height: 1.7;
+
+  word-break: break-word;
+}
+
+
+a.contact-value {
+  text-decoration: none;
+}
+
+
+a.contact-value:hover {
+  text-decoration: underline;
+}
+
+
+/* ==========================================
+   SOCIAL
+   ========================================== */
+
+.contact-social-section {
+  background: var(--surface-soft, #fafafa);
+}
+
+
+.social-links {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 0.75rem;
+
+  margin-top: 1.5rem;
+}
+
+
+.social-links a {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.6rem;
+
+  padding: 0.7rem 1rem;
+
+  border: 1px solid var(--border, #e5e5e5);
+
+  border-radius: 999px;
+
+  color: inherit;
+
+  text-decoration: none;
+
+  background: transparent;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.social-links a:hover {
+  transform: translateY(-2px);
+
+  background: var(--surface, #ffffff);
+}
+
+
+.social-links img {
+  width: 20px;
+  height: 20px;
+
+  display: block;
+
+  object-fit: contain;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
 
 @media (max-width: 700px) {
 
-  .hero {
-    padding: 40px 18px 30px;
-  }
-
-  .hero h1 {
-    font-size: 2rem;
-  }
-
-  .hero h1::after {
-    width: 110px;
-  }
-
-  main > .section:first-of-type {
-    padding-top: 5px;
-    padding-bottom: 45px;
-  }
-
-  .campaigns-page-container,
-  main > .section:first-of-type .container {
-    width: calc(100% - 30px);
-  }
-
-  .campaign-grid {
-    grid-template-columns: 1fr;
-
-    gap: 22px;
-  }
-
-  .campaign-card-image {
-    height: 245px;
-  }
-
-  .campaign-card-content {
-    padding: 23px 18px 18px;
-  }
-
-  .campaign-card-content h3 {
-    font-size: 1.18rem;
-  }
-
-  .steps-grid {
+  .contact-grid {
     grid-template-columns: 1fr;
   }
-}
 
 
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
-
-@media (max-width: 420px) {
-
-  .hero h1 {
-    font-size: 1.75rem;
+  .contact-card {
+    padding: 1.5rem;
   }
 
-  .campaign-card-image {
-    height: 220px;
-  }
 
-  .campaign-category {
-    top: 12px;
-    left: 12px;
+  .social-links {
+    flex-direction: column;
 
-    padding: 9px 13px;
-
-    font-size: 0.78rem;
+    align-items: flex-start;
   }
 
 }

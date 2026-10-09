@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="Learn more about this campaign and see its fundraising progress."
+  >
+
+  <title data-page-title="Campaign details">Campaign details</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/campaign-detail.css">
+</head>
+
+<body>
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" data-site-initials></span>
+      <span class="brand-name" data-site-name></span>
+    </a>
+
+    <button
+      class="nav-toggle"
+      aria-label="Open navigation"
+      aria-expanded="false"
+      type="button"
+    >
+      ☰
+    </button>
+
+    <nav class="nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="campaigns.html" aria-current="page">Campaigns</a>
+      <a href="impact.html">Impact</a>
+      <a href="transparency.html">Transparency</a>
+      <a href="get-involved.html">Get Involved</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="campaign-detail-page">
+  <div class="container">
+    <a class="campaign-detail-back" href="campaigns.html">
+      <span aria-hidden="true">←</span> All campaigns
+    </a>
+
+    <div
+      class="campaign-detail-content"
+      data-campaign-detail
+      aria-live="polite"
+    >
+      <p class="campaign-detail-loading">Loading campaign details…</p>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container footer-bottom">
+    <span>© <span id="year"></span> <span data-site-name></span>.</span>
+    <span>Official information will be added as finalized.</span>
+  </div>
+</footer>
+
+<script type="module" src="js/main.js"></script>
+<script type="module" src="js/campaign-detail.js"></script>
+</body>
+</html>

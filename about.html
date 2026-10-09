@@ -1,39 +1,486 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="About Us">
+
+  <meta
+    name="description"
+    content="Learn about our purpose, mission, vision, values, and commitment to community welfare, education, healthcare, environmental protection, and animal welfare."
+  >
+
+  <meta name="theme-color" content="#f8faf7">
+
   <title data-page-title="About Us">About Us</title>
+
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
+
 <header class="site-header">
   <div class="container nav-wrap">
-    <a class="brand" href="index.html"><span class="brand-mark" data-site-initials></span><span class="brand-name" data-site-name></span></a>
-    <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
-    <nav class="nav" aria-label="Main navigation">
-      <a href="index.html">Home</a><a href="about.html">About</a><a href="our-work.html">Our Work</a>
-      <a href="campaigns.html">Campaigns</a><a href="impact.html">Impact</a><a href="transparency.html">Transparency</a>
-      <a href="get-involved.html">Get Involved</a><a href="contact.html">Contact</a>
+
+    <a class="brand" href="index.html" aria-label="Go to homepage">
+      <span class="brand-mark" data-site-initials></span>
+      <span class="brand-name" data-site-name></span>
+    </a>
+
+    <button
+      class="nav-toggle"
+      aria-label="Open navigation"
+      aria-expanded="false"
+      aria-controls="main-navigation"
+    >
+      ☰
+    </button>
+
+    <nav
+      class="nav"
+      id="main-navigation"
+      aria-label="Main navigation"
+    >
+      <a href="index.html">Home</a>
+      <a href="about.html" aria-current="page">About</a>
+      <a href="campaigns.html">Campaigns</a>
+      <a href="impact.html">Impact</a>
+      <a href="transparency.html">Transparency</a>
+      <a href="get-involved.html">Get Involved</a>
+      <a href="contact.html">Contact</a>
     </nav>
+
   </div>
 </header>
+
 <main>
-<section class="hero">
-  <div class="container narrow"><span class="section-kicker">About us</span><h1>Our purpose is simple: create meaningful social impact.</h1><p class="hero-lead">This page will contain the organization's final introduction, vision, mission, values and registration information.</p></div>
-</section>
-<section class="section intro">
-  <div class="container narrow">
-    <span class="section-kicker">Phase 1</span>
-    <h2>Static website today. Dynamic platform later.</h2>
-    <p>This page is intentionally built with plain HTML, CSS and JavaScript so it can be hosted on GitHub Pages and later migrated into Django without redesigning the information architecture.</p>
-  </div>
-</section>
+
+  <!-- ABOUT HERO -->
+  <section class="hero about-hero">
+    <div class="container narrow">
+
+      <span class="section-kicker">Who We Are</span>
+
+      <h1>
+        Building a more compassionate,
+        inclusive and sustainable future.
+      </h1>
+
+      <p class="hero-lead">
+        We envision a society where every individual has the opportunity
+        to live with dignity, every community has access to essential
+        support, and every animal receives care and protection.
+      </p>
+
+      <a class="btn btn-primary" href="campaigns.html">
+        Explore Campaigns
+      </a>
+
+    </div>
+  </section>
+
+
+  <!-- OUR STORY -->
+  <section class="section intro">
+    <div class="container narrow">
+
+      <span class="section-kicker">Our Story</span>
+
+      <h2>Driven by purpose. Guided by compassion.</h2>
+
+      <p>
+        We are building an organization focused on addressing social
+        challenges through community participation, practical initiatives
+        and responsible action.
+      </p>
+
+      <p>
+        Our approach brings together people who want to contribute to
+        meaningful change, whether through education, healthcare,
+        community welfare, environmental protection or animal care.
+      </p>
+
+      <p>
+        We believe that sustainable social change requires more than
+        good intentions. It requires consistent effort, responsible
+        implementation, collaboration and a commitment to transparency.
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- MISSION AND VISION -->
+  <section class="section about-purpose">
+    <div class="container">
+
+      <div class="section-heading">
+        <span class="section-kicker">Our Purpose</span>
+        <h2>What guides us</h2>
+        <p>
+          Our work is shaped by a clear purpose and a long-term commitment
+          to the well-being of people, animals and the environment.
+        </p>
+      </div>
+
+      <div class="about-grid">
+
+        <article class="about-card">
+          <span class="about-card-number">01</span>
+
+          <h3>Our Mission</h3>
+
+          <p>
+            To develop and support initiatives that improve lives,
+            strengthen communities, expand access to essential services,
+            protect the environment and promote the welfare of animals.
+          </p>
+        </article>
+
+        <article class="about-card">
+          <span class="about-card-number">02</span>
+
+          <h3>Our Vision</h3>
+
+          <p>
+            To contribute to a society where people can live with dignity,
+            opportunities are more accessible, natural resources are
+            protected and vulnerable animals receive lifelong care.
+          </p>
+        </article>
+
+        <article class="about-card">
+          <span class="about-card-number">03</span>
+
+          <h3>Our Approach</h3>
+
+          <p>
+            To turn social concerns into practical initiatives through
+            community engagement, responsible resource management,
+            measurable activities and transparent communication.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- OUR VALUES -->
+  <section class="section about-values">
+    <div class="container">
+
+      <div class="section-heading">
+        <span class="section-kicker">Our Values</span>
+        <h2>The principles behind our work</h2>
+      </div>
+
+      <div class="about-grid">
+
+        <article class="about-card">
+          <h3>Compassion</h3>
+          <p>
+            Treating people, animals and communities with care,
+            empathy and respect.
+          </p>
+        </article>
+
+        <article class="about-card">
+          <h3>Integrity</h3>
+          <p>
+            Acting responsibly, communicating honestly and respecting
+            the purpose for which resources are provided.
+          </p>
+        </article>
+
+        <article class="about-card">
+          <h3>Transparency</h3>
+          <p>
+            Communicating our initiatives, activities and available
+            records clearly and responsibly.
+          </p>
+        </article>
+
+        <article class="about-card">
+          <h3>Inclusiveness</h3>
+          <p>
+            Recognizing the needs and dignity of people from different
+            backgrounds and circumstances.
+          </p>
+        </article>
+
+        <article class="about-card">
+          <h3>Accountability</h3>
+          <p>
+            Taking responsibility for our decisions, commitments
+            and implementation of activities.
+          </p>
+        </article>
+
+        <article class="about-card">
+          <h3>Sustainability</h3>
+          <p>
+            Encouraging solutions that support long-term community
+            well-being and environmental responsibility.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- AREAS OF WORK -->
+  <section class="section about-focus">
+    <div class="container">
+
+      <div class="section-heading">
+        <span class="section-kicker">Our Focus Areas</span>
+
+        <h2>13 areas of work. One shared purpose.</h2>
+
+        <p>
+          Our planned areas of work cover a broad range of social,
+          community and environmental needs. Specific activities
+          and campaigns will be developed according to available
+          resources, community needs and applicable requirements.
+        </p>
+      </div>
+
+      <div class="about-grid">
+
+        <article class="about-card">
+          <h3>01. Education &amp; Skill Development</h3>
+          <p>
+            Supporting learning opportunities, skill development
+            and access to educational resources.
+          </p>
+        </article>
+
+        <article class="about-card">
+          <h3>02. Medical Relief &amp; Healthcare</h3>
+          <p>
+            Supporting access to healthcare services and medical
+            assistance for people in need.
+          </p>
+        </article>
+
+        <article class="about-card">
+          <h3>03. Senior Care</h3>
+          <p>
+            Promoting the dignity, well-being and support of older
+            people and senior citizens.
+          </p>
+        </article>
+
+        <article class="about-card">
+          <h3>04. Child Welfare</h3>
+          <p>
+            Supporting the welfare, safety, development and
+            well-being of children.
+          </p>
+        </article>
+
+        <article class="about-card">
+          <h3>05. Relief of Poor &amp; Marginalized</h3>
+          <p>
+            Supporting vulnerable individuals and communities
+            facing social and economic challenges.
+          </p>
+        </article>
+
+        <article class="about-card">
+          <h3>06. Health, Hygiene &amp; Sanitation</h3>
+          <p>
+            Promoting hygiene awareness, sanitation and healthier
+            community environments.
+          </p>
+        </article>
+
+        <article class="about-card">
+          <h3>07. Sports &amp; Physical Fitness</h3>
+          <p>
+            Encouraging physical activity, sports participation
+            and healthy lifestyles.
+          </p>
+        </article>
+
+        <article class="about-card">
+          <h3>08. Environment &amp; Sustainability</h3>
+          <p>
+            Encouraging environmental protection, conservation
+            and sustainable practices.
+          </p>
+        </article>
+
+        <article class="about-card">
+          <h3>09. Women Empowerment</h3>
+          <p>
+            Promoting women's opportunities, participation,
+            dignity and gender equality.
+          </p>
+        </article>
+
+        <article class="about-card">
+          <h3>10. Disaster Relief &amp; Rehabilitation</h3>
+          <p>
+            Supporting relief, recovery and rehabilitation
+            initiatives during and after disasters.
+          </p>
+        </article>
+
+        <article class="about-card">
+          <h3>11. Animal Welfare</h3>
+          <p>
+            Promoting animal protection, rescue, rehabilitation,
+            veterinary care and responsible animal welfare.
+          </p>
+        </article>
+
+        <article class="about-card">
+          <h3>12. Art, Culture &amp; Heritage</h3>
+          <p>
+            Encouraging the preservation and promotion of
+            cultural traditions, arts and heritage.
+          </p>
+        </article>
+
+        <article class="about-card">
+          <h3>13. Technology &amp; Digital Literacy</h3>
+          <p>
+            Encouraging digital awareness, technology education
+            and access to useful digital resources.
+          </p>
+        </article>
+
+      </div>
+
+      <div class="about-cta">
+        <h3>Explore our initiatives</h3>
+
+        <p>
+          Learn about the campaigns and activities being developed
+          across our focus areas.
+        </p>
+
+        <a class="btn btn-primary" href="campaigns.html">
+          View Campaigns
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- LONG-TERM VISION -->
+  <section class="section about-animal-vision">
+    <div class="container narrow">
+
+      <span class="section-kicker">Our Long-Term Vision</span>
+
+      <h2>A modern Gaushala and animal rescue centre</h2>
+
+      <p>
+        Animal welfare is an important part of our long-term vision.
+        We aspire to develop a modern, technology-enabled Gaushala
+        and animal rescue centre focused on the care of abandoned,
+        neglected and vulnerable animals.
+      </p>
+
+      <p>
+        Our vision includes safe shelter, access to veterinary care,
+        proper nutrition, rehabilitation and responsible lifelong
+        care wherever feasible.
+      </p>
+
+      <p>
+        We see technology as a way to strengthen record-keeping,
+        improve operational efficiency and communicate animal-care
+        activities more transparently.
+      </p>
+
+      <a class="btn btn-primary" href="campaigns.html">
+        Explore Our Campaigns
+      </a>
+
+    </div>
+  </section>
+
+
+  <!-- TRANSPARENCY -->
+  <section class="section about-transparency">
+    <div class="container narrow">
+
+      <span class="section-kicker">Our Commitment</span>
+
+      <h2>Trust must be built through action.</h2>
+
+      <p>
+        We believe that public trust comes from responsible conduct,
+        honest communication and clear information about our work.
+      </p>
+
+      <p>
+        As our initiatives develop, we aim to communicate relevant
+        activity updates, available supporting records and the
+        progress of our projects in a clear and accessible manner.
+      </p>
+
+      <a class="btn btn-secondary" href="transparency.html">
+        Visit Transparency
+      </a>
+
+    </div>
+  </section>
+
+
+  <!-- GET INVOLVED -->
+  <section class="section about-get-involved">
+    <div class="container narrow">
+
+      <span class="section-kicker">Be Part of the Change</span>
+
+      <h2>Meaningful change begins with collective effort.</h2>
+
+      <p>
+        Whether you want to learn about our work, contribute your
+        skills, collaborate on an initiative or explore opportunities
+        to participate, we welcome constructive engagement.
+      </p>
+
+      <a class="btn btn-primary" href="get-involved.html">
+        Get Involved
+      </a>
+
+      <a class="btn btn-secondary" href="contact.html">
+        Contact Us
+      </a>
+
+    </div>
+  </section>
+
 </main>
+
+
 <footer class="footer">
-  <div class="container footer-bottom"><span>© <span id="year"></span> <span data-site-name></span>.</span><span>Official information will be added as finalized.</span></div>
+  <div class="container footer-bottom">
+
+    <span>
+      © <span id="year"></span>
+      <span data-site-name></span>.
+    </span>
+
+    <span>
+      Working towards a more compassionate and sustainable future.
+    </span>
+
+  </div>
 </footer>
+
 <script type="module" src="js/main.js"></script>
+
 </body>
 </html>
+```

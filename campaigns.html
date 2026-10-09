@@ -12,7 +12,7 @@
   <title data-page-title="Campaigns">Campaigns</title>
 
   <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/campaign.css">
+  <link rel="stylesheet" href="css/campaign.css">
 </head>
 
 <body>
@@ -40,7 +40,6 @@
     <nav class="nav" aria-label="Main navigation">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
-      <a href="our-work.html">Our Work</a>
       <a href="campaigns.html" aria-current="page">Campaigns</a>
       <a href="impact.html">Impact</a>
       <a href="transparency.html">Transparency</a>
@@ -58,6 +57,7 @@
      HERO
 ========================= -->
 <section class="hero">
+
   <div class="container narrow">
 
     <span class="section-kicker">
@@ -74,19 +74,21 @@
     </p>
 
   </div>
+
 </section>
 
 
 <!-- =========================
      ACTIVE CAMPAIGNS
 ========================= -->
-<section class="section">
+<section class="section campaigns-section">
 
   <div class="container">
 
     <div class="section-heading">
 
       <div>
+
         <span class="section-kicker">
           Current Initiatives
         </span>
@@ -94,6 +96,7 @@
         <h2>
           Campaigns that need your attention.
         </h2>
+
       </div>
 
       <p>
@@ -105,7 +108,37 @@
     </div>
 
 
-    <div class="campaign-grid" data-campaign-list></div>
+    <!--
+      Campaign cards are generated dynamically
+      from js/campaigns-page.js
+    -->
+    <div
+      class="campaign-grid"
+      data-campaign-list
+      aria-live="polite"
+    ></div>
+
+
+    <!-- =========================
+         SEE MORE / SHOW LESS
+    ========================== -->
+
+    <div
+      class="campaign-more-wrap"
+      data-campaign-more-wrap
+      hidden
+    >
+
+      <button
+        type="button"
+        class="campaign-more-btn"
+        data-campaign-more
+        aria-expanded="false"
+      >
+        See More Campaigns
+      </button>
+
+    </div>
 
   </div>
 
@@ -122,6 +155,7 @@
     <div class="section-heading">
 
       <div>
+
         <span class="section-kicker">
           Our Approach
         </span>
@@ -129,6 +163,7 @@
         <h2>
           How our campaigns work.
         </h2>
+
       </div>
 
       <p>
@@ -352,6 +387,9 @@
 </footer>
 
 
+<!-- =========================
+     JAVASCRIPT
+========================= -->
 <script type="module" src="js/main.js"></script>
 <script type="module" src="js/campaigns-page.js"></script>
 

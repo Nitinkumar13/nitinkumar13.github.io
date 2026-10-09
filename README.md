@@ -17,7 +17,6 @@ control the page-specific part.
 ## Structure
 - `index.html` — homepage
 - `about.html`
-- `our-work.html`
 - `campaigns.html`
 - `impact.html`
 - `transparency.html`
