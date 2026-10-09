@@ -18,7 +18,6 @@ control the page-specific part.
 - `index.html` — homepage
 - `about.html`
 - `campaigns.html`
-- `impact.html`
 - `transparency.html`
 - `get-involved.html`
 - `contact.html`
