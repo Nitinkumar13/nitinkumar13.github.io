@@ -23,6 +23,82 @@ function addTextElement(parent, tagName, className, text) {
   return element;
 }
 
+function renderCampaignSections(item) {
+  const sections = document.createElement("section");
+  sections.className = "campaign-detail-information";
+
+  if (item.story) {
+    const story = document.createElement("section");
+    story.className = "campaign-detail-overview";
+    addTextElement(story, "h2", "", "The story");
+
+    item.story
+      .trim()
+      .split(/\n\s*\n/)
+      .filter(paragraph => paragraph.trim())
+      .forEach(paragraph => {
+        addTextElement(
+          story,
+          "p",
+          "campaign-detail-description",
+          paragraph.trim()
+        );
+      });
+
+    sections.appendChild(story);
+  }
+
+  if (Array.isArray(item.useOfFunds) && item.useOfFunds.length > 0) {
+    const funds = document.createElement("section");
+    funds.className = "campaign-detail-overview";
+    addTextElement(funds, "h2", "", "How contributions may be used");
+
+    const list = document.createElement("ul");
+    list.className = "campaign-detail-funds";
+    item.useOfFunds.forEach(fund => {
+      const entry = document.createElement("li");
+      const percentage = Number(fund.percentage);
+      const hasPercentage =
+        fund.percentage !== null &&
+        fund.percentage !== undefined &&
+        Number.isFinite(percentage);
+      const label = hasPercentage
+        ? `${fund.title} — ${percentage}%`
+        : fund.title;
+      entry.textContent = label;
+      list.appendChild(entry);
+    });
+    funds.appendChild(list);
+    sections.appendChild(funds);
+  }
+
+  if (item.transparency && typeof item.transparency === "object") {
+    const commitments = [
+      ["publishUtilizationReports", "Publish fund-utilization reports"],
+      ["publishActivityUpdates", "Publish campaign activity updates"],
+      ["maintainExpenseRecords", "Maintain expense records"]
+    ].filter(([key]) => item.transparency[key]);
+
+    if (commitments.length > 0) {
+      const transparency = document.createElement("section");
+      transparency.className = "campaign-detail-overview";
+      addTextElement(transparency, "h2", "", "Transparency commitments");
+
+      const list = document.createElement("ul");
+      list.className = "campaign-detail-funds";
+      commitments.forEach(([, label]) => {
+        const entry = document.createElement("li");
+        entry.textContent = label;
+        list.appendChild(entry);
+      });
+      transparency.appendChild(list);
+      sections.appendChild(transparency);
+    }
+  }
+
+  return sections.childElementCount > 0 ? sections : null;
+}
+
 function renderNotFound() {
   document.title = `Campaign not found | ${SITE_NAME}`;
   detailContainer.replaceChildren();
@@ -82,6 +158,15 @@ function renderCampaign(item) {
     );
   }
 
+  if (item.status) {
+    addTextElement(
+      story,
+      "span",
+      "campaign-detail-status",
+      item.status.replace(/-/g, " ")
+    );
+  }
+
   addTextElement(
     story,
     "h1",
@@ -92,7 +177,9 @@ function renderCampaign(item) {
     story,
     "p",
     "campaign-detail-description",
-    item.description || "More information about this campaign will be added soon."
+    item.shortDescription ||
+      item.description ||
+      "More information about this campaign will be added soon."
   );
 
   const fundraising = document.createElement("section");
@@ -174,6 +261,10 @@ function renderCampaign(item) {
   }
 
   detailContainer.append(story, fundraising);
+  const information = renderCampaignSections(item);
+  if (information) {
+    detailContainer.appendChild(information);
+  }
 }
 
 if (detailContainer) {

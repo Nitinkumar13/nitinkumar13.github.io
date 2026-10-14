@@ -1,4 +1,80 @@
+
 export const CAMPAIGNS = [
+  {
+    id: "animal-care",
+
+    category: "Animal Welfare",
+
+    title: "Compassionate Care for Animals",
+
+    image: "./assets/AnimalWelfare.png",
+
+    imageAlt: "A woman feeding cows at an animal shelter",
+
+    shortDescription:
+      "Help us support food, veterinary care, rescue and welfare for animals in need.",
+
+    description:
+      "An initiative focused on improving the care, protection and welfare of animals in need. Funds raised will support eligible animal-care activities, including food, veterinary assistance, rescue-related expenses and other approved project costs, according to the campaign budget and applicable requirements.",
+
+    story: `
+Animals in need may require food, medical attention,
+safe shelter and timely care.
+
+Through this initiative, our NGO aims to support
+genuine animal-welfare activities and build the
+foundation for our long-term vision of a modern,
+technology-enabled Gaushala and animal rescue centre.
+
+Every contribution will be recorded and used for the
+disclosed campaign purpose, subject to the final
+approved project plan and applicable requirements.
+`,
+
+    target: 500000,
+
+    raised: 0,
+
+    donors: 0,
+
+    currency: "INR",
+
+    status: "upcoming",
+
+    useOfFunds: [
+      {
+        title: "Animal Food & Nutrition",
+        percentage: null
+      },
+      {
+        title: "Veterinary Care & Medicines",
+        percentage: null
+      },
+      {
+        title: "Animal Rescue & Transportation",
+        percentage: null
+      },
+      {
+        title: "Shelter & Essential Care",
+        percentage: null
+      },
+      {
+        title: "Project Coordination & Administration",
+        percentage: null
+      }
+    ],
+
+    transparency: {
+      publishUtilizationReports: true,
+      publishActivityUpdates: true,
+      maintainExpenseRecords: true
+    },
+
+    href: "campaign.html?id=animal-care",
+
+    donateHref:
+      "http://m-lp.co/nitinkum-53?utm_medium=campaign_page_share&utm_source=copy"
+  },
 
   {
     id: "animal-care",
@@ -7,139 +83,72 @@ export const CAMPAIGNS = [
 
     title: "Compassionate Care for Animals",
 
+    image: "./assets/AnimalWelfare.png",
+
+    imageAlt: "A woman feeding cows at an animal shelter",
+
+    shortDescription:
+      "Help us support food, veterinary care, rescue and welfare for animals in need.",
+
     description:
-      "An initiative focused on improving the care, protection and welfare of animals in need.",
+      "An initiative focused on improving the care, protection and welfare of animals in need. Funds raised will support eligible animal-care activities, including food, veterinary assistance, rescue-related expenses and other approved project costs, according to the campaign budget and applicable requirements.",
+
+    story: `
+Animals in need may require food, medical attention,
+safe shelter and timely care.
+
+Through this initiative, our NGO aims to support
+genuine animal-welfare activities and build the
+foundation for our long-term vision of a modern,
+technology-enabled Gaushala and animal rescue centre.
+
+Every contribution will be recorded and used for the
+disclosed campaign purpose, subject to the final
+approved project plan and applicable requirements.
+`,
+
+    target: 500000,
 
     raised: 0,
 
-    target: 500000,
-
     donors: 0,
 
-    href:
-      "campaign.html?id=animal-care",
+    currency: "INR",
 
-    donateHref:
-      "http://m-lp.co/nitinkum-53?utm_medium=campaign_page_share&utm_source=copy"
-  },
+    status: "upcoming",
 
+    useOfFunds: [
+      {
+        title: "Animal Food & Nutrition",
+        percentage: null
+      },
+      {
+        title: "Veterinary Care & Medicines",
+        percentage: null
+      },
+      {
+        title: "Animal Rescue & Transportation",
+        percentage: null
+      },
+      {
+        title: "Shelter & Essential Care",
+        percentage: null
+      },
+      {
+        title: "Project Coordination & Administration",
+        percentage: null
+      }
+    ],
 
-  {
-    id: "community-support",
-
-    category: "Community Support",
-
-    title: "Supporting Communities in Need",
-
-    description:
-      "A community-focused initiative designed to support vulnerable individuals and families through practical assistance.",
-
-    raised: 50000,
-
-    target: 500000,
-
-    donors: 25,
-
-    href:
-      "campaign.html?id=community-support",
-
-    donateHref:
-        "http://m-lp.co/nitinkum-53?utm_medium=campaign_page_share&utm_source=copy"
+    transparency: {
+      publishUtilizationReports: true,
+      publishActivityUpdates: true,
+      maintainExpenseRecords: true
     },
 
-
-  {
-    id: "environment",
-
-    category: "Environment",
-
-    title: "Building a Better Environment",
-
-    description:
-      "Initiatives aimed at encouraging responsible environmental practices and creating healthier surroundings for communities.",
-
-    raised: 0,
-
-    target: 500000,
-
-    donors: 0,
-
-    href:
-      "campaign.html?id=environment",
-
-    donateHref:
-      "http://m-lp.co/nitinkum-53?utm_medium=campaign_page_share&utm_source=copy"
-  },
-
-  {
-    id: "animal-care",
-
-    category: "Animal Welfare",
-
-    title: "Compassionate Care for Animals",
-
-    description:
-      "An initiative focused on improving the care, protection and welfare of animals in need.",
-
-    raised: 0,
-
-    target: 500000,
-
-    donors: 0,
-
-    href:
-      "campaign.html?id=animal-care",
-
-    donateHref:
-      "http://m-lp.co/nitinkum-53?utm_medium=campaign_page_share&utm_source=copy"
-  },
-
-
-  {
-    id: "community-support",
-
-    category: "Community Support",
-
-    title: "Supporting Communities in Need",
-
-    description:
-      "A community-focused initiative designed to support vulnerable individuals and families through practical assistance.",
-
-    raised: 50001,
-
-    target: 500000,
-
-    donors: 25,
-
-    href:
-      "campaign.html?id=community-support",
-
-    donateHref:
-        "http://m-lp.co/nitinkum-53?utm_medium=campaign_page_share&utm_source=copy"
-    },
-
-
-  {
-    id: "environment",
-
-    category: "Environment",
-
-    title: "Building a Better Environment",
-
-    description:
-      "Initiatives aimed at encouraging responsible environmental practices and creating healthier surroundings for communities.",
-
-    raised: 100000,
-
-    target: 500000,
-
-    donors: 0,
-
-    href:
-      "campaign.html?id=environment",
+    href: "campaign.html?id=animal-care",
 
     donateHref:
       "http://m-lp.co/nitinkum-53?utm_medium=campaign_page_share&utm_source=copy"
   }
-
 ];

@@ -155,6 +155,13 @@ function createCampaignCard(campaign) {
     );
   }
 
+  if (campaign.status) {
+    const status = document.createElement("span");
+    status.className = "campaign-status";
+    status.textContent = campaign.status.replace(/-/g, " ");
+    imageWrapper.appendChild(status);
+  }
+
 
   /* =======================================================
      CONTENT
@@ -185,13 +192,17 @@ function createCampaignCard(campaign) {
      DESCRIPTION
   ======================================================= */
 
-  if (campaign.description) {
+  const cardDescription =
+    campaign.shortDescription ||
+    campaign.description;
+
+  if (cardDescription) {
 
     const description =
       document.createElement("p");
 
     description.textContent =
-      campaign.description;
+      cardDescription;
 
     content.appendChild(
       description
@@ -399,6 +410,7 @@ function createCampaignCard(campaign) {
           "Campaign",
 
         text:
+          campaign.shortDescription ||
           campaign.description ||
           campaign.title ||
           "Support this campaign.",
