@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+        content="Support our initiative to establish an Animal Welfare NGO and help us complete the initial registration and legal setup.">
+
+  <meta name="theme-color" content="#16a34a">
+
+  <title>Help Us Build an Animal Welfare NGO</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f8fafc;
+      color: #172033;
+      line-height: 1.6;
+    }
+
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .container {
+      width: min(100% - 32px, 760px);
+      margin: 0 auto;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 64px 0 52px;
+      text-align: center;
+      background: linear-gradient(135deg, #fff7ed, #ffffff 55%, #f0fdf4);
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 7px 14px;
+      margin-bottom: 18px;
+      border-radius: 999px;
+      background: #dcfce7;
+      color: #166534;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 680px;
+      margin: 0 auto 18px;
+      color: #111827;
+      font-size: clamp(36px, 7vw, 58px);
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+    }
+
+    .hero-text {
+      max-width: 610px;
+      margin: 0 auto 28px;
+      color: #4b5563;
+      font-size: 18px;
+    }
+
+    /* BUTTONS */
+    .primary-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 56px;
+      padding: 0 28px;
+      border-radius: 14px;
+      background: #16a34a;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 800;
+      box-shadow: 0 10px 24px rgba(22, 163, 74, .20);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .primary-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(22, 163, 74, .26);
+    }
+
+    /* COMMON SECTIONS */
+    .section {
+      padding: 42px 0;
+    }
+
+    .card {
+      padding: 30px;
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 22px;
+      box-shadow: 0 8px 30px rgba(15, 23, 42, .05);
+    }
+
+    .section-title {
+      margin: 0 0 10px;
+      text-align: center;
+      color: #111827;
+      font-size: 30px;
+      line-height: 1.2;
+    }
+
+    .section-description {
+      max-width: 620px;
+      margin: 0 auto;
+      text-align: center;
+      color: #64748b;
+    }
+
+    /* FUNDRAISING PROGRESS */
+    .progress-card {
+      text-align: center;
+    }
+
+    .progress-amount {
+      margin: 20px 0 18px;
+      color: #64748b;
+      font-size: 16px;
+    }
+
+    .progress-amount strong {
+      color: #16a34a;
+      font-size: 22px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 18px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #e5e7eb;
+    }
+
+    .progress-fill {
+      width: 0%;
+      height: 100%;
+      border-radius: 999px;
+      background: #16a34a;
+      transition: width .7s ease;
+    }
+
+    .progress-percent {
+      margin-top: 10px;
+      color: #166534;
+      font-weight: 800;
+    }
+
+    /* CONTRIBUTION AMOUNTS */
+    .amount-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .amount-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 10px;
+      border: 1px solid #bbf7d0;
+      border-radius: 12px;
+      background: #f0fdf4;
+      color: #166534;
+      text-decoration: none;
+      font-weight: 800;
+      transition: .18s ease;
+    }
+
+    .amount-btn:hover {
+      background: #dcfce7;
+      transform: translateY(-1px);
+    }
+
+    /* WHY SECTION */
+    .why-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .why-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+      padding: 15px;
+      border-radius: 14px;
+      background: #f8fafc;
+    }
+
+    .why-icon {
+      flex: 0 0 auto;
+      font-size: 21px;
+    }
+
+    .why-item strong {
+      display: block;
+      margin-bottom: 2px;
+      color: #111827;
+    }
+
+    .why-item span {
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    /* TRANSPARENCY */
+    .transparency {
+      background: #fffbeb;
+      border-color: #fde68a;
+    }
+
+    .transparency .section-title {
+      color: #92400e;
+    }
+
+    .transparency p {
+      color: #78350f;
+      text-align: center;
+    }
+
+    /* FINAL CTA */
+    .bottom-cta {
+      padding: 56px 0 64px;
+      background: #0f172a;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .bottom-cta h2 {
+      max-width: 600px;
+      margin: 0 auto 12px;
+      font-size: 32px;
+      line-height: 1.2;
+    }
+
+    .bottom-cta p {
+      max-width: 570px;
+      margin: 0 auto 24px;
+      color: #cbd5e1;
+    }
+
+    /* FOOTER */
+    .footer {
+      padding: 20px 0;
+      background: #020617;
+      color: #94a3b8;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 620px) {
+      .hero {
+        padding: 52px 0 44px;
+      }
+
+      .hero-text {
+        font-size: 16px;
+      }
+
+      .primary-btn {
+        width: 100%;
+        max-width: 430px;
+      }
+
+      .card {
+        padding: 22px 18px;
+        border-radius: 18px;
+      }
+
+      .section {
+        padding: 32px 0;
+      }
+
+      .amount-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .bottom-cta {
+        padding: 46px 0 54px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .amount-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+
+      <div class="badge">🐾 Animal Welfare Initiative</div>
+
+      <h1>Help Us Build an Animal Welfare NGO</h1>
+
+      <p class="hero-text">
+        We are taking the first step toward creating a dedicated Animal Welfare NGO.
+        Your contribution can help us complete the initial registration and legal setup.
+      </p>
+
+      <a
+        class="primary-btn"
+        href="http://m-lp.co/nitinkum-53?utm_medium=campaign_page_share&utm_source=copy"
+        target="_blank"
+        rel="noopener noreferrer">
+        ❤️ Contribute Now
+      </a>
+
+    </div>
+  </header>
+
+
+  <!-- FUNDRAISING PROGRESS -->
+  <section class="section">
+    <div class="container">
+
+      <div class="card progress-card" data-fundraising-progress>
+
+        <h2 class="section-title">Fundraising Progress</h2>
+
+        <p class="section-description">
+          Help us reach our initial registration and setup goal.
+        </p>
+
+        <div class="progress-amount">
+          <strong data-progress-collected>₹0</strong>
+          <span> raised of </span>
+          <strong data-progress-target>₹50,000</strong>
+        </div>
+
+        <div class="progress-bar">
+          <div
+            class="progress-fill"
+            data-progress-fill
+            style="width: 0%;">
+          </div>
+        </div>
+
+        <div
+          class="progress-percent"
+          data-progress-percent>
+          0%
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- CONTRIBUTION -->
+  <section class="section">
+    <div class="container">
+
+      <div class="card">
+
+        <h2 class="section-title">Every Contribution Helps</h2>
+
+        <p class="section-description">
+          Choose an amount below to support the initial NGO registration
+          and legal setup campaign.
+        </p>
+
+        <div class="amount-grid">
+
+          <a
+            class="amount-btn"
+            href="http://m-lp.co/nitinkum-53?utm_medium=campaign_page_share&utm_source=copy"
+            target="_blank"
+            rel="noopener noreferrer">
+            ₹99
+          </a>
+
+          <a
+            class="amount-btn"
+            href="http://m-lp.co/nitinkum-53?utm_medium=campaign_page_share&utm_source=copy"
+            target="_blank"
+            rel="noopener noreferrer">
+            ₹199
+          </a>
+
+          <a
+            class="amount-btn"
+            href="http://m-lp.co/nitinkum-53?utm_medium=campaign_page_share&utm_source=copy"
+            target="_blank"
+            rel="noopener noreferrer">
+            ₹499
+          </a>
+
+          <a
+            class="amount-btn"
+            href="http://m-lp.co/nitinkum-53?utm_medium=campaign_page_share&utm_source=copy"
+            target="_blank"
+            rel="noopener noreferrer">
+            ₹999
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- WHY ARE WE RAISING FUNDS -->
+  <section class="section">
+    <div class="container">
+
+      <div class="card">
+
+        <h2 class="section-title">Why Are We Raising Funds?</h2>
+
+        <div class="why-list">
+
+          <div class="why-item">
+            <div class="why-icon">📄</div>
+            <div>
+              <strong>Documentation</strong>
+              <span>
+                Initial documentation and preparation required for NGO registration.
+              </span>
+            </div>
+          </div>
+
+          <div class="why-item">
+            <div class="why-icon">⚖️</div>
+            <div>
+              <strong>Professional &amp; Legal Setup</strong>
+              <span>
+                Support toward professional fees and necessary legal or administrative work.
+              </span>
+            </div>
+          </div>
+
+          <div class="why-item">
+            <div class="why-icon">🏛️</div>
+            <div>
+              <strong>Registration Expenses</strong>
+              <span>
+                Initial costs connected with formally establishing the organization.
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- TRANSPARENCY -->
+  <section class="section">
+    <div class="container">
+
+      <div class="card transparency">
+
+        <h2 class="section-title">Transparency</h2>
+
+        <p>
+          The NGO is currently <strong>not yet registered</strong>.
+          This campaign is specifically for the initial registration and
+          legal setup expenses. Once the registration process is completed,
+          the official government registration certificate will be shared
+          as appropriate.
+        </p>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- FINAL CTA -->
+  <section class="bottom-cta">
+
+    <div class="container">
+
+      <h2>Be Part of the First Step 🐾</h2>
+
+      <p>
+        If you believe animals deserve care and protection, you can support
+        the journey by contributing toward the NGO's initial registration.
+      </p>
+
+      <a
+        class="primary-btn"
+        href="http://m-lp.co/nitinkum-53?utm_medium=campaign_page_share&utm_source=copy"
+        target="_blank"
+        rel="noopener noreferrer">
+        ❤️ Support This Initiative
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      The organization is currently in the registration stage.
+      Please review the Milaap campaign details before contributing.
+    </div>
+  </footer>
+
+
+  <!-- PROGRESS SCRIPT -->
+  <script type="module">
+    import { initializeProgress } from "./js/progress.js";
+
+    document.addEventListener("DOMContentLoaded", () => {
+      initializeProgress();
+    });
+  </script>
+
+</body>
+</html>
