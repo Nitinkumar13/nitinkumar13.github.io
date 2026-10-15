@@ -21,7 +21,7 @@ export const CAMPAIGNS = [
 Animals in need may require food, medical attention,
 safe shelter and timely care.
 
-Through this initiative, our NGO aims to support
+Through this initiative, our Foundation aims to support
 genuine animal-welfare activities and build the
 foundation for our long-term vision of a modern,
 technology-enabled Gaushala and animal rescue centre.
@@ -39,7 +39,7 @@ approved project plan and applicable requirements.
 
     currency: "INR",
 
-    status: "upcoming",
+    status: "Live",
 
     useOfFunds: [
       {

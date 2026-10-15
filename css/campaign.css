@@ -163,6 +163,18 @@
   text-transform: capitalize;
 }
 
+.campaign-status--upcoming {
+  background: #d89a28;
+}
+
+.campaign-status--live {
+  background: #218838;
+}
+
+.campaign-status--completed {
+  background: #68736a;
+}
+
 .campaign-card-content {
   display: flex;
   flex: 1;
@@ -268,6 +280,16 @@
 .campaign-donate:hover {
   transform: translateY(-1px);
   background: var(--green);
+}
+
+.campaign-actions > .campaign-donate--completed {
+  background: #218838;
+  cursor: default;
+}
+
+.campaign-actions > .campaign-donate--completed:hover {
+  transform: none;
+  background: #218838;
 }
 
 .campaign-more-wrap {

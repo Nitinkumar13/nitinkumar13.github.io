@@ -138,6 +138,21 @@
   vertical-align: middle;
 }
 
+.campaign-detail-status--upcoming {
+  background: #fff0ce;
+  color: #82500b;
+}
+
+.campaign-detail-status--live {
+  background: #dff3e5;
+  color: #176b39;
+}
+
+.campaign-detail-status--completed {
+  background: #e5e9e5;
+  color: #4b554c;
+}
+
 .campaign-detail-title {
   margin: 15px 0 16px;
   color: #2d0800;
@@ -247,6 +262,17 @@
 .campaign-detail-donate:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 18px rgba(106, 62, 28, 0.25);
+}
+
+.campaign-detail-donate--completed {
+  background: #218838;
+  box-shadow: none;
+  cursor: default;
+}
+
+.campaign-detail-donate--completed:hover {
+  transform: none;
+  box-shadow: none;
 }
 
 .campaign-detail-donate:focus-visible,
