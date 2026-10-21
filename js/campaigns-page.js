@@ -157,8 +157,12 @@ function createCampaignCard(campaign) {
 
   if (campaign.status) {
     const status = document.createElement("span");
-    status.className = "campaign-status";
-    status.textContent = campaign.status.replace(/-/g, " ");
+    const normalizedStatus = campaign.status
+      .trim()
+      .toLowerCase()
+      .replace(/[\s-]+/g, "-");
+    status.className = `campaign-status campaign-status--${normalizedStatus}`;
+    status.textContent = normalizedStatus.replace(/-/g, " ");
     imageWrapper.appendChild(status);
   }
 
@@ -484,19 +488,23 @@ function createCampaignCard(campaign) {
      DONATE BUTTON
   ======================================================= */
 
-  const donateLink =
-    document.createElement("a");
+  const isCompleted =
+    campaign.status?.trim().toLowerCase() === "completed";
+  const donateLink = document.createElement(isCompleted ? "span" : "a");
 
-  donateLink.className =
-    "campaign-donate";
+  donateLink.className = isCompleted
+    ? "campaign-donate campaign-donate--completed"
+    : "campaign-donate";
 
-  donateLink.href =
-    campaign.donateHref ||
-    campaign.href ||
-    "#";
-
-  donateLink.textContent =
-    "Donate";
+  if (isCompleted) {
+    donateLink.textContent = "Completed";
+  } else {
+    donateLink.href =
+      campaign.donateHref ||
+      campaign.href ||
+      "#";
+    donateLink.textContent = "Donate";
+  }
 
 
   /* =======================================================

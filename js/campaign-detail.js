@@ -159,11 +159,15 @@ function renderCampaign(item) {
   }
 
   if (item.status) {
+    const status = item.status
+      .trim()
+      .toLowerCase()
+      .replace(/[\s-]+/g, "-");
     addTextElement(
       story,
       "span",
-      "campaign-detail-status",
-      item.status.replace(/-/g, " ")
+      `campaign-detail-status campaign-detail-status--${status}`,
+      status.replace(/-/g, " ")
     );
   }
 
@@ -243,7 +247,14 @@ function renderCampaign(item) {
 
   fundraising.appendChild(stats);
 
-  if (item.donateHref) {
+  if (item.status && item.status.trim().toLowerCase() === "completed") {
+    addTextElement(
+      fundraising,
+      "span",
+      "campaign-detail-donate campaign-detail-donate--completed",
+      "Completed"
+    );
+  } else if (item.donateHref) {
     const donateLink = document.createElement("a");
     donateLink.className = "campaign-detail-donate";
     donateLink.href = item.donateHref;
