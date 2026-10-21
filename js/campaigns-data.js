@@ -39,7 +39,7 @@ approved project plan and applicable requirements.
 
     currency: "INR",
 
-    status: "Live",
+    status: "Upcoming",
 
     useOfFunds: [
       {
