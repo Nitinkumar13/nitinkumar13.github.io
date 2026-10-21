@@ -2,7 +2,7 @@
 
 .campaigns-hero {
   min-height: 0;
-  padding: 96px 0 88px;
+  padding: 56px 0 52px;
   background:
     radial-gradient(circle at 82% 18%, rgba(201, 109, 75, 0.2), transparent 27%),
     var(--forest);
@@ -418,7 +418,7 @@
 
 @media (max-width: 700px) {
   .campaigns-hero {
-    padding: 72px 0 64px;
+    padding: 44px 0 40px;
   }
 
   .campaigns-hero h1 {
