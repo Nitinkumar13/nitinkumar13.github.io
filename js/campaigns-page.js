@@ -191,6 +191,17 @@ function createCampaignCard(campaign) {
 
   content.appendChild(title);
 
+  if (typeof campaign.taxBenefit === "boolean") {
+    const taxBenefit = document.createElement("span");
+    taxBenefit.className = `campaign-tax-benefit campaign-tax-benefit--${
+      campaign.taxBenefit ? "available" : "unavailable"
+    }`;
+    taxBenefit.textContent = campaign.taxBenefit
+      ? "Tax benefit"
+      : "No tax benefit";
+    content.appendChild(taxBenefit);
+  }
+
 
   /* =======================================================
      DESCRIPTION

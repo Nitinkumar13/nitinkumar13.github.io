@@ -47,6 +47,12 @@ if (title) {
     : `${title.dataset.pageTitle} | ${SITE_NAME}`;
 }
 
+const description = document.querySelector("meta[name='description'][data-site-description]");
+
+if (description) {
+  description.content = `${description.dataset.siteDescription} ${SITE_NAME}`;
+}
+
 
 // --------------------------------------------------
 // Contact information

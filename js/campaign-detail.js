@@ -177,6 +177,16 @@ function renderCampaign(item) {
     "campaign-detail-title",
     item.title || "Campaign"
   );
+  if (typeof item.taxBenefit === "boolean") {
+    addTextElement(
+      story,
+      "span",
+      `campaign-detail-tax-benefit campaign-detail-tax-benefit--${
+        item.taxBenefit ? "available" : "unavailable"
+      }`,
+      item.taxBenefit ? "Tax benefit" : "No tax benefit"
+    );
+  }
   addTextElement(
     story,
     "p",
