@@ -190,6 +190,26 @@
   letter-spacing: -0.025em;
 }
 
+.campaign-tax-benefit {
+  align-self: flex-start;
+  margin: 0 0 12px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.campaign-tax-benefit--available {
+  background: #dff3e5;
+  color: #176b39;
+}
+
+.campaign-tax-benefit--unavailable {
+  background: #fde5e2;
+  color: #a1281c;
+}
+
 .campaign-card-content > p {
   margin: 0 0 20px;
   color: var(--muted);

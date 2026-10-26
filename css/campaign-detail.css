@@ -161,6 +161,25 @@
   letter-spacing: -0.04em;
 }
 
+.campaign-detail-tax-benefit {
+  display: inline-flex;
+  margin: 0 0 16px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.campaign-detail-tax-benefit--available {
+  background: #dff3e5;
+  color: #176b39;
+}
+
+.campaign-detail-tax-benefit--unavailable {
+  background: #fde5e2;
+  color: #a1281c;
+}
+
 .campaign-detail-description {
   margin: 0;
   color: #68635e;

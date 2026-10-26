@@ -41,10 +41,12 @@ approved project plan and applicable requirements.
 
     status: "Upcoming",
 
+    taxBenefit: false,
+
     useOfFunds: [
       {
         title: "Animal Food & Nutrition",
-        percentage: null
+        percentage: 10
       },
       {
         title: "Veterinary Care & Medicines",
