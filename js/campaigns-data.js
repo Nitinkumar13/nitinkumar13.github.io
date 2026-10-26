@@ -75,7 +75,7 @@ approved project plan and applicable requirements.
     href: "campaign.html?id=animal-care",
 
     donateHref:
-      "http://m-lp.co/nitinkum-53?utm_medium=campaign_page_share&utm_source=copy"
+      "http://m-lp.co/shivsama-1?utm_medium=campaign_page_share&utm_source=copy"
   },
   {
     id: "street-dog-seva",
@@ -170,6 +170,6 @@ Shiv Samagra Foundation का उद्देश्य
 
     href: "campaign.html?id=street-dog-seva",
 
-    donateHref: ""
+    donateHref: "http://m-lp.co/shivsama-1?utm_medium=campaign_page_share&utm_source=copy"
   }
 ];

@@ -204,28 +204,6 @@ function createCampaignCard(campaign) {
 
 
   /* =======================================================
-     DESCRIPTION
-  ======================================================= */
-
-  const cardDescription =
-    campaign.shortDescription ||
-    campaign.description;
-
-  if (cardDescription) {
-
-    const description =
-      document.createElement("p");
-
-    description.textContent =
-      cardDescription;
-
-    content.appendChild(
-      description
-    );
-  }
-
-
-  /* =======================================================
      CAMPAIGN STATS
   ======================================================= */
 
